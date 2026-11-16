@@ -1,0 +1,98 @@
+name: One-time import of released Arduino Mega firmware
+
+on:
+  push:
+    paths:
+      - ".github/workflows/import-firmware-once.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  import-firmware:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download published firmware archive
+        shell: bash
+        run: |
+          curl --fail --location --silent --show-error --retry 3 \
+            "https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-Fix-LED-Pin13-Source.zip" \
+            --output /tmp/freetarget-firmware.zip
+          echo "c64f189573ac67bb8662798c9d2bfdc9b146872ab00fbf7f5b78765487f83220  /tmp/freetarget-firmware.zip" | sha256sum --check
+      - name: Import source files without executing archive contents
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          archive = Path("/tmp/freetarget-firmware.zip")
+          prefix = "freETarget_WiFi_LED_Pin13/"
+          target = Path("firmware/arduino-mega")
+          if target.exists():
+              raise SystemExit("Firmware destination already exists; refusing to overwrite")
+          with ZipFile(archive) as z:
+              files = [entry for entry in z.infolist() if not entry.is_dir()]
+              if len(files) != 23:
+                  raise SystemExit(f"Unexpected archive file count: {len(files)}")
+              for entry in files:
+                  name = entry.filename
+                  if not name.startswith(prefix) or entry.file_size > 200000:
+                      raise SystemExit(f"Unexpected archive entry: {name}")
+                  rel = name[len(prefix):]
+                  if rel == "README.txt":
+                      destination = target / "ORIGINAL_PACKAGE_README.txt"
+                  elif rel.startswith("source/freETarget/"):
+                      basename = rel[len("source/freETarget/"):]
+                      if not basename or "/" in basename or not basename.endswith((".h", ".ino")):
+                          raise SystemExit(f"Unexpected source file: {rel}")
+                      destination = target / "freETarget" / basename
+                  else:
+                      raise SystemExit(f"Unexpected archive entry: {name}")
+                  destination.parent.mkdir(parents=True, exist_ok=True)
+                  destination.write_bytes(z.read(entry))
+          firmware_header = (target / "freETarget" / "analog_io.h").read_text()
+          if "#define LED_PWM      13" not in firmware_header:
+              raise SystemExit("Expected LED pin 13 change not found")
+          (target / "README.md").write_text("""# freETarget Minimalist Arduino Mega firmware
+
+          This directory contains the **Arduino Mega 2560 firmware source** from the
+          published [Wi-Fi Fix / LED Pin 13 source archive](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-Fix-LED-Pin13-Source.zip).
+
+          ## Fixes and configuration
+
+          - Wi-Fi Station Mode initialization and connection-handling fixes, including IP/DHCP response parsing.
+          - Additional ESP-01 Wi-Fi communication, receive-buffer, and credential-handling fixes.
+          - Access Point Mode and TCP port 1090 support.
+          - LED PWM pin configured to **13** in `freETarget/analog_io.h`, not the original pin 5.
+
+          ## Build and flash
+
+          Open [`freETarget/freETarget.ino`](freETarget/freETarget.ino) in Arduino IDE.
+          Select **Arduino Mega 2560**, verify the hardware wiring, then compile and upload.
+          This repository contains **source only**: no compiled HEX or hardware-test report is included.
+          See [original package notes](ORIGINAL_PACKAGE_README.txt).
+
+          ## Provenance and licensing
+
+          The source was imported unchanged from the 80,513-byte archive that accompanies
+          [release v0.3.10-beta.1](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/tag/v0.3.10-beta.1)
+          (SHA-256: `c64f189573ac67bb8662798c9d2bfdc9b146872ab00fbf7f5b78765487f83220`).
+          This firmware derives from the [original freETarget project](https://github.com/ten-point-nine/freETarget)
+          and the [freETarget Minimalist adaptation](https://github.com/stoeckli/freETarget).
+          Preserve upstream attribution; check upstream licensing separately before redistribution.
+          """, encoding="utf-8")
+          print("Imported", len(files), "original files into", target)
+          PY
+      - name: Commit firmware source
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add firmware/arduino-mega/
+          git commit -m "Import released Arduino Mega firmware source (Wi-Fi fixes, LED pin 13)"
+          git push
