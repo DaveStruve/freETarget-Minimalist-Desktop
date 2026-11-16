@@ -1,37 +1,34 @@
-# Importing the application sources
+# Source import and provenance
 
-The repository setup is in place. Application code has not yet been imported from the existing source ZIPs.
+This import package was prepared from the three source ZIPs provided by the project owner on 2026-11-16.
 
-## Packages identified
-
-| Destination | Source package | Version |
+| Destination | Supplied ZIP | Version |
 | --- | --- | --- |
-| `desktop/` | `freETarget-Minimalist-0.3.11-beta.1-Windows-x64-x86-Clean-Source.zip` | 0.3.11-beta.1 |
-| `android/` | `freETarget-Minimalist-Android-0.2.0-beta.1-Source.zip` | 0.2.0-beta.1 |
-| Reconcile with `desktop/` | `freETarget_Minimalist_0.3.10-beta.1_macOS_Universal_BuildFix_Source.zip` | 0.3.10-beta.1 |
+| `desktop/windows/` | `freETarget-Minimalist-0.3.11-beta.1-Windows-x64-x86-Clean-Source (2).zip` | 0.3.11-beta.1 |
+| `desktop/macos/` | `freETarget-Minimalist-0.3.11-beta.1-macOS-Universal-BuildFix-Source 2.zip` | 0.3.11-beta.1 |
+| `android/` | `freETarget-Minimalist-Android-0.2.2-beta.1-BuildFix-Source 2.zip` | 0.2.2-beta.1 |
 
-These are source archives. They are not finished Windows installers, a macOS application download, or an Android APK.
+The supplied Windows ZIP included virtual environments, build caches and release artifacts. Its **source files are byte-for-byte identical** to the separate, smaller `freETarget-Minimalist-0.3.11-beta.1-Windows-x64-x86-Clean-Source.zip` that was already available in this session; that compact copy was used to assemble `desktop/windows/` without generated files.
 
-## Import procedure
+Excluded: `.venv*`, `.build*`, Gradle caches, IDE caches, `build/`, `release/`, `release-x86/`, `local.properties`, generated binaries/APKs/installers, Python caches, OS metadata and signing material. Mac firmware reference ZIP is retained as project reference source. No credentials were found by the basic known-token-pattern scan; this does not replace manual review.
 
-1. Create a branch from the current `main`.
-2. Extract each package locally and inspect its top-level application folder.
-3. Copy the desktop project contents into `desktop/` and Android project contents into `android/`. Avoid adding an extra archive-name folder around each project. Retain existing package documentation alongside these setup notes.
-4. Preserve internal paths, icons, assets, tests, dependency files, and build scripts. Include Gradle wrapper files when supplied.
-5. Exclude virtual environments, generated builds, installers, APKs, local SDK configuration, signing keys, credentials, logs, and personal shooter data. Inspect the staged changes: `.gitignore` cannot detect every personal file or credential.
-6. Compare the macOS source with the desktop source before importing its build scripts. Resolve version differences explicitly.
-7. Build and test each imported platform using its package instructions. Record actual requirements, script paths, output filenames, and validation results.
-8. Update the root and platform READMEs to replace pending notices with verified build instructions, then merge the import.
+The Mac source includes experimental iOS preview files in its `ios/` subdirectory; they have been preserved but do not represent a validated or published iOS release.
 
-## Before the next release
+## Import into GitHub
 
-- [ ] Desktop source and both Windows installer configurations committed.
-- [ ] Android project committed.
-- [ ] macOS source differences reconciled, or its existing release clearly listed as unchanged.
-- [ ] Windows x64 installer built and tested.
-- [ ] Windows x86 installer tested on Windows 10 32-bit.
-- [ ] Signed Android release APK tested on a device over Wi-Fi.
-- [ ] Real platform versions and filenames recorded in release notes.
-- [ ] Release tag points to the source commit used for the new builds.
+1. Clone the repository in GitHub Desktop: `DaveStruve/freETarget-Minimalist-Desktop`.
+2. Extract the import ZIP. Copy its `desktop/`, `android/`, `docs/`, and root `README.md` into the cloned repository folder. Merge the folders; keep the existing `LICENSE`, `.github/`, and `CHANGELOG.md`.
+3. In GitHub Desktop, review the changes. The source folders should contain application code and assets, not `.venv`, `.gradle`, APKs or installers.
+4. Commit with a message such as `Import Windows, macOS and Android source projects` and click **Push origin**.
+5. Verify the source directories on GitHub. The old published release remains unchanged. Build and test before creating the next release.
 
-Until import is complete, GitHub's automatic source archives contain only the repository setup files and cannot build the application.
+If GitHub Desktop omits the Mac firmware reference ZIP because of the root `*.zip` ignore rule, either leave it out (the existing firmware release already carries the reference) or force-add it explicitly; do not accidentally include unrelated ZIP archives.
+
+## Release readiness
+
+- [ ] Import the source to GitHub and verify source file counts.
+- [ ] Run Windows x64 and x86 build scripts; test both installers, including on 32-bit Windows 10.
+- [ ] Run macOS universal2 build; test Intel and Apple Silicon, signing/notarization if required.
+- [ ] Build and sign Android APK; test Wi-Fi and USB on actual Android hardware.
+- [ ] Confirm actual embedded version names and output filenames.
+- [ ] Publish a new prerelease with verified binary assets; keep previous tags/assets unchanged.

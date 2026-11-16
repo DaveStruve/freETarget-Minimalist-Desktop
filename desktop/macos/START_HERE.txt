@@ -1,0 +1,99 @@
+freETarget Minimalist 0.3.10-beta.1 — see RELEASE_NOTES_0.3.10.md for the latest changes.
+
+See RELEASE_NOTES_0.3.10.md for updated features. Existing DesktopBeta user data is preserved.
+
+FREETARGET MINIMALIST DESKTOP BETA 0.3.10-beta.1
+Designed for the freETarget Minimalist build
+
+This starts the Mac and iPhone/iPad ports. It is SOURCE, not a compiled .app or
+installable iPhone app. The working Windows beta is a separate release.
+
+MAC — FIRST STEP
+1. Python 3.12, 3.13, 3.14 or 3.15 is supported by the launcher. It detects
+   installed versions automatically, including Python 3.15. If none is found,
+   install a supported version from python.org. Python 3.15 is newly enabled
+   and still needs a real Mac compatibility check.
+2. Extract this ZIP into a writable folder. Open START_MAC.command.
+   If Finder does not launch it, open Terminal in the folder and run:
+   bash START_MAC.command
+3. First use creates .venv-mac-3.x for the selected Python and installs pywebview, PyObjC and serial support.
+   Setup needs internet. The app should open using macOS Cocoa/WebKit.
+4. Enter your own target IP and TCP port in Settings > Connection, or choose
+   the USB serial device. Close the Windows target client first.
+5. Check one live shot, log a test result, close/reopen, then check History.
+
+BUILD_MAC.command now requests a universal2 .app (Apple Silicon arm64 + Intel
+x86_64) and a universal2 ZIP. Install the macOS universal2 Python 3.13 from
+python.org first if the script says your Python is arm64-only. See
+BUILD_UNIVERSAL_MAC.md for exact commands and verification. A built .app
+includes Python; recipients do not install Python separately.
+
+BUILD_MAC_NATIVE.command is the optional old single-architecture build.
+Start with macOS 13+; real OS/device compatibility must be checked on both
+Apple Silicon and Intel. Apple Command Line Tools may be required to build.
+
+Mac data: ~/Library/Application Support/freETarget/DesktopBeta
+Profiles, guns, History, settings, logo and JSON backup flow use the existing
+SQLite implementation. Browser migration remains available through the exporter.
+The Mac copy is separate from Windows data; move records using JSON backups.
+
+IPHONE / IPAD — FIRST STEP
+1. Install/open Xcode on your Mac and accept its development tool setup.
+2. Open PREPARE_IOS.command (or run python3 tools/prepare_ios.py). The bundle
+   is already prepared; this command refreshes it from the shared scoring UI.
+3. Open ios/freETargetIOS.xcodeproj in Xcode. No XcodeGen/CocoaPods/npm is needed.
+4. Choose the freETargetIOS target, Signing & Capabilities, and your own Team.
+   Adjust the bundle identifier if Xcode requires a unique one for your account.
+5. Select a connected iPhone/iPad with iOS/iPadOS 16+ and press Run. Complete
+   Apple's device trust/Developer Mode steps if Xcode requests them.
+6. Allow Local Network access when connecting. Enter the Minimalist target IP
+   and TCP port. The phone/tablet must be able to reach the target on Wi-Fi.
+
+The iOS app talks directly to the target through Apple's Network framework. It
+does not need a Mac/PC bridge running during use. The first native preview uses
+Wi-Fi/TCP only: USB and target settings/terminal commands are not implemented.
+The app reuses the scoring/History/statistics/voice UI and adds a small-screen
+layout. Those native behaviors still require Xcode compilation and device tests.
+
+iOS data is held in its app container's SQLite database. Export/restore JSON
+through Files. Backups are compatible in format with the desktop app; full
+Windows/Mac/iOS round-trip acceptance must still run on Apple hardware. Restore
+replaces records; it does not merge them. Imported USB preference selects TCP
+on iOS. There is no automatic cross-device sync. Deleting the iOS app removes its
+local records; export a backup before deleting it or changing app identifiers.
+
+Keep iOS in the foreground during a session. Leaving the app stops/pauses its
+sequence and disconnects. Reconnect and restart interrupted strings manually.
+Unlogged shots are memory-only and may be lost if iOS terminates the app/view.
+The app prevents ordinary auto-lock while connected, but cannot prevent manual
+locking, interruptions or OS termination. Log results and export saved records.
+
+FIRMWARE
+reference/ contains your confirmed, unchanged Arduino source ZIP and its notes.
+It identifies 4.2.8 WiFi Test 1, Mega 2560, LED PWM pin 13 and TCP port 1090.
+It is optional source, not a compiled/automatically installed firmware update.
+Use your working target firmware first. The archived duplicate LED pin definition
+and wiring-specific limits are described in reference/FIRMWARE_NOTES.md.
+
+WHAT IS NOT YET DONE
+- No Mac .app or iOS binary was compiled here: this workspace runs Linux and
+  has no Xcode, Apple SDK or Swift toolchain.
+- Native Cocoa/WKWebView, local-network permission, voice playback, real target
+  traffic, file pickers and mobile layouts are not validated on Apple devices.
+- No Apple signing, notarization, TestFlight upload or App Store publication
+  was performed. See BUILD_AND_TEST.md for the next build checks.
+
+For the 5–10 invited iOS testers, use TestFlight after a signed build and Apple's
+required review/account setup. Do not send this source ZIP as an installable app.
+
+Useful official setup pages:
+https://www.python.org/downloads/macos/
+https://developer.apple.com/xcode/
+https://developer.apple.com/testflight/
+
+PYTHON 3.15 LAUNCHER FIX (0.2.0-alpha.1-macfix1)
+The original Apple preview incorrectly required a python3.12 executable even
+when a newer Python was installed. This update auto-detects 3.12-3.15 and uses
+separate virtual environments per version. It does not install Python itself.
+If dependency installation fails, send the complete Terminal error. Mac native
+compatibility has not yet been confirmed on Python 3.15.

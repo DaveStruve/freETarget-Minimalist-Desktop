@@ -1,0 +1,7 @@
+pywebview==6.2.1
+pyserial==3.5
+pyobjc-core>=10,<13
+pyobjc-framework-Cocoa>=10,<13
+pyobjc-framework-Quartz>=10,<13
+pyobjc-framework-WebKit>=10,<13
+pyobjc-framework-Security>=10,<13

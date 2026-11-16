@@ -1,0 +1,370 @@
+html,body{overscroll-behavior:none;-webkit-text-size-adjust:100%}
+body{height:auto!important;min-height:100dvh!important}
+[hidden]{display:none!important}
+.settingsOverlay,.logOverlay{padding:12px;overflow:auto;-webkit-overflow-scrolling:touch}
+input,select,textarea{font-size:16px!important}
+button{touch-action:manipulation}
+@media (max-width:900px) and (orientation:landscape){
+ .app,body.sidebarCollapsed .app{display:block!important;min-height:100dvh!important;height:auto!important}
+ aside,.sidebarCollapsed aside{min-height:0!important;height:auto!important;width:100%!important;padding:10px 12px!important;position:relative!important;overflow:visible!important}
+ .sidebarTopScroll{overflow:visible!important;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:0!important}
+ .brandRow,.sidebarCollapsed .brandRow{margin:0!important;min-height:35px;flex:1;justify-content:center!important}
+ .brandRow .brand,.sidebarCollapsed .brand{display:block!important;position:static!important;font-size:22px!important;transform:none!important;max-width:100%!important}
+ .brandLogo{max-height:42px!important;max-width:150px!important;position:static!important;transform:none!important}
+ .hasCustomLogo .brandRow .brand{display:none!important}
+ .hasCustomLogo .brandRow .brandLogo{width:auto!important;height:auto!important;max-height:42px!important;max-width:150px!important}
+ .sidebarToggle,.minimalistCaption,.sidefoot{display:none!important}
+ .sidebarConnection,.sidebarCollapsed .sidebarConnection{display:block!important;flex:0 0 auto;margin:0!important;padding:0!important}
+ .sidebarConnectBtn{min-height:40px;font-size:12px!important;padding:8px 10px!important}
+ .sidebarControls,.sidebarCollapsed .sidebarControls{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%;padding:0!important;margin:0!important}
+ .sidebarControls label{display:grid;gap:4px;min-width:0;font-size:11px}
+ .sidebarControls label select{width:100%;min-width:0;max-width:100%}
+ .sidebarControls .shooterLock,.sidebarControls .phaseStatus,.sidebarControls #rulesOutline,.sidebarControls .demoShotBtn{grid-column:1/-1;margin:0!important}
+ .sidebarControls .sideActions,.sidebarControls .logActions{margin:0!important}
+ .sidebarControls .btn{min-height:40px;width:100%;font-size:12px}
+ aside nav,.sidebarCollapsed aside nav{display:flex!important;flex-direction:row!important;gap:4px;width:100%!important;overflow-x:auto;padding:0!important;margin:0!important}
+ aside nav button,.sidebarCollapsed aside nav button{width:auto!important;flex:1;min-width:74px;padding:10px 7px!important;margin:0!important;white-space:nowrap;font-size:12px!important;text-align:center!important;border-left:0;border-bottom:2px solid transparent}
+ aside nav .navLabel,.sidebarCollapsed .navLabel{display:inline!important}
+ aside nav .navIcon{display:none!important}
+ main{height:auto!important;overflow:visible!important;min-width:0!important}
+ header{padding:10px!important;height:auto!important;min-height:0!important;gap:8px!important;align-items:stretch!important}
+ .headerToolbar{width:100%;display:flex;flex-wrap:wrap!important;gap:7px!important}
+ .headerToolbar .toolbar{flex:1;display:flex;gap:7px!important}
+ .headerToolbar .toolbar label{flex:1;min-width:90px}
+ .headerToolbar select{width:100%;min-width:0!important}
+ .headerRight{width:100%;justify-content:space-between;flex-wrap:wrap;gap:6px}
+ .workspace{display:flex!important;flex-direction:column!important;height:auto!important;min-height:0!important;overflow:visible!important;padding:10px!important;gap:10px!important}
+ .targetPanel{order:0;align-self:center;width:min(100%,600px)!important;min-height:0!important;height:min(calc(100vw - 20px),600px)!important;max-height:600px!important;flex:none!important}
+ .left{order:1;height:auto!important;overflow:visible!important;min-height:0!important;padding:0!important;gap:10px!important}
+ .targetWrap{min-height:0!important;height:100%!important}
+ .targetWrap #targetSvg{width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important}
+ .lower{display:grid!important;grid-template-columns:1fr!important}
+ .historyView{height:auto!important;min-height:60dvh!important;overflow:visible!important;padding:12px!important}
+ .progressMetrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .historyFilters{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .settingsWindow,.logWindow,.shooterSelectionWindow{max-width:100%!important;width:100%!important;max-height:90dvh!important;overflow:auto!important}
+ .settingsTabs{display:flex;overflow-x:auto;flex-wrap:nowrap!important}
+ .settingsContent{padding:12px!important}
+ .fieldGrid,.summaryGrid{grid-template-columns:1fr!important}
+ .formActions{display:flex;flex-wrap:wrap;gap:7px}
+ .formActions .btn{min-height:42px;flex:1}
+ main>footer{position:relative!important;display:flex;flex-wrap:wrap;padding:10px 12px calc(10px + env(safe-area-inset-bottom))!important;height:auto!important;gap:8px}
+ .fiveOptions{grid-template-columns:1fr!important}
+}
+
+/* Keep the size options distinct where the dashboard stacks cards. */
+@media (max-width:560px), (min-width:901px) and (max-width:1160px) {
+ .dashboardWidgets>.widget-size-small {
+  width:min(100%,max(220px,75%))!important;
+  justify-self:start;
+ }
+}
+
+/* Keep the sidebar anchored while the portrait scoring content scrolls. */
+@media (orientation:portrait) {
+ body {--ftSidebarWidth:clamp(136px,32vw,220px);--ftSidebarCollapsedWidth:60px}
+ .app {
+  display:grid!important;
+  height:100dvh!important;
+  min-height:0!important;
+  overflow:hidden;
+ }
+ .app>aside {
+  position:relative!important;
+  height:100%!important;
+  min-height:0!important;
+ }
+ .app>main {
+  display:block;
+  width:100%;
+  height:100%!important;
+  min-height:0;
+  min-width:0;
+  overflow-x:hidden!important;
+  overflow-y:auto!important;
+  -webkit-overflow-scrolling:touch;
+ }
+ .app>main>header {height:auto!important;min-height:0!important;padding:8px!important}
+ .headerToolbar,.headerToolbar .toolbar,.headerRight {flex-wrap:wrap;min-width:0}
+ .app>main>footer {position:relative!important;height:auto!important;flex-wrap:wrap}
+ #scoreWorkspace:not(.hidden) {
+  display:flex!important;
+  flex-direction:column!important;
+  height:auto!important;
+  min-height:0!important;
+  overflow:visible!important;
+ }
+ #scoreWorkspace>.left {
+  height:auto!important;
+  min-height:0!important;
+  overflow:visible!important;
+  padding-right:0;
+ }
+ #scoreWorkspace.hidden {display:none!important}
+ #scoreWorkspace>.targetPanel {
+  order:0;
+  flex:none!important;
+  width:100%!important;
+  max-width:none!important;
+  height:auto!important;
+  max-height:none!important;
+  aspect-ratio:1;
+ }
+ #scoreWorkspace>.left {order:1;width:100%!important;max-width:none!important}
+ #scoreWorkspace .targetWrap {padding:0!important;width:100%;height:100%}
+ #scoreWorkspace #targetSvg {width:100%!important;height:100%!important;max-height:none!important}
+ #dashboardWidgets {grid-template-columns:minmax(0,1fr)}
+ #dashboardWidgets>.dashboardWidget {width:100%!important;grid-column:1/-1!important}
+ html[data-form-factor="tablet"] #dashboardWidgets {grid-template-columns:repeat(2,minmax(0,1fr))}
+ html[data-form-factor="tablet"] #dashboardWidgets>.widget-size-small {grid-column:span 1!important}
+}
+
+#idleShotPrompt {
+ width:min(380px,calc(100% - 32px));
+ border:1px solid var(--line);
+ border-radius:8px;
+ padding:18px;
+ color:var(--ink);
+ background:var(--paper);
+}
+#idleShotPrompt::backdrop {background:rgba(0,0,0,.47)}
+#idleShotPrompt h2 {margin:0}
+#idleShotPrompt .formActions {display:flex;gap:8px;justify-content:flex-end}
+#idleShotPrompt button {min-height:44px}
+
+/* Keep the primary Live Scoring metrics in reading order in landscape. */
+@media (orientation:landscape) {
+ #dashboardWidgets .scoreCard .scoreMain {grid-template-columns:minmax(0,1fr)!important}
+ #dashboardWidgets .scoreCard .scoreMain>.scoreMetric {
+  grid-column:1;
+  padding-left:0!important;
+  border-left:0!important;
+ }
+}
+
+.phoneTopBar {display:none}
+ .phoneTopBar .phoneLogoIcon {width:35px;height:35px;margin-right:auto}
+ .phoneTopBar button {
+  display:grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  padding:0;
+  border:0;
+  border-radius:6px;
+  background:var(--sideControl);
+  color:var(--sideText);
+ }
+ .phoneTopBar .ftIcon {width:22px;height:22px}
+ .phoneTopBar #phoneConnect {background:var(--connectionColor);color:var(--connectionButtonInk)}
+ .phoneTopBar #phoneConnect:disabled {opacity:.5}
+ .phoneTopBar #phoneDashboardToggle[aria-expanded="true"] {background:var(--sideAccent);color:var(--sideWash)}
+
+@media (orientation:portrait) {
+ html:not([data-form-factor="tablet"]) .app {
+  --phone-header-height:calc(52px + env(safe-area-inset-top));
+  --phone-bottom-strip:max(0px,calc(env(safe-area-inset-bottom) - 16px));
+  --phone-nav-height:calc(44px + var(--phone-bottom-strip));
+  position:relative;
+  grid-template:var(--phone-header-height) minmax(0,1fr) var(--phone-nav-height) / minmax(0,1fr)!important;
+ }
+ html:not([data-form-factor="tablet"]) .phoneTopBar {
+  display:flex;
+  grid-row:1;
+  align-items:center;
+  gap:6px;
+  padding:env(safe-area-inset-top) 10px 0;
+  background:var(--side);
+  color:var(--sideText);
+  border-bottom:1px solid var(--sideBorder);
+  z-index:24;
+ }
+ html:not([data-form-factor="tablet"]) .app>main {grid-row:2}
+ html:not([data-form-factor="tablet"]) .app>aside {
+  position:absolute!important;
+  inset:var(--phone-header-height) 0 auto;
+  width:100%!important;
+  height:auto!important;
+  max-height:calc(100dvh - var(--phone-header-height) - var(--phone-nav-height));
+  padding:0 12px!important;
+  border:0;
+ }
+ html:not([data-form-factor="tablet"]) body:not(.phoneDashboardOpen) .app>aside>:not(nav),
+ html:not([data-form-factor="tablet"]) .app>aside>#sidebarToggle {display:none!important}
+ html:not([data-form-factor="tablet"]) body.phoneDashboardOpen .app>aside>.brandRow {margin:0!important}
+ html:not([data-form-factor="tablet"]) .app>aside>nav {
+  position:fixed;
+  inset:auto 0 0;
+  height:var(--phone-nav-height);
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  align-items:center;
+  gap:0;
+  box-sizing:border-box;
+  padding:0 0 var(--phone-bottom-strip)!important;
+  margin:0!important;
+  background:linear-gradient(to bottom,var(--side) 44px,var(--phone-strip-color,#fff) 44px);
+ }
+ html:not([data-form-factor="tablet"]) .app>aside>nav button {
+  width:100%!important;
+  height:44px!important;
+  min-width:0;
+  min-height:44px!important;
+  margin:0;
+  justify-content:center!important;
+ }
+ html:not([data-form-factor="tablet"]) .app>aside>nav .navLabel {display:none!important}
+ html:not([data-form-factor="tablet"]) .app>aside>nav .navIcon,
+ html:not([data-form-factor="tablet"]) .app>aside>nav .ftIcon {display:block!important;width:22px;height:22px}
+}
+
+@media (orientation:landscape) {
+ html:not([data-form-factor="tablet"]) .app {
+  --phone-left-rail:calc(54px + env(safe-area-inset-left));
+  --phone-right-rail:calc(54px + env(safe-area-inset-right));
+  --phone-rail-header:142px;
+  position:relative;
+  display:grid!important;
+  grid-template-columns:var(--phone-left-rail) minmax(0,1fr) var(--phone-right-rail)!important;
+  height:100dvh!important;
+  min-height:0!important;
+  overflow:hidden;
+ }
+ html:not([data-form-factor="tablet"]) .phoneTopBar {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-evenly;
+  position:absolute;
+  inset:0 auto auto 0;
+  width:var(--phone-left-rail);
+  height:var(--phone-rail-header);
+  padding-left:env(safe-area-inset-left);
+  background:var(--side);
+  color:var(--sideText);
+  z-index:24;
+ }
+ html:not([data-form-factor="tablet"]) .phoneTopBar .phoneLogoIcon {margin:0}
+ html:not([data-form-factor="tablet"]) .app>main {
+  display:block;
+  grid-column:2;
+  height:100%!important;
+  min-height:0;
+  min-width:0;
+  overflow:auto!important;
+ }
+ html:not([data-form-factor="tablet"]) .app>main>footer {position:relative!important}
+ html:not([data-form-factor="tablet"]) #scoreWorkspace.hidden {display:none!important}
+ html:not([data-form-factor="tablet"]) .app>aside {
+  position:absolute!important;
+  inset:0 auto 0 0;
+  width:var(--phone-left-rail)!important;
+  height:100%!important;
+  padding:var(--phone-rail-header) 0 0 env(safe-area-inset-left)!important;
+  min-height:0!important;
+ }
+ html:not([data-form-factor="tablet"]) .app>aside>#sidebarToggle,
+ html:not([data-form-factor="tablet"]) .app>aside>.sidefoot,
+ html:not([data-form-factor="tablet"]) body:not(.phoneDashboardOpen) .app>aside>.brandRow,
+ html:not([data-form-factor="tablet"]) body:not(.phoneDashboardOpen) .app>aside>.sidebarConnection,
+ html:not([data-form-factor="tablet"]) body:not(.phoneDashboardOpen) .sidebarControls>:not(.sidebarQuickActions) {display:none!important}
+ html:not([data-form-factor="tablet"]) .app>aside>.sidebarTopScroll {
+  display:block;
+  overflow:auto!important;
+ }
+ html:not([data-form-factor="tablet"]) body:not(.phoneDashboardOpen) .sidebarControls {display:block!important}
+ html:not([data-form-factor="tablet"]) body:not(.phoneDashboardOpen) .sidebarQuickActions {
+  display:grid!important;
+  justify-items:center;
+  gap:4px;
+ }
+ html:not([data-form-factor="tablet"]) .sidebarQuickActions button {width:44px;min-height:44px}
+ html:not([data-form-factor="tablet"]) body.phoneDashboardOpen .app>aside {
+  left:var(--phone-left-rail);
+  width:min(260px,calc(100% - var(--phone-left-rail) - var(--phone-right-rail)))!important;
+  padding:0 12px!important;
+ }
+ html:not([data-form-factor="tablet"]) body.phoneDashboardOpen .app>aside .sidebarQuickActions {display:none!important}
+ html:not([data-form-factor="tablet"]) .app>aside>nav {
+  position:fixed;
+  inset:0 0 0 auto;
+  width:var(--phone-right-rail)!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:space-evenly;
+  align-items:center;
+  gap:0;
+  padding:0 env(safe-area-inset-right) 0 0!important;
+  margin:0!important;
+  border:0!important;
+  background:var(--side);
+ }
+ html:not([data-form-factor="tablet"]) .app>aside>nav button {
+  width:44px!important;
+  min-width:0;
+  min-height:44px!important;
+  padding:0!important;
+  margin:0;
+  justify-content:center!important;
+ }
+ html:not([data-form-factor="tablet"]) .app>aside>nav .navLabel {display:none!important}
+ html:not([data-form-factor="tablet"]) .app>aside>nav .ftIcon {display:block!important;width:22px;height:22px}
+}
+
+.phoneBarDivider {width:1px;height:23px;background:var(--sideText);opacity:.32;flex:none}
+.phoneTopBar button:disabled {opacity:.42}
+@media (orientation:portrait) {
+ body.dark {--phone-strip-color:var(--side)}
+ .phoneTopBar {column-gap:4px}
+}
+#targetSvg {touch-action:pan-y}
+#targetSvg.targetIsZoomed {touch-action:none}
+/* Keep the touch target stable when live scoring redraws the SVG. */
+#targetSvg * {pointer-events:none}
+.targetPanel :is(.targetHead,.targetFoot,.targetCornerFlag,.targetZoom) {transition:opacity .18s ease}
+.targetPanel .shotOverlayHidden {opacity:0!important;pointer-events:none!important}
+.targetPanel .shotOverlayHidden * {pointer-events:none!important}
+@media (prefers-reduced-motion:reduce) {
+ .targetPanel :is(.targetHead,.targetFoot,.targetCornerFlag,.targetZoom) {transition:none}
+}
+
+/* Paint the iPad home-indicator inset below the app layout. */
+html[data-form-factor="tablet"] body::after {
+ content:"";
+ position:fixed;
+ inset:auto 0 0;
+ height:env(safe-area-inset-bottom);
+ background:#fff;
+ pointer-events:none;
+}
+html[data-form-factor="tablet"] body.dark::after {background:var(--side)}
+@media (orientation:portrait), (min-width:901px) {
+ html[data-form-factor="tablet"] .app {
+  height:calc(100dvh - env(safe-area-inset-bottom))!important;
+  min-height:0!important;
+ }
+ html[data-form-factor="tablet"] .app>main,
+ html[data-form-factor="tablet"] .app>aside {height:100%!important}
+}
+@media (orientation:landscape) and (max-width:900px) {
+ html[data-form-factor="tablet"] body {padding-bottom:env(safe-area-inset-bottom)}
+}
+/* Portrait keeps expanded cards aligned within their shared row. */
+@media (orientation:portrait) {
+ html[data-form-factor="tablet"] #dashboardWidgets>.dashboardWidget:not(.is-collapsed) {
+  height:auto!important;
+  align-self:stretch!important;
+ }
+}
+/* In landscape the Previous Target card ends immediately after its content. */
+@media (orientation:landscape) {
+ html[data-form-factor="tablet"] #dashboardWidgets>.previousCard {
+  height:fit-content!important;
+  align-self:start!important;
+ }
+ html[data-form-factor="tablet"] #dashboardWidgets .previousTargetFrame {
+  flex:none;
+  aspect-ratio:1 / 1;
+ }
+ html[data-form-factor="tablet"] #dashboardWidgets .previousTargetFrame::before {content:none}
+}

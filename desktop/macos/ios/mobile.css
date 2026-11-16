@@ -1,0 +1,53 @@
+html,body{overscroll-behavior:none;-webkit-text-size-adjust:100%}
+body{height:auto!important;min-height:100dvh!important}
+[hidden]{display:none!important}
+.settingsOverlay,.logOverlay{padding:12px;overflow:auto;-webkit-overflow-scrolling:touch}
+input,select,textarea{font-size:16px!important}
+button{touch-action:manipulation}
+@media(max-width:900px){
+ .app,body.sidebarCollapsed .app{display:block!important;min-height:100dvh!important;height:auto!important}
+ aside,.sidebarCollapsed aside{min-height:0!important;height:auto!important;width:100%!important;padding:10px 12px!important;position:relative!important;overflow:visible!important}
+ .sidebarTopScroll{overflow:visible!important;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:0!important}
+ .brandRow,.sidebarCollapsed .brandRow{margin:0!important;min-height:35px;flex:1;justify-content:center!important}
+ .brandRow .brand,.sidebarCollapsed .brand{display:block!important;position:static!important;font-size:22px!important;transform:none!important;max-width:100%!important}
+ .brandLogo{max-height:42px!important;max-width:150px!important;position:static!important;transform:none!important}
+ .hasCustomLogo .brandRow .brand{display:none!important}
+ .hasCustomLogo .brandRow .brandLogo{width:auto!important;height:auto!important;max-height:42px!important;max-width:150px!important}
+ .sidebarToggle,.minimalistCaption,.sidefoot{display:none!important}
+ .sidebarConnection,.sidebarCollapsed .sidebarConnection{display:block!important;flex:0 0 auto;margin:0!important;padding:0!important}
+ .sidebarConnectBtn{min-height:40px;font-size:12px!important;padding:8px 10px!important}
+ .sidebarControls,.sidebarCollapsed .sidebarControls{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%;padding:0!important;margin:0!important}
+ .sidebarControls label{display:grid;gap:4px;min-width:0;font-size:11px}
+ .sidebarControls label select{width:100%;min-width:0;max-width:100%}
+ .sidebarControls .shooterLock,.sidebarControls .phaseStatus,.sidebarControls #rulesOutline,.sidebarControls .demoShotBtn{grid-column:1/-1;margin:0!important}
+ .sidebarControls .sideActions,.sidebarControls .logActions{margin:0!important}
+ .sidebarControls .btn{min-height:40px;width:100%;font-size:12px}
+ aside nav,.sidebarCollapsed aside nav{display:flex!important;flex-direction:row!important;gap:4px;width:100%!important;overflow-x:auto;padding:0!important;margin:0!important}
+ aside nav button,.sidebarCollapsed aside nav button{width:auto!important;flex:1;min-width:74px;padding:10px 7px!important;margin:0!important;white-space:nowrap;font-size:12px!important;text-align:center!important;border-left:0;border-bottom:2px solid transparent}
+ aside nav .navLabel,.sidebarCollapsed .navLabel{display:inline!important}
+ aside nav .navIcon{display:none!important}
+ main{height:auto!important;overflow:visible!important;min-width:0!important}
+ header{padding:10px!important;height:auto!important;min-height:0!important;gap:8px!important;align-items:stretch!important}
+ .headerToolbar{width:100%;display:flex;flex-wrap:wrap!important;gap:7px!important}
+ .headerToolbar .toolbar{flex:1;display:flex;gap:7px!important}
+ .headerToolbar .toolbar label{flex:1;min-width:90px}
+ .headerToolbar select{width:100%;min-width:0!important}
+ .headerRight{width:100%;justify-content:space-between;flex-wrap:wrap;gap:6px}
+ .workspace{display:flex!important;flex-direction:column!important;height:auto!important;min-height:0!important;overflow:visible!important;padding:10px!important;gap:10px!important}
+ .targetPanel{order:0;align-self:center;width:min(100%,600px)!important;min-height:0!important;height:min(calc(100vw - 20px),600px)!important;max-height:600px!important;flex:none!important}
+ .left{order:1;height:auto!important;overflow:visible!important;min-height:0!important;padding:0!important;gap:10px!important}
+ .targetWrap{min-height:0!important;height:100%!important}
+ .targetWrap #targetSvg{width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important}
+ .lower{display:grid!important;grid-template-columns:1fr!important}
+ .historyView{height:auto!important;min-height:60dvh!important;overflow:visible!important;padding:12px!important}
+ .progressMetrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .historyFilters{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .settingsWindow,.logWindow,.shooterSelectionWindow{max-width:100%!important;width:100%!important;max-height:90dvh!important;overflow:auto!important}
+ .settingsTabs{display:flex;overflow-x:auto;flex-wrap:nowrap!important}
+ .settingsContent{padding:12px!important}
+ .fieldGrid,.summaryGrid{grid-template-columns:1fr!important}
+ .formActions{display:flex;flex-wrap:wrap;gap:7px}
+ .formActions .btn{min-height:42px;flex:1}
+ main>footer{position:relative!important;display:flex;flex-wrap:wrap;padding:10px 12px calc(10px + env(safe-area-inset-bottom))!important;height:auto!important;gap:8px}
+ .fiveOptions{grid-template-columns:1fr!important}
+}

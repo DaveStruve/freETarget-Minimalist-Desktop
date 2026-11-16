@@ -1,0 +1,29 @@
+plugins {
+    id 'com.android.application' version '8.7.3'
+}
+
+android {
+    namespace 'designs.struve.freetarget.android'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'designs.struve.freetarget.android'
+        minSdk 30
+        targetSdk 34
+        versionCode 4
+        versionName '0.2.2-beta.1'
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'com.github.mik3y:usb-serial-for-android:3.9.0'
+}

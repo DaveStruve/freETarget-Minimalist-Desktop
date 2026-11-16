@@ -1,0 +1,64 @@
+# freETarget Minimalist 0.3.10 — Universal Mac build
+
+This source package prepares **one macOS application** that contains both **arm64 (Apple Silicon)** and **x86_64 (Intel)** executable slices. The app and compressed ZIP contain the same program; the ZIP is for sharing or backup.
+
+## Build on your Mac
+
+1. Extract the updated **macOS Universal Source ZIP** to Downloads. Do not use the earlier macOS source ZIP for this build.
+2. Install the official [macOS 64-bit universal2 Python 3.13 installer](https://www.python.org/downloads/macos/) if not already installed. The script rejects Apple Silicon-only Homebrew Python rather than silently producing a non-universal app. If prompted, install Apple's Command Line Tools with `xcode-select --install`.
+3. In Terminal, use the folder's actual name:
+
+   ```bash
+   cd "$HOME/Downloads/freETarget_Minimalist_0.3.10-beta.1_macOS_Universal"
+   bash BUILD_MAC.command
+   ```
+
+   You can also open `BUILD_MAC.command` from Finder if permitted by macOS. The first build downloads dependencies and may take several minutes. The script runs the Python unit tests, builds with PyInstaller's `universal2` target, and validates the app's collected Mach-O binaries.
+
+## Output
+
+The successful build creates:
+
+```text
+release/mac/
+  freETarget Minimalist.app
+  freETarget-Minimalist-0.3.10-beta.1-universal2.zip
+  BUILD_INFO.json
+```
+
+The `.app` is the program to copy into `/Applications`. The `.zip` is a distribution/backup archive of that same `.app`; you do **not** need separate Intel and Apple Silicon downloads.
+
+Open the output folder:
+
+```bash
+open "$HOME/Downloads/freETarget_Minimalist_0.3.10-beta.1_macOS_Universal/release/mac"
+```
+
+## Verify the main executable
+
+Run this in Terminal after a successful build:
+
+```bash
+lipo -archs "$HOME/Downloads/freETarget_Minimalist_0.3.10-beta.1_macOS_Universal/release/mac/freETarget Minimalist.app/Contents/MacOS/freETargetMinimalist"
+```
+
+It should print **`x86_64 arm64`** (order may differ). The build script additionally verifies all collected Mach-O files, not just the main executable. If a dependency lacks either slice, the build fails rather than claiming universal compatibility.
+
+## Testing and distribution
+
+- Test the app on Apple Silicon and an Intel Mac, including USB/Wi-Fi connection, a live shot, logging a session, and reopening saved data.
+- The application has **not** been signed with a Developer ID or notarized. Apple may restrict launching a downloaded unsigned app. Do not distribute it publicly as a verified, notarized installer yet.
+- Saved shooter/gun/session data remains under `~/Library/Application Support/freETarget/DesktopBeta`. Back up records before upgrading.
+- To build only for your current Mac's CPU instead, use `bash BUILD_MAC_NATIVE.command`. That build's ZIP ends in `-arm64.zip` or `-x86_64.zip`.
+
+**Important:** This source ZIP does not contain a compiled `.app`. The build must be run on macOS. Universal build logic and portable tests were checked in the development environment; a real macOS build and Intel/Apple Silicon acceptance tests are still required.
+
+## Interpreter override (optional)
+
+By default, the build selects an installed Python with both CPU slices. To explicitly select one, set `FT_UNIVERSAL_PYTHON` to its path before running the build. The override must still pass the universal2 architecture check.
+
+```bash
+FT_UNIVERSAL_PYTHON=/Library/Frameworks/Python.framework/Versions/3.15/bin/python3.15 bash BUILD_MAC.command
+```
+
+The override is also used by the isolated selector unit test so an installed Python 3.15 cannot override its fake Python 3.13 fixture.

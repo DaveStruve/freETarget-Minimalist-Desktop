@@ -1,0 +1,303 @@
+{
+  "app": "freETarget Minimalist",
+  "version": "0.3.11-beta.1",
+  "platform": "windows",
+  "files": {
+    "BASELINE_v1.7.9_README.txt": {
+      "sha256": "b7918c145f97fe226817a3ae8e18e992249d7c9f033f1178f47478d6fb91fe57",
+      "size": 32043
+    },
+    "BUILD_INSTALLER.bat": {
+      "sha256": "e06ce7fd0d8b5bda6c8fc7e434d1e134c0de412889b818500d20c34fc88fa41d",
+      "size": 76
+    },
+    "BUILD_WINDOWS.bat": {
+      "sha256": "1e1677831b23cc36e618e784f2494b9700c9d0d1e355a92578b0fae78cd10c1d",
+      "size": 72
+    },
+    "BUILD_WINDOWS_X86.bat": {
+      "sha256": "b1e66fc0f0da738d9c618fadca4280aeaff268bc25c1f2c383ade39dcc784cdf",
+      "size": 96
+    },
+    "BUILD_WINDOWS_X86.md": {
+      "sha256": "e6a6d15355bfc1be17c8b8b6b2cdbc962185974cc1c4b9a5f819420ca1f60d97",
+      "size": 1702
+    },
+    "DEVELOPMENT.md": {
+      "sha256": "d9afa02a264de0bbe3f7317f24d31783bdcaa642be33f0c3433be90dc9ebe648",
+      "size": 4322
+    },
+    "RELEASE_NOTES_0.3.0.md": {
+      "sha256": "d6cec6fe18749c2f91f0f8031e613ea8455c6bd94b9942501e3d609220c5ad3e",
+      "size": 2541
+    },
+    "RELEASE_NOTES_0.3.1.md": {
+      "sha256": "dc40d26bec2a9610b8b65e545c0d9d61cd6b861864bb2d139cbadb7ddb4379d6",
+      "size": 4287
+    },
+    "RELEASE_NOTES_0.3.10.md": {
+      "sha256": "a630f1523c694b5efd2b32e625cf15dc7320f62ce2f9dd6fc21dd8aebd638ad7",
+      "size": 506
+    },
+    "RELEASE_NOTES_0.3.11.md": {
+      "sha256": "8b69d2f1942ed58b4b413f5a3bdfe57f255f19463fa54ecfff754902dbaa1190",
+      "size": 519
+    },
+    "RELEASE_NOTES_0.3.2.md": {
+      "sha256": "2c4b80df64be4c4f308a23c9480bbb0f08d1da6881d9d631a9fa11f0d94d7179",
+      "size": 4877
+    },
+    "RELEASE_NOTES_0.3.3.md": {
+      "sha256": "8753ac49dbe1d172e77f0507c41ecf19fb904421846cd424c89071945c1709be",
+      "size": 6516
+    },
+    "RELEASE_NOTES_0.3.4.md": {
+      "sha256": "2da70b6b99efc3ac18698929da4e11a28d587667d8657ab5c24261d1563ef49d",
+      "size": 2713
+    },
+    "RELEASE_NOTES_0.3.5.md": {
+      "sha256": "978602e5d16bed1a909009016cd39cfca00178d06975c5f3c6610c439f93ba4d",
+      "size": 2538
+    },
+    "RELEASE_NOTES_0.3.6.md": {
+      "sha256": "28705260c18b923e2ffc3494eb455fcca621c4445f8f6413a2f032265c0a19c8",
+      "size": 3619
+    },
+    "RELEASE_NOTES_0.3.7.md": {
+      "sha256": "42809baa47c8b300554cd511f8054dc46ce52e5fb8668e78d0c886287e8fedc1",
+      "size": 5009
+    },
+    "RELEASE_NOTES_0.3.8.md": {
+      "sha256": "38d87367bf14024e7b926e66e878269b4ca656f6f4f0ebc4c34082a63eec48df",
+      "size": 4136
+    },
+    "RELEASE_NOTES_0.3.9.md": {
+      "sha256": "1112481d2028fcb7bf94e994068d4b77286c9b90278bccc714e3c4bed1476935",
+      "size": 489
+    },
+    "RUN_DESKTOP.md": {
+      "sha256": "0e96a546e9490ec034f8a802dfd0f2e08d5096cde407befc83766f008f224dce",
+      "size": 2314
+    },
+    "SETUP_DESKTOP.bat": {
+      "sha256": "4577e56ae0170dd5ba4dc079ccc38d3c072846b6f29ab29a1d7bfb2a8d5a9a4e",
+      "size": 72
+    },
+    "START_DESKTOP.bat": {
+      "sha256": "3ee25fb33d2849c71367681514fb4a21e9245334ad4bbbd7aa1fc58b7b5675e7",
+      "size": 73
+    },
+    "START_HERE.md": {
+      "sha256": "436288124df9ab96eaaa61faf0db8f519c24388d066ad273e26bc5a84f5632df",
+      "size": 7498
+    },
+    "TEST_RESULTS.md": {
+      "sha256": "8a55fa26f9df20a61958ecd3032838848eeafc71b7a2dfde2b2386697d87c117",
+      "size": 210
+    },
+    "TEST_RESULTS_0.3.0.md": {
+      "sha256": "5102234b06bac52244c74f6fe41b583e42cd036eaec9c3c580ea78598020b936",
+      "size": 1340
+    },
+    "TEST_RESULTS_0.3.1.md": {
+      "sha256": "eebe1cd82cbc217072f241a590b8f440f2686fee4bc4921c7e65182a1839c5d6",
+      "size": 728
+    },
+    "TEST_RESULTS_0.3.2.md": {
+      "sha256": "6d580b6c78bb61bccbb50c999a576c03a6e4b0447110792e4aa7ce7a9f7b67c5",
+      "size": 2219
+    },
+    "TEST_RESULTS_0.3.3.md": {
+      "sha256": "d68824e7fd280162f334ef8a2485c47c250b893678369ead9146965650cc7f19",
+      "size": 1934
+    },
+    "TEST_RESULTS_0.3.4.md": {
+      "sha256": "b1ecda51a403495c722ef60ebc65e7e00373b817a56933381a7f0e152a0bb654",
+      "size": 1096
+    },
+    "TEST_RESULTS_0.3.5.md": {
+      "sha256": "e76cfe2a180e719b5d4bc69abc9274201ba8a2ed14802856121d6aa222319b07",
+      "size": 1504
+    },
+    "TEST_RESULTS_0.3.6.md": {
+      "sha256": "a2cab0fb853e7c6ad41d787a6aab2f94860d4aad2e6b2e7ca049347d734ee8c7",
+      "size": 855
+    },
+    "TEST_RESULTS_0.3.7.md": {
+      "sha256": "44eb30d593430fe00ca828d43ec72ca4f513ec6fdcf6e7b6122c85814336f9c2",
+      "size": 1276
+    },
+    "TEST_RESULTS_0.3.8.md": {
+      "sha256": "5673123cb5811d6f783fe92614e5215c97b074000a7802f133e140814aba1eb6",
+      "size": 1094
+    },
+    "WINDOWS_TEST_FIX.md": {
+      "sha256": "5ad6b10f9b8362448475ad2d1ef2fd95bf3d06826541f945b5b9d958f3a4abe0",
+      "size": 1205
+    },
+    "app/assets/browser_export.html": {
+      "sha256": "17004f5e1c15fcc9ba4a4d052bb03f3d9926e52356d1821fca8c29a7c49fd544",
+      "size": 4464
+    },
+    "app/assets/desktop_bootstrap.js": {
+      "sha256": "634358ad5917af2afeffe48dc9449e3bb37af0fbc79b0285d64c518cb703d64f",
+      "size": 2266
+    },
+    "app/assets/desktop_data.html": {
+      "sha256": "25e444add854c11ed94ff4572e3e9cc56a0840eb29670cc9b53bc5bf12f602ca",
+      "size": 1535
+    },
+    "app/assets/desktop_ui.js": {
+      "sha256": "d3fdcc3ba6af4a8f4a9419f51b4b4ba6cff06ca2b22174ad2d473acd27497458",
+      "size": 3395
+    },
+    "app/assets/freetarget.ico": {
+      "sha256": "9375cbfd3686433390cc14d633bcd75fa155d75d9f5b8f7d79e6fb629c4c057f",
+      "size": 30364
+    },
+    "app/assets/freetarget.png": {
+      "sha256": "c3d2aff135262ab329e70770ec473cc492934852610c347b4b73b00171e3111e",
+      "size": 3683
+    },
+    "app/assets/index.html": {
+      "sha256": "67a2cceceb440a1e23ab1d68fb3020fc104a041747978db069190a479f030dfc",
+      "size": 724139
+    },
+    "app/controller.py": {
+      "sha256": "b8f5b81f4862abd9a12f7d02f8067013e346d379a311ac157f29bd4df636f464",
+      "size": 6091
+    },
+    "app/desktop.py": {
+      "sha256": "561d05effbd52a4d6b9316f6fc65f707ea145e95bb282e49b948f92deb691795",
+      "size": 6704
+    },
+    "app/freetarget_bridge.py": {
+      "sha256": "8fdb4d2858827fb93d91656dc74d2107b10de517b1b85e22b5c11a0f8e993180",
+      "size": 27182
+    },
+    "app/migration_exporter.py": {
+      "sha256": "cb003e3b1699d17f4495bc8a17d85d2684255d4d75daefbfb3295e69059b464e",
+      "size": 1886
+    },
+    "app/platform_support.py": {
+      "sha256": "c167afab6f507bca9f94cd29a873c8d51c6f8e7012ef2a42f88e36d5a0ab38aa",
+      "size": 2029
+    },
+    "app/service.py": {
+      "sha256": "36924cc303d88ebaaf69b52e0023b4be2f8ce66681d2b4a0ed76cab697b260c0",
+      "size": 6001
+    },
+    "app/storage.py": {
+      "sha256": "6102b7d37505eb01ae6ba113399ec5ed825fa0098d8cba2a6e1a026df3dd3a7f",
+      "size": 15685
+    },
+    "app/version.py": {
+      "sha256": "ca7c1bc260cab93e37a14605cba4300e895b3cde3fb0e4792bf32de221ee411b",
+      "size": 143
+    },
+    "freETargetDesktop.spec": {
+      "sha256": "20c6848d8a5b47b98006090bf0e76d289329985dd81251e5ec110e4febdb4e36",
+      "size": 1054
+    },
+    "group174-qa.svg": {
+      "sha256": "97e9826cf75669435a952d3c2bfaf67306cfc0f57241f1396db84080b9beb740",
+      "size": 6805
+    },
+    "installer/freETargetDesktop.iss": {
+      "sha256": "9197179f1bb143fd1be5539ef47c931d7ad105d34f61c7236c857d743e078292",
+      "size": 1498
+    },
+    "installer/version_info.txt": {
+      "sha256": "3c9bc56b9429afe2c1d2ec1032568b202110b080d13a3f09664b9967ef43aa20",
+      "size": 691
+    },
+    "progress179-qa.svg": {
+      "sha256": "c8c8f67de3bb9270e475349d5cdad7a4ed24ef94a3722b6cf567b58ca716b5cf",
+      "size": 3841
+    },
+    "requirements-build.txt": {
+      "sha256": "7f813bc2dbd51821754e07a3af56a69308442f0caa053adedd0c1e790567917a",
+      "size": 44
+    },
+    "requirements-win.txt": {
+      "sha256": "8c5248eebee889bc974a94d0c2925cb699ca4bf77d254728e53f61f8ea19b52a",
+      "size": 31
+    },
+    "tests/run_ui.py": {
+      "sha256": "ec396ceddb0c158b3c17b507748b5ac23487a8b8bbdc448ca284eb7cabbb0cbc",
+      "size": 2530
+    },
+    "tests/test_bootstrap.cjs": {
+      "sha256": "af0388581395ecc27c5bfae3d7f8bc9229692f8bafb6d55c7cede0a608e59bd6",
+      "size": 3289
+    },
+    "tests/test_bridge.py": {
+      "sha256": "21c3521c300e08f44addbea1901ad7a7adc0c5dc0293ef23d80826a852be7916",
+      "size": 10983
+    },
+    "tests/test_desktop.py": {
+      "sha256": "f3d3267775c1c40a052cae1e65e27f4605321adf93c2d5c175e635fe7ddb4bfe",
+      "size": 10914
+    },
+    "tests/test_exporter.cjs": {
+      "sha256": "e710da15b6c729feb0dd46d62c0f70774f29b71a345da6164672dee08eca7118",
+      "size": 3325
+    },
+    "tests/test_five.cjs": {
+      "sha256": "b9852fc713b63aac89c2e7bbcbee25fdeeb3e08b0ee25a1bc29f2c57175ac264",
+      "size": 20738
+    },
+    "tests/test_release_032.py": {
+      "sha256": "e01eb544fa37ff4be23477778946d4ce9afb1c0a5db63372a7e3deac4f84cf63",
+      "size": 2292
+    },
+    "tests/test_release_033.py": {
+      "sha256": "33a5bf40402d3f589cfe04292789a98d19fa8f1f46f60c1c2f3356dccf43923e",
+      "size": 2203
+    },
+    "tests/test_release_034.py": {
+      "sha256": "6d5e1178f8f7bf54acecf565252f79ea1bdf0898c6218f8f2c9485a414725596",
+      "size": 1787
+    },
+    "tests/test_release_035.py": {
+      "sha256": "3b281fe25736e3afccc7c4d44631ffb1a1e3cf70c0601458035d20c4b72c17e6",
+      "size": 1649
+    },
+    "tests/test_release_036.py": {
+      "sha256": "ed023b40f816f441a70b1ee0366f4c73d50e90bf7882487aa1d59f4b8a7dfec4",
+      "size": 1754
+    },
+    "tests/test_release_037.py": {
+      "sha256": "9bc7da036a0e0fb6a0ae5a1c4696a337bd25bea0c5b7ddde4726c34ef5fdd87f",
+      "size": 3411
+    },
+    "tests/test_release_038.py": {
+      "sha256": "bf456cb0551fd188b413a603d7acef47b6cdce25d390fe39bd28a55eda2fb94f",
+      "size": 3939
+    },
+    "tests/test_stats.cjs": {
+      "sha256": "a7aaf3553f9e9beda3b6d89bd7d5fc1e9ed26fed1f990a46b4f2e53ef02e8220",
+      "size": 19141
+    },
+    "tests/test_storage.py": {
+      "sha256": "457c0f393ab1ae73c3df9703953f5ba78baa4b3d44a17cdb6c1959cbe522c9dc",
+      "size": 8121
+    },
+    "tests/test_ui.cjs": {
+      "sha256": "121afb3a1ecd5b1e8cdbdc8da7c9aa3cbf6bbaf58f58425adb4fc42653e67698",
+      "size": 49649
+    },
+    "tools/prepare_assets.py": {
+      "sha256": "a7cebe8dc6a65823286289e5cfa74cf7066e9b253b32e490297cf620732d43bc",
+      "size": 3598
+    },
+    "tools/run_task.bat": {
+      "sha256": "334be20c6b59a785cfc31e21ebb72adbc0bd60b31050a6743df5fd02ec9ae87c",
+      "size": 651
+    },
+    "tools/windows_tasks.py": {
+      "sha256": "8e0dc6a11684d2c3ca3bfd7b45b263b2bb9f84d0f442da35489c3783ec83c626",
+      "size": 6833
+    }
+  }
+}

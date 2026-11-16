@@ -1,16 +1,10 @@
-# Desktop application
+# freETarget Minimalist — Desktop source
 
-This folder is reserved for the complete desktop application source, assets, tests, build scripts, and installer configurations.
+Both desktop source snapshots are **0.3.11-beta.1**, retained separately to avoid overwriting platform-specific application and UI differences.
 
-**Status: source import pending. This folder is not yet buildable.**
+- `windows/`: Windows x64 and x86 Python/WebView source, tests, PyInstaller and Inno Setup scripts. Start with `README_WINDOWS_BUILDS.md` and `BUILD_AND_INSTALL_BOTH.bat`.
+- `macos/`: macOS Intel + Apple Silicon universal2 source, tests, build scripts, and bundled iOS preview source. Start with `BUILD_UNIVERSAL_MAC.md` and `BUILD_MAC.command`.
 
-Import the contents of the clean Windows x64/x86 source package into this folder, preserving its internal paths. Do not reorganize scripts, assets, or installer files until their relative path assumptions have been checked.
+**Build from the platform folder**: scripts assume `app/`, `tools/`, and other folders are next to them. These are source files, not compiled installers. Hardware testing, Apple signing/notarization, and release builds remain pending.
 
-The prepared package is:
-`freETarget-Minimalist-0.3.11-beta.1-Windows-x64-x86-Clean-Source.zip`
-
-The package's existing instructions are the starting point for local compilation. Build scripts described in the prior package handoff include `BUILD_AND_INSTALL_X64.bat`, `BUILD_AND_INSTALL_X86.bat`, and `BUILD_AND_INSTALL_BOTH.bat`; these are not present here until import and must be checked against the actual archive.
-
-Reconcile the macOS v0.3.10-beta.1 source package with the imported desktop tree separately. Preserve its platform-specific build configuration, and review application code differences before combining versions.
-
-See [source import](../docs/SOURCE_IMPORT.md) and [releasing](../docs/RELEASING.md).
+Some upstream READMEs retain historical version text; `app/version.py`, the 0.3.11 release notes, and current build scripts are the more recent version references. Keep both desktop copies until a separately tested shared-code merge is done.

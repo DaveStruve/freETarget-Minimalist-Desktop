@@ -1,0 +1,9 @@
+/* Platform services that are unavailable in this Android source build. */
+#openTargetSettings,
+#openTerminal,
+#diagCopy,
+.logoControls,
+[data-settings-tab="backup"],
+#settingsBackup {
+    display: none !important;
+}

@@ -1,0 +1,488 @@
+freETarget Live Integration v1.7.9 TEST
+
+CHANGES IN v1.7.9
+- Added Five-Shot Standard for a repeating air pistol such as the C55P, under
+  Air Pistol > Session. The event uses the existing single 10m pistol target.
+- Voice sequence: LOAD (60 seconds), ATTENTION (7 seconds), START (10 seconds),
+  STOP. Each series has five shots, integer scoring and a five-shot target page.
+- Choose 1 record series (5 shots), 6 (30 shots) or 8 (40 shots). Eight is the
+  default. Optional three-minute preparation and one five-shot sighting series
+  are enabled by default. These choices are remembered.
+- New session panel shows the phase, countdown, series and reports received.
+  Test Commands plays a sample without starting a session. Start runs the
+  sequence; after Stop, Next Series commits the result and starts the next
+  loading phase. Finish Session ends the last series and opens the score log.
+- Next (>) may skip optional preparation or end loading when you are ready.
+  Attention and the firing window cannot be fast-forwarded with that button.
+- Embedded synthetic voice clips are scheduled on the browser audio clock.
+  They work offline, use Settings > Voice volume, and keep the programmed
+  Attention-to-Start and Start-to-Stop intervals at 7 and 10 seconds. The range
+  voice is built in; the Voice selection/rate apply to ordinary spoken scores.
+  Per-shot speech is suppressed during this session to keep range cues clear.
+- Stop/restart, hidden tabs, lost connections and suspended audio cancel future
+  cues. Restart begins a fresh loading sequence; a partially fired string is
+  not resumed halfway through. Removed string shots stay in a saved audit.
+- The current five-shot target stays visible until you commit the series.
+  Sighting shots are separate from record scores. Explicit misses occupy slots;
+  Ignore Misses does not remove shots in this event.
+- The default and custom logos are centered at the top of the sidebar. The
+  collapse toggle retains its position/function, and the theme icon stays in
+  the bottom bar.
+- Target connection/command behavior is retained. No firmware changes or
+  automatic target lighting commands are included.
+
+FIVE-SHOT STANDARD -- FIRST USE
+1. Select your shooter and C55P (add it in Shooter Profiles if necessary).
+2. Choose Air Pistol > Five-Shot Standard. For one five-shot magazine, choose
+   1 Record Series and turn off One Sighting Series. Preparation can be disabled
+   for a short session. For the full programme use 8 series, or select 6.
+3. Use Test Commands and check speaker output/Voice volume before Start.
+4. Press Start. Follow the phase display and LOAD / ATTENTION / START / STOP
+   commands. Stay on the app's visible tab for the sequence.
+5. After Stop, wait for delayed target reports and inspect the five-shot result.
+   Press Next Series only when that result is ready. If reports are missing,
+   committing requests confirmation before filling remaining slots with zeros.
+6. In the review, tick Zero (Outside Window) only for a shot you know was early
+   or late. You can clear the checkbox to restore its original score.
+7. Finish Session opens the existing log/discard screen. A named shooter can
+   save the result to History; Guest ends without saving as before.
+
+TIMING / SCORING LIMITS
+This is a browser-guided event, not a timing-certified competition system.
+Voice playback follows the browser audio clock. Device output latency and the
+physical target were not measured here. Wi-Fi/USB reports can arrive after the
+actual shot, including after Stop; the browser receipt time is not a verified
+shot time. Hardware timestamps are not treated as synchronized timing proof.
+The app provisionally keeps the first five reports received from Attention
+through the post-Stop review. It does not automatically call an after-Stop
+arrival a late shot or assign it a timing zero. Early/late decisions are manual.
+Reports received during loading are not scored. Additional reports beyond five
+are excluded from the score and retained in the event audit. Do not start the
+next string while results from the current string are still being delivered.
+Interrupted strings require a restart; confirmation removes current shots from
+scoring and keeps them in the interrupted-series audit. Early session logging
+also stops the sequence and can commit a partially fired string with confirmed
+unfired zeros. History records browser-guided timing, manual timing penalties,
+unfired zeros, extra reports and the committed/interrupted-series audit.
+The format follows the ISSF Sport for All 2017 Standard event sequence on a
+single target. It does not implement jury procedures, malfunction adjudication,
+shoot-offs or the five-target event. Skipped loading/preparation is audited.
+Official source, linked from ISSF Sports for All:
+https://www.issf-sports.org/rules/sports-for-all
+https://backoffice.issf-sports.org/getfile.aspx?file=2017_ISSF_Rules_-_10m_Five-Shot_Air_Pistol_-_Edition.pdf&inst=290&mod=docf&pane=1
+Embedded cue audio was synthesized locally with CMU Flite (SLT voice).
+
+v1.7.9 VALIDATION
+Automated Five-Shot Standard checks passed for real embedded WAV structure,
+60/7/10 audio scheduling, all 40 record shots plus five sighting shots, optional
+preparation, fixed five-shot pages/integer scores, no per-shot speech over cues,
+late reports, manual timing zeros, missing-shot confirmation, restart audits,
+asynchronous cancellation, audio suspension, hidden tabs, connection loss,
+early logging, mute/unavailable-audio errors and Guest/Rifle restrictions.
+Existing scoring/profile/session/History/statistics regressions and all 13
+simulated TCP/USB bridge tests passed. JavaScript syntax, Python compilation,
+launcher syntax and ZIP integrity were checked. Programme preferences survive
+reloads alongside existing profiles and appearance settings.
+Full browser layout, audible playback and physical target timing were not
+verified here. Use Test Commands and check a short series on your setup first.
+
+RETAINED CHANGES IN v1.7.8
+- Main target: removed bottom status/last-shot overlays. Zoom now sits at the
+  bottom left. The upper-right session badge is twice its previous desktop
+  size, with a tooltip for long names. The target panel remains square.
+- Appearance defaults to the device's system Light/Dark mode and follows live
+  system changes. The theme icon now sits beside the version in the footer.
+  Click to cycle System -> Light -> Dark -> System. The choice is remembered.
+- History now contains the active shooter's progress dashboard and session list.
+  No extra sidebar navigation is required. Guest remains excluded.
+- History filters: All Time, Last 30 Days, Last 90 Days, This Year, or a custom
+  inclusive From/Through range; discipline, scoring method, gun and format.
+  Pistol/rifle and integer/decimal scores are kept separate. Filters affect
+  both chart and list. Demo, modified-scoring and partial sessions are excluded
+  by default, with explicit checkboxes to include them.
+- Score overview: weighted score percentage, best/latest session percentage,
+  change in percentage points, total filtered sessions and recorded shots.
+- Chart metrics: Score %, Mean Radius, Group Spread, Center Offset, Shot Score
+  Standard Deviation and 10-Ring Rate. Dots provide date, gun, raw score and
+  session details on hover/focus. The dashed line averages up to 10 visible
+  sessions. The chart's vertical scale is stated. Small screens can scroll
+  the chart independently.
+- Shot quality: points per shot, population score SD, 10-ring / 9+ / X / zero
+  rates, within-session mean radius, median group diameter, mean impact X/Y,
+  finish versus start (last 10 minus first 10) and best fixed 10-shot block.
+- Individual History records have a confirmed delete button. Delete All names
+  the active shooter and confirms that filtered-out records are included.
+  Other shooters and existing Guest records remain untouched. Failed saves
+  and conflicting edits from another tab leave records unchanged.
+- Existing target command, scoring, USB/TCP and shooter profile behavior is
+  retained. No firmware modifications are included.
+
+STATISTICS DEFINITIONS / DATA LIMITS
+Score % uses earned points / (recorded shots x saved maximum): 10 for integer,
+10.9 for decimal. Partial rounds use their recorded shot count, not a planned
+match quota. The overview average weights by recorded shots; best and latest
+refer to individual sessions. Change compares the first and latest dated
+session in the current filtered period. It is descriptive, not a forecast.
+Unknown scoring methods do not receive an invented maximum. They remain
+accessible under Scoring > Unspecified. Older summary-only records can supply
+percentages and known X counts, but not missing individual-shot statistics.
+Mean radius averages each hit's distance from its own session's mean impact.
+The dashboard combines those radii by hit count. Group spread is the exact
+largest center-to-center distance between hits; the overview shows the median
+session spread. At least two valid hits are needed for group size. Center
+Offset is distance of mean impact from target center. The pooled Mean Impact
+X/Y card can hide opposing session offsets, so compare Center Offset as well.
+Coordinates use the saved target scale. Positive X is right, positive Y is high
+in the displayed impact card. Display-circle padding is never included.
+Sighting shots are not included. Misses and synthetic timeout/advance positions
+are excluded from grouping; their score zeros still count in scoring metrics.
+Coverage counts identify the data available for each metric. Missing values
+show a dash. Score SD is population SD, a measure of score variation; a low SD
+alone does not imply a high score. Different formats and shot counts still
+influence comparisons; use like-for-like filters. No hold/aim trace or trigger
+measurements are inferred from impact locations. Dates use the browser's local
+calendar. The rolling mean is computed only from the currently visible cohort.
+Research references, also linked in the History explanation:
+- TargetScan: score percentage, mean radius and impact-position trends:
+  https://targetshootingapp.com/wiki/Stat_Charts/
+- Standard deviation definition:
+  https://www.nlm.nih.gov/oet/ed/stats/02-900.html
+
+v1.7.8 VALIDATION
+Automated session/scoring/History/profile regressions and all 13 simulated
+TCP/USB bridge tests passed. New tests covered weighted normalization, score SD,
+rates, first/last 10-shot comparisons, geometry (including 10,000 hits), missing
+and penalty data, calendar boundaries, all filter types, system theme changes,
+manual theme persistence, delete cancellation/save failure/tab conflicts,
+shooter-only delete-all and recovery when a viewed record is deleted.
+Fresh initialization checks passed for named/Guest/legacy single-gun profiles
+and persisted appearance overrides. The generated chart SVG was rasterized and
+inspected. Full browser layout, actual target operation and audible playback
+were not verified in this environment; please check them on your setup.
+
+v1.7.8 QUICK TEST
+1. Check clean target corners, enlarged session badge and lower-left zoom.
+2. Try the footer theme control, reload, then use System and change OS mode.
+3. Choose a named shooter with saved records and open History. Select a date
+   range, discipline, scoring type and gun. Try each chart metric and focus a
+   point for details. Enable Demo/Partial only if you want those rounds included.
+4. Compare one session's raw score with its percentage and shot count. Expand
+   'How To Read These Statistics' for definitions and coverage limitations.
+5. Test deletion with an expendable saved session. Delete All affects the
+   entire active shooter's history, including records hidden by filters.
+
+RETAINED CHANGES IN v1.7.7
+- The main target panel is square and follows the target graphic's dimensions.
+  Desktop sizing uses the actual available width/height, including the footer
+  and History review bar. The complete target stays in frame. Its existing
+  corner labels, zoom controls and scoring geometry are retained.
+- The information area uses the remaining horizontal space. Scoring expands;
+  Recent Shots and Shot Distribution sit beside each other when that area is
+  wide enough, and stack when narrower. The information pane still scrolls
+  independently. Small screens retain a stacked layout.
+- All collapsed dashboard cards have the same header and equal padding. Only
+  the title and expand button remain visible. Previous Target's series selector
+  is now inside the expandable content.
+- The sidebar shows a single compact shooter/gun selection with Edit. Edit
+  opens a selection dialog; Use Selection commits it, Cancel preserves it.
+  Selections persist. A gun change sets its discipline; manual discipline
+  overrides remain available. Active sessions lock selection as before.
+- Next Stage is a square > button immediately beside Start, with the tooltip
+  'Advance to Next Stage'. Its stage behavior and disabled state are retained.
+- History shows only the active shooter's saved sessions and the equipment
+  used. Its navigation button is disabled for Guest and shooters with no
+  records. Changing shooters updates both the list and navigation state.
+  Existing records remain stored. IDs identify shooters where available;
+  older records without IDs use the shooter name.
+- Guest sessions are never added to History. End Session closes their result
+  without saving and allows a new session. Existing Guest records are kept
+  but remain hidden.
+- Settings tabs: General, Connection, Shooter Profiles, Competition Rules,
+  Voice, Appearance. Opening Settings starts at General.
+- Footer right side shows only v1.7.7. Connection status has a colored dot and
+  text: green Connected, amber Connecting, red Disconnected, with theme colors.
+- Target communication behavior from v1.7.6 is retained.
+
+v1.7.7 VALIDATION
+- Automated DOM regression checks passed for existing scoring, session stages,
+  History snapshots, page sizes, group boundaries, diagnostics and commands.
+- New checks cover selection cancel/confirm/lock, gun-driven discipline and
+  manual override, per-shooter filtering and History index mapping, renamed
+  profiles, Guest end-without-saving, empty profiles, settings order, footer
+  state updates and square sizing at common desktop dimensions.
+- Fresh initialization checks covered saved selection restoration, existing
+  Guest history retention and migration of old single-gun profiles.
+- All 13 simulated TCP/USB bridge tests passed, along with JavaScript syntax,
+  Python compilation, launcher syntax and package integrity checks.
+- Browser rendering could not be run in this environment. Please check the
+  square layout, collapsed cards and sidebar on your screen. Physical target
+  operation and audible voice output were not tested for this build.
+
+v1.7.7 QUICK TEST
+1. Open Edit beside the shooter/gun display; choose a shooter and gun, then
+   Use Selection. Check discipline, switch manually if needed, then reload.
+2. Log a named shooter's short session. History should activate for that shooter
+   and show only their records. Switch to another shooter and compare.
+3. Switch to Guest. History must stay disabled. End a Guest session and confirm
+   it creates no saved record.
+4. Collapse each dashboard card. Check equal padding and title/expand only.
+   Expand Previous Target to use its series selector.
+5. Resize the window and collapse the sidebar. The target panel should remain
+   square, with information panels using the remaining width.
+
+RETAINED CHANGES IN v1.7.6
+- Fixed Get Settings timing for the 4.2.8 Wi-Fi firmware: the full ECHO
+  response can take several seconds to stream. The bridge now uses the
+  firmware's native ? status query, waits up to 25 seconds for a complete
+  settings response, and supports fragmented / redundant-comma JSON packets.
+- Target Settings fields become editable after a successful read. Apply sends
+  only changed values, requires confirmation, and waits for a verified ECHO.
+  If no verified response arrives, the application reports uncertainty and
+  never silently resends the write.
+- Arduino Terminal ECHO uses the native ? query. Quick VERSION and INIT use
+  the same verified send path as parameterized commands. Generic Command
+  accepts JSON, ECHO, VERSION, ?, KEY=VALUE, KEY:VALUE or KEY VALUE.
+  Case-sensitive firmware names such as CALIBREx10 are preserved.
+- Shooter Profiles now support zero, one or multiple guns per shooter.
+  Each gun has make, model, caliber, nickname, and Air Pistol/Rifle type.
+  Select a default gun. Existing single-gun profile data is migrated.
+- Sidebar gun selector appears below the shooter only when the profile has
+  multiple guns. Selecting a gun changes the discipline automatically;
+  discipline can still be manually overridden. The chosen gun is copied
+  into the saved session record for historical accuracy.
+- Sidebar Score, History and Settings navigation remains pinned to the
+  bottom. The upper sidebar scrolls independently with a subtle scrollbar.
+  Removed the Local Hardware Test Build caption.
+- Compact viewport-aware desktop dashboard: slimmer bottom status bar,
+  narrower scoring/recent/distribution/previous column with independent
+  scrolling, and fully visible, automatically scaled main target.
+- Target heading/controls and status/last-shot labels overlay the four
+  corners of the target panel to reclaim vertical space.
+
+IMPORTANT TARGET SETTINGS NOTES
+- The firmware's complete settings response can take 10-25 seconds over
+  Wi-Fi. Wait for the read to finish; inspect Arduino Terminal for output.
+- The supplied firmware has no CAL or global X_OFFSET/Y_OFFSET command;
+  those controls remain disabled. Do not apply unverified calibration.
+- The terminal and bridge share the active connection; close other Arduino
+  tools using the same USB port. Test target writes cautiously.
+- Tested with a simulated firmware socket and browser layout at 950x650,
+  1280x720, 1440x900, and 1920x1080. Physical target behavior is unverified.
+
+CHANGES IN v1.7.5
+- Settings > General now includes a custom sidebar logo, preview, reset and
+  local persistence. It appears in both expanded and collapsed sidebar modes.
+  PNG, SVG or WebP; maximum 2 MB. Prefer SVG or a transparent PNG. Recommended
+  size: 600 x 200 pixels (3:1), transparent background, RGB/sRGB.
+- Shot Distribution now lists whole-number rings 10 through 1, including empty
+  rows. Decimal scores are grouped by their integer ring (9.9 belongs to 9).
+  Zero scores appear in the note below. Recorded scores are unchanged.
+- Distribution and terminal scrollbars match the subtle themed Recent Shots
+  scrollbar. Recent Shots retains its eight-row scroll window.
+- Buttons and section titles display in title case. Connection status is now
+  beside session status in the footer: Connected, Connecting or Disconnected.
+- New footer Target Settings and Arduino Terminal panels use the existing
+  Wi-Fi/TCP or USB connection. Read settings before editing; apply sends only
+  changed values and verifies them against fresh target read-back.
+- Target Settings provides Hardware and Sensors tabs for target name, paper
+  motor type/timing/steps, LED brightness, sensor diameter, Z offset and each
+  sensor's X/Y offsets, with a sensor-position diagram.
+- Arduino Terminal provides ECHO, VERSION and confirmed INIT, parameterized
+  and generic JSON commands, a separate console, autoscroll, clear and copy.
+- Firmware commands were checked against the supplied 4.2.8 WiFi Test 1 source.
+  That firmware has no CAL or global X_OFFSET/Y_OFFSET commands. Those controls
+  are marked unavailable; this package does not modify firmware.
+
+RETAINED CHANGES IN v1.7.4
+- Moved Shots Per Target from the sidebar into Settings > General, showing the
+  selected discipline/session. It can be configured before connecting; the
+  current round and historical page sizes remain fixed.
+- Replaced the circle centered on the mean impact with a separate smallest
+  enclosing circle around the current page's impacts. The crosshair still marks
+  the arithmetic mean. Circle and crosshair centers may differ.
+- Added visual padding around the group boundary so all displayed shot markers
+  and the active-shot halo fit inside it at each target scale and zoom level.
+- Recent Shots now shows eight rows in its scroll window. All older entries
+  remain available by scrolling. The scrollbar is thin, rounded, transparent
+  tracked and colored to match the light/dark theme. Expanded Recent Shots and
+  Shot Distribution panels retain matching heights and independent collapse.
+- Checked a known three-shot triangle, collinear/coincident/obtuse groups,
+  order independence, 100-shot pages and rendered SVG coordinates for both
+  disciplines, plus the existing regression suite. Inspected a rasterized
+  target SVG; full browser layout and audible playback still need testing.
+
+START / UPGRADE
+1. Stop the previous bridge with Ctrl+C.
+2. Extract the entire ZIP into a fresh folder.
+3. Windows: run START_freETarget.bat.
+   macOS: run START_freETarget.command, or use: python3 freetarget_bridge.py
+4. Open http://127.0.0.1:8765 in the same browser used previously and refresh.
+5. Confirm v1.7.9 in the footer. Existing profiles, formats, colors and History
+   remain associated with that browser/address.
+Wi-Fi/TCP works with Python 3.10+ and does not require additional packages.
+No firmware changes are included or required by this build.
+
+USB SETUP (ONE TIME)
+Windows: run INSTALL_USB_SUPPORT.bat, then restart START_freETarget.bat.
+macOS: run INSTALL_USB_SUPPORT.command, then restart the bridge.
+These install pyserial==3.5 for the same Python interpreter used by the launchers.
+Internet access is needed for this installation; it is optional for Wi-Fi users.
+Manual equivalent: python -m pip install -r requirements.txt
+On macOS use python3 instead of python. If your Python blocks system-package
+installation, create a virtual environment, install requirements there, and run
+freetarget_bridge.py with that environment's Python.
+
+Settings > Connection:
+- Select Wi-Fi / TCP or USB / Serial.
+- USB: Refresh ports, choose a detected device, or enter a serial port manually
+  (e.g. COM3 on Windows or /dev/cu.usbserial... on macOS).
+- Default serial settings: 115200 baud, 8 data bits, no parity, 1 stop bit.
+  Baud rate is editable. Save, then use Connect to Target in the sidebar.
+- Close Arduino Serial Monitor and other software using that port first.
+- Reconnect USB automatically is enabled by default. The reader retries after
+  unplug/replug. When a unique USB serial identity is available, it can follow
+  that same device to a changed port name. Without one it retries the saved port.
+  It will not guess between multiple devices sharing an identity.
+- Disconnect / Cancel connection stops both a connection and a reconnect attempt.
+- The last successful connection is remembered. Use last successful connection
+  in Settings loads it for review; Save applies it to the next connection.
+- Some Arduino boards/drivers reset on opening USB. This build holds DTR/RTS
+  inactive before opening to reduce resets; wait for the target to initialize.
+- Serial input and TCP input share the same JSON framing, malformed-comma repair
+  and shot event path. Trace text is diagnostic data, not a scoring shot.
+- Both Wi-Fi station and access-point connections still use the saved TCP host.
+Only one transport is opened at a time. Commands use that same transport.
+
+USB REFERENCE
+Official freETarget Optional Serial Interfaces, Arduino USB settings:
+https://free-e-target.com/wp-content/uploads/2024/09/Optional-Interfaces.pdf
+pySerial API: https://pyserial.readthedocs.io/en/latest/pyserial_api.html
+
+SHOTS PER TARGET -- ALL SESSION TYPES
+- Settings > General includes Shots Per Target: Session default, 5, 10, Custom.
+- Custom values range from 1 to 100 for standard/practice/custom formats.
+  AP60 Match and AP40 Match retain their league's 5-or-10 restriction.
+- Set a format's default in Settings > Competition Rules > Shots Per Target.
+- The General selector overrides that default for a new round; it does not edit the
+  format's rules. Overrides are remembered per discipline and session format.
+- The selection is locked during an active round and stored with its results.
+- Free Shoot, Practice, Qualification, Final and custom sessions use the same
+  visual page behavior. Sighting pages clear at the chosen interval as well.
+- During an active round, the main target clears after a full page. All scores,
+  record-shot counts and statistics continue accumulating. Previous record
+  pages remain available in the preview, lightbox and historical main target.
+- A completed session shows its last page. History includes partial final pages.
+- Finals keep their original stage quotas and timing regardless of page size.
+- Saved sessions keep their original page size after presets/overrides change.
+
+TARGET SETTINGS / ARDUINO TERMINAL
+1. Connect to the target, then open Target Settings in the footer.
+2. Choose Get Settings. Fields remain disabled until current device values arrive.
+3. Edit Hardware or Sensors values, then Apply and review the confirmation.
+   An active session pauses before a configuration write; resume it manually.
+4. Apply waits for read-back and reports success only when values match. A
+   missing response or write error is reported without automatically repeating
+   the write. Get Settings again to inspect the device after an uncertain result.
+5. Reconnecting invalidates the form; Get Settings again before editing.
+Motor Time and Step Duration use milliseconds in the supplied firmware.
+Stepper requires positive Steps and Step Duration; DC mode clears both fields.
+Per-sensor offsets are separate from the unsupported global calibration offsets.
+Terminal commands that can change the device request confirmation and pause
+an active session. INIT resets stored configuration, including connection
+settings. ECHO and VERSION are read queries. Commands are split below the
+firmware input-buffer limit when applying multiple fields. Generic JSON accepts
+one object and plain ASCII scalar parameters; unsupported CAL/global offsets
+and unsafe firmware delimiters are rejected.
+Terminal output continues independently of the General Diagnostics preference.
+Clearing its console does not clear diagnostics or discard incoming shots.
+
+SETTINGS > GENERAL
+Custom Sidebar Logo
+- Upload a self-contained PNG, SVG or WebP up to 2 MB. The General panel shows
+  a preview and the dimensions. Reset Logo restores the freETarget wordmark.
+- The logo is remembered in this browser at this dashboard address. SVGs must
+  not contain scripts, event handlers, embedded HTML or external resources.
+- An invalid upload or failed save preserves the current logo.
+
+Enable TCP / USB Diagnostics (default on)
+- Hides/shows the Diagnostics launcher. Disabling also closes an open panel.
+- This is a display preference. The bridge connection, event polling and shot
+  registration continue. Raw display messages are not appended while hidden.
+- Clear Log & Counters now preserves unpolled shots and does not advance the
+  shot-event cursor, so clearing diagnostics cannot erase a pending shot.
+
+Ignore Misses (default off)
+- Only explicitly flagged target misses are excluded. They do not advance
+  scores, count, average, target pages or stage shot quotas.
+- Valid coordinate shots that score zero still count.
+- Changing the setting during a round applies to subsequent target shots.
+- Sessions record whether the option was used and how many record/sighting
+  misses were excluded. Turning it off later does not erase that audit flag.
+- Rules outline, log summary and History indicate use. Qualification, Final
+  and league results are marked as modified competition results.
+- Final timeouts and early-advance zero slots still count; those are stage
+  penalties, not incoming target misses filtered by this option.
+
+Show Mean Group (default off)
+- A mean-impact crosshair and subtle red dashed group circle appear on the
+  currently displayed target page, including preview, lightbox and History.
+- At least two plotted hits are required. Misses and invalid coordinates are
+  excluded; a valid zero-score impact with coordinates can still contribute.
+- The crosshair is the arithmetic mean of the page's hit coordinates.
+- The boundary is the smallest circle containing all plotted impact centers,
+  with padding to enclose the visible markers and selection halo. It is
+  separate from the mean crosshair. Two or three outer impacts determine the
+  circle; other impacts can be inside. This is a visual enclosing boundary,
+  not a confidence interval or a physical group-diameter measurement.
+- Works with pistol/rifle, zoom and page navigation. It does not alter scoring.
+All General settings are remembered between launches.
+
+RETAINED
+Shooter/Guest profiles and equipment snapshots; editable/hideable/custom formats;
+AP60 Match/AP40 Match; collapsible sidebar/panels; colors and theme; Next Stage;
+score logging/discard, New session and History; queued speech and voice selection;
+Demo Shot visibility; target zoom and previous-target lightbox.
+Original ISSF-based presets and user-supplied postal rules are unchanged.
+
+VALIDATION
+JavaScript syntax, Python compilation, launcher syntax and ZIP checks passed.
+Automated DOM and simulated-speech regression checks covered existing sessions,
+postal formats, History and all 24 Final announcement requests, plus:
+- All-mode 5/10/custom page sizes, sighting page clears and frozen history sizes.
+- Explicit-miss filtering versus valid zero scores, policy audit and Final zeros.
+- Mean-group geometry and overlay toggling without changing scores.
+- Diagnostics hidden while receiving shots; clearing with an unpolled shot.
+- USB settings, port enumeration, last successful connection and canceling retry.
+- Reload persistence of General settings, USB settings and page overrides.
+Python tests used simulated TCP/serial devices for malformed and fragmented JSON,
+trace/nested/string handling, miss-only packets, invalid numeric packets,
+missing pySerial, port validation, serial settings, unplug/reconnect with port
+renumbering, ambiguous device identity, disconnect and shared TCP ingestion.
+v1.7.5 regression checks additionally covered fixed whole-ring counts, footer
+status placement, logo validation/persistence/failure rollback/reset, collapsed
+logo visibility, real-response form population, delta writes, motor mapping,
+confirmation cancellation, read-back and stale-connection protection, plus
+independent terminal logs. All 13 Python bridge tests passed, including partial
+serial writes, command limits, password redaction and no automatic write retry.
+No physical target was available. Full browser layout and audible playback were
+not verified. Test these on your computer before relying on this build.
+
+QUICK TEST
+First confirm the existing Wi-Fi path. Set Shots Per Target to 5, use Demo Shot,
+then inspect previous targets and History. Toggle diagnostics off and confirm
+shots still arrive. Enable Show Mean Group with two or more hits on a page.
+For USB, install support once, select the port, save and connect. Fire a few
+shots; unplug/replug the cable to test recovery. Use Cancel connection to stop
+retrying. Keep Ignore Misses off while checking ordinary scoring.
+
+v1.7.5 QUICK TEST
+Try a custom logo and Reset Logo; check the sidebar in both widths/themes.
+Add decimal demo shots and inspect rings 10 through 1 and the zero-count note.
+After connecting, use Get Settings and compare values with your target. Check
+ECHO/VERSION in the terminal. Make one small intended change and confirm its
+read-back, then restore it if appropriate. Do not use INIT just to test the UI.
+
+STORAGE
+This prototype still uses browser storage at the dashboard's address for
+profiles, preferences and History. Clearing browser data removes them.
+Standalone application packaging and SQLite remain future work.

@@ -1,0 +1,14 @@
+.venv-mac*/
+.build/
+release/
+__pycache__/
+*.py[cod]
+*.sqlite3*
+*.log
+DerivedData/
+*.xcuserstate
+xcuserdata/
+.DS_Store
+*.p12
+*.mobileprovision
+SOURCE_MANIFEST.json
