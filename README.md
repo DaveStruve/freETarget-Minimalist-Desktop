@@ -1,6 +1,6 @@
 # freETarget Minimalist
 
-An independent live scoring application for freETarget Minimalist electronic targets, with a customizable scoring dashboard, shooter profiles, session history, and competition-style practice. This repository contains the Windows, macOS, and Android source projects.
+An independent live scoring application for freETarget Minimalist electronic targets, with a customizable scoring dashboard, shooter profiles, session history, and competition-style practice. **This repository now includes the Windows, macOS, and Android application source code, plus the Arduino Mega 2560 target firmware source.**
 
 ## Download and install
 
@@ -11,7 +11,7 @@ An independent live scoring application for freETarget Minimalist electronic tar
 | Windows 32-bit (x86) | Not yet published | Source and installer build scripts are available below. |
 | Android | Not yet published | Android Studio source is available below; a signed release APK has not been attached. |
 
-[View all releases and downloads](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases)
+[View all releases and downloads](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases) · [Browse Arduino Mega firmware source](firmware/arduino-mega/) · [Download firmware source ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-Fix-LED-Pin13-Source.zip)
 
 The published Windows and Mac downloads are v0.3.10-beta.1. The newer source versions listed below are already committed, but their installers and APK have not been published. GitHub's automatic **Source code** ZIP and TAR files contain source files, not ready-to-run applications.
 
@@ -44,6 +44,12 @@ The output directories shown in the last column are created **on your computer a
 - On-device profiles, guns, history, and settings.
 - Live target zoom and pan, session controls, and connection diagnostics.
 
+**Arduino Mega 2560 firmware — source now included**
+
+- The complete published Wi-Fi-fix / LED Pin 13 firmware source is available in [`firmware/arduino-mega/`](firmware/arduino-mega/), including the Arduino sketch, headers, and original package notes.
+- Includes ESP-01 Station Mode connectivity fixes, Access Point Mode support, and LED PWM set to **pin 13** rather than pin 5.
+- This is an **optional firmware update**. No compiled firmware image or new hardware-test result is included.
+
 These source changes still require platform builds and device testing before new downloads are published. Android features and limitations are documented in the [Android README](android/README.md).
 
 ## Application features
@@ -59,7 +65,7 @@ Feature availability varies by platform and version. Android is developed separa
 
 ## Source code and building
 
-The application source import is complete.
+The application and Arduino Mega firmware source imports are complete.
 
 | Project | Committed source version | Build documentation |
 | --- | --- | --- |
@@ -72,9 +78,11 @@ Build from each platform's directory to preserve the relative paths expected by 
 
 See [source provenance](docs/SOURCE_IMPORT.md), the [changelog](CHANGELOG.md), and [release instructions](docs/RELEASING.md). Committed source does not establish that a new installer has been compiled or tested.
 
-## Optional firmware
+## Arduino Mega 2560 firmware (optional)
 
-The optional Arduino Mega 2560 firmware is available both as [browsable source in this repository](firmware/arduino-mega/) and as a [downloadable firmware source ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-Fix-LED-Pin13-Source.zip). It addresses a Wi-Fi issue that **prevented Station Mode from connecting reliably** to an existing wireless network. It also includes related Wi-Fi communication and connection-handling fixes:
+The **firmware source is now part of this repository**, not just a ZIP attached to a release. Browse the [firmware project folder](firmware/arduino-mega/), open the [main Arduino sketch](firmware/arduino-mega/freETarget/freETarget.ino), or read the [firmware build and flashing guide](firmware/arduino-mega/README.md). The original [firmware source ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-Fix-LED-Pin13-Source.zip) remains available for download.
+
+This version addresses a Wi-Fi issue that **prevented Station Mode from connecting reliably** to an existing wireless network. It also includes related Wi-Fi communication and connection-handling fixes:
 
 - Improved Station Mode initialization and DHCP/IP-address handling, including waiting for complete ESP responses and verifying that a valid, nonzero IP address is assigned before starting the TCP server.
 - Corrected dropped incoming data during sends, receive-buffer overreads, incomplete ESP response/IP parsing, and Wi-Fi credential-buffer handling. The firmware retains its 16-character password limit and rejects longer passwords.
@@ -82,7 +90,7 @@ The optional Arduino Mega 2560 firmware is available both as [browsable source i
 
 The package also configures **LED PWM on pin 13**, matching the hardware wiring used for this build (rather than the original pin 5). This LED pin change is separate from the Wi-Fi fixes. A [wiring diagram](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-LED-Wiring-Diagram.jpeg) is included in the [published release](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/tag/v0.3.10-beta.1).
 
-**Firmware installation is optional.** If your target already connects and operates reliably, you can continue using your existing firmware. Check your hardware's LED pin configuration before flashing this version.
+**Firmware installation is optional.** To compile it yourself, open `firmware/arduino-mega/freETarget/freETarget.ino` in Arduino IDE and select **Arduino Mega 2560**. Verify your target's wiring, especially LED PWM pin 13, before uploading. If your target already connects and operates reliably, you can continue using your existing firmware. No precompiled HEX file is provided.
 
 ## Reporting issues
 
