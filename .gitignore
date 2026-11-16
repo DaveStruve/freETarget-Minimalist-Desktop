@@ -1,0 +1,58 @@
+# Python environments and generated files
+.venv/
+.venv-*/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Application builds and release output
+build/
+dist/
+release/
+release-x86/
+release-x64/
+releases/
+*.exe
+*.msi
+*.apk
+*.aab
+*.dmg
+*.zip
+*.tar.gz
+
+# Android / Gradle generated and local configuration
+.gradle/
+.kotlin/
+.cxx/
+.externalNativeBuild/
+local.properties
+captures/
+.idea/
+*.iml
+
+# Signing material and credentials
+*.jks
+*.keystore
+keystore.properties
+key.properties
+signing.properties
+.env
+.env.*
+!.env.example
+
+# Local editor and OS files
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local diagnostics and databases
+*.log
+*.sqlite
+*.sqlite3
+*.db
