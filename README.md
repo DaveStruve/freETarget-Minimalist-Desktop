@@ -73,7 +73,15 @@ See [source provenance](docs/SOURCE_IMPORT.md), the [changelog](CHANGELOG.md), a
 
 ## Optional firmware
 
-The [existing release](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/tag/v0.3.10-beta.1) also includes optional Arduino Mega firmware with Wi-Fi fixes and pin 13 LED PWM, plus a wiring diagram. If your target already connects reliably, start with the application and your existing firmware.
+The [optional Arduino Mega 2560 firmware source](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-Fix-LED-Pin13-Source.zip) addresses a Wi-Fi issue that **prevented Station Mode from connecting reliably** to an existing wireless network. It also includes related Wi-Fi communication and connection-handling fixes:
+
+- Improved Station Mode initialization and DHCP/IP-address handling, including waiting for complete ESP responses and verifying that a valid, nonzero IP address is assigned before starting the TCP server.
+- Corrected dropped incoming data during sends, receive-buffer overreads, incomplete ESP response/IP parsing, and Wi-Fi credential-buffer handling. The firmware retains its 16-character password limit and rejects longer passwords.
+- Preserved Access Point Mode and TCP communication on port **1090**.
+
+The package also configures **LED PWM on pin 13**, matching the hardware wiring used for this build (rather than the original pin 5). This LED pin change is separate from the Wi-Fi fixes. A [wiring diagram](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-LED-Wiring-Diagram.jpeg) is included in the [published release](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/tag/v0.3.10-beta.1).
+
+**Firmware installation is optional.** If your target already connects and operates reliably, you can continue using your existing firmware. Check your hardware's LED pin configuration before flashing this version.
 
 ## Reporting issues
 
