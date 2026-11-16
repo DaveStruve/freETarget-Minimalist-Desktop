@@ -7,6 +7,7 @@ The Windows, macOS, and Android application sources were committed to this repos
 | `desktop/windows/` | `freETarget-Minimalist-0.3.11-beta.1-Windows-x64-x86-Clean-Source (2).zip` | 0.3.11-beta.1 |
 | `desktop/macos/` | `freETarget-Minimalist-0.3.11-beta.1-macOS-Universal-BuildFix-Source 2.zip` | 0.3.11-beta.1 |
 | `android/` | `freETarget-Minimalist-Android-0.2.2-beta.1-BuildFix-Source 2.zip` | 0.2.2-beta.1 |
+| `firmware/arduino-mega/` | `freETarget_WiFi_LED_Pin13.zip` (matches published release archive size, 80,513 bytes) | Wi-Fi fixes and LED PWM pin 13 |
 
 The supplied Windows ZIP included virtual environments, build caches and release artifacts. Its **source files are byte-for-byte identical** to the separate, smaller `freETarget-Minimalist-0.3.11-beta.1-Windows-x64-x86-Clean-Source.zip` that was already available in this session; that compact copy was used to assemble `desktop/windows/` without generated files.
 
@@ -16,9 +17,9 @@ The Mac source includes experimental iOS preview files in its `ios/` subdirector
 
 ## Repository status
 
-The source projects are available under [desktop/windows/](../desktop/windows/), [desktop/macos/](../desktop/macos/), and [android/](../android/). Windows and Mac snapshots are kept separate to preserve their platform-specific differences.
+The source projects are available under [desktop/windows/](../desktop/windows/), [desktop/macos/](../desktop/macos/), [android/](../android/), and [firmware/arduino-mega/](../firmware/arduino-mega/). Windows and Mac snapshots are kept separate to preserve their platform-specific differences.
 
-Build output, installers, APKs, caches, and local configuration are excluded from the source tree. The Mac firmware reference ZIP is not committed; the existing release contains the optional firmware source.
+Build output, installers, APKs, caches, and local configuration are excluded from the source tree. The released Arduino Mega firmware source was imported into `firmware/arduino-mega/` from the 80,513-byte Wi-Fi/LED Pin 13 archive (SHA-256 `c64f189573ac67bb8662798c9d2bfdc9b146872ab00fbf7f5b78765487f83220`). Its original files were retained without changes; a new README documents building and flashing. The existing release continues to offer the original source ZIP. No new compiled firmware or hardware-test result is implied.
 
 The existing published release remains [v0.3.10-beta.1](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/tag/v0.3.10-beta.1). The committed source versions are newer than the published desktop downloads. No new release or device-test result is implied by the import.
 
