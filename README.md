@@ -15,6 +15,19 @@ An independent live scoring application for freETarget Minimalist electronic tar
 
 The published Windows and Mac downloads are v0.3.10-beta.1. The newer source versions listed below are already committed, but their installers and APK have not been published. GitHub's automatic **Source code** ZIP and TAR files contain source files, not ready-to-run applications.
 
+## Installer folders and build files
+
+These links go directly to the **installer configuration or platform build folders in this repository**. They contain source and build scripts, **not ready-to-install programs**. Use the download links above for currently published installers.
+
+| Platform | Installer / build folder | Build script or configuration | Installer output after a local build |
+| --- | --- | --- | --- |
+| Windows 64-bit (x64) | [Windows installer folder](desktop/windows/installer/) | [Build x64 installer](desktop/windows/BUILD_AND_INSTALL_X64.bat) · [x64 Inno Setup file](desktop/windows/installer/freETargetDesktop.iss) | `desktop/windows/release/installer/` |
+| Windows 32-bit (x86) | [Windows installer folder](desktop/windows/installer/) | [Build x86 installer](desktop/windows/BUILD_AND_INSTALL_X86.bat) · [x86 Inno Setup file](desktop/windows/installer/freETargetDesktop-x86.iss) | `desktop/windows/release-x86/installer/` |
+| macOS Universal | [Mac application/build folder](desktop/macos/) | [Build Mac application](desktop/macos/BUILD_MAC.command) | `desktop/macos/release/mac/` |
+| Android | [Android Studio project folder](android/) | [Android app module](android/app/) · [Gradle build configuration](android/app/build.gradle) | `android/app/build/outputs/apk/` |
+
+The output directories shown in the last column are created **on your computer after building**; they are not uploaded GitHub folders. For both Windows architectures in one run, use [BUILD_AND_INSTALL_BOTH.bat](desktop/windows/BUILD_AND_INSTALL_BOTH.bat). For installation-ready downloads, see [GitHub Releases](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases).
+
 ## What's new in the committed source
 
 **Windows and macOS — 0.3.11-beta.1**
