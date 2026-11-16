@@ -2,6 +2,8 @@
 
 ## Unreleased — source imported, 2026-11-16
 
+- Imported the published Arduino Mega Wi-Fi/LED Pin 13 firmware source into [`firmware/arduino-mega/`](firmware/arduino-mega/), including all original `.ino` and `.h` files and the original package notes. The firmware remains optional; no new HEX or hardware-test result was produced.
+
 - Committed Windows x64/x86 and macOS Universal source v0.3.11-beta.1, with build scripts, installer configurations, tests, and assets.
 - Committed Android source v0.2.2-beta.1 (versionCode 4), including Wi-Fi/TCP and USB serial connection code.
 - Updated the project and platform documentation to reflect completed source import.
