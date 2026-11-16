@@ -1,31 +1,49 @@
-# Next beta release — preparation template
+# freETarget Minimalist — next beta release template
 
-**Template only. No new release has been published by this setup change. Replace every pending item before publication.**
+**Preparation template. New installers and APK are not yet published. Complete the download and testing sections before publication.**
 
-freETarget Minimalist provides scoring software for freETarget Minimalist electronic targets, with desktop and Android applications developed in this shared project.
+## Versions
 
-## Included versions and downloads
+- Windows x64 and x86 source: **0.3.11-beta.1**.
+- macOS Universal source: **0.3.11-beta.1**.
+- Android source: **0.2.2-beta.1**, versionCode **4**.
 
-| Platform | Actual app version | Asset filename / link | Validation |
+Use the actual embedded versions of the binaries attached to the release.
+
+## Changes in the source
+
+### Desktop 0.3.11-beta.1
+
+- Small and Large sizes for all six dashboard widgets, preserving saved layout sizes.
+- Optional Start Session prompt after an idle shot. The opening stage determines whether the triggering shot is scored.
+- Mac live-target pinch zoom, drag pan, and view reset.
+- Separate Windows x64 and x86 application and installer build configurations.
+
+### Android 0.2.2-beta.1
+
+- Phone and tablet scoring layouts.
+- Wi-Fi/TCP and USB serial connection code.
+- Local profiles, guns, history, and settings.
+- Target zoom and pan, session controls, and connection diagnostics.
+
+Verify behavior against each attached build before presenting these as tested release features.
+
+## Downloads
+
+| Platform | Actual app version | Uploaded asset link | Test results |
 | --- | --- | --- | --- |
-| Windows x64 | Pending | Pending | Pending |
-| Windows x86 | Pending | Pending | Windows 10 32-bit testing pending |
-| Android | Pending | Pending signed APK | Device and Wi-Fi testing pending |
-| macOS | Pending, or link to unchanged v0.3.10-beta.1 | Pending | State whether newly tested or unchanged |
+| Windows x64 | Pending build verification | Pending | Pending |
+| Windows x86 | Pending build verification | Pending | Windows 10 32-bit testing pending |
+| macOS Universal | Pending build verification | Pending | Intel and Apple Silicon testing pending |
+| Android | Pending build verification | Pending signed APK | Wi-Fi and USB device testing pending |
 
-## Changes
+The earlier [desktop v0.3.10-beta.1 release](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/tag/v0.3.10-beta.1) remains available while these builds are prepared.
 
-- Describe application changes verified against the prior version.
-- Describe the Windows x86 build and installer addition after confirming the generated package.
-- Describe Android features and limitations based on the actual APK.
+## Installation and limitations
 
-## Installation
+Replace with instructions and limitations verified for the attached builds. Report Android foreground/disconnection behavior, USB host requirements, and actual minimum OS requirements. State untested configurations clearly.
 
-Download the installer or APK listed for your platform. Use the release's asset list for exact filenames. GitHub's automatic source archives are for developers.
-
-## Known limitations and testing
-
-Replace with the actual operating systems, devices, connection methods, and upgrade paths tested. State untested compatibility explicitly. Android currently targets Wi-Fi connectivity; do not claim USB host support without implementation and testing.
+GitHub's automatic source archives are for developers. Use the attached Setup EXEs, Mac ZIP, or signed APK to install the application.
 
 ## Credits
 

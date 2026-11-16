@@ -1,44 +1,71 @@
 # freETarget Minimalist
 
-Independent live scoring application for freETarget Minimalist electronic targets, with source projects for Windows, macOS and Android.
+An independent live scoring application for freETarget Minimalist electronic targets, with a customizable scoring dashboard, shooter profiles, session history, and competition-style practice. This repository contains the Windows, macOS, and Android source projects.
 
-## Downloads
+## Download and install
 
-Finished applications are published under [GitHub Releases](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases). GitHub's automatic source ZIP is **not** an installer.
-
-| Platform | Source version | Download status |
+| Platform | Published version | Download |
 | --- | --- | --- |
-| Windows x64 | 0.3.11-beta.1 | Source prepared; new installer build/test/upload pending. Existing 0.3.10-beta.1 Windows installer remains available. |
-| Windows x86 (32-bit) | 0.3.11-beta.1 | Source and installer scripts prepared; Windows 10 32-bit hardware validation and upload pending. |
-| macOS Universal (Intel / Apple Silicon) | 0.3.11-beta.1 | Source prepared; new universal build/test/upload pending. Existing 0.3.10-beta.1 Mac ZIP remains available. |
-| Android | 0.2.2-beta.1 (versionCode 4) | Source prepared for Android Studio; signed release APK and device testing pending. |
+| Windows | 0.3.10-beta.1 | **[Download Windows installer](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-Windows-Setup.exe)** |
+| macOS — Intel and Apple Silicon | 0.3.10-beta.1 | **[Download macOS Universal ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-macOS-Universal.zip)** |
+| Windows 32-bit (x86) | Not yet published | Source and installer build scripts are available below. |
+| Android | Not yet published | Android Studio source is available below; a signed release APK has not been attached. |
 
-The existing published release is [v0.3.10-beta.1](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/tag/v0.3.10-beta.1). No new release is implied by this source import.
+[View all releases and downloads](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases)
 
-## Features
+The published Windows and Mac downloads are v0.3.10-beta.1. The newer source versions listed below are already committed, but their installers and APK have not been published. GitHub's automatic **Source code** ZIP and TAR files contain source files, not ready-to-run applications.
 
-- Live shot scoring and recent-shot direction indicators.
-- Customizable dashboard widgets, appearance and statistics.
-- Shooter profiles with multiple firearms, logged sessions and performance comparisons.
-- Competition-style sessions using live target data.
-- Wi-Fi/TCP and USB connections on desktop. Android 0.2.2 source includes Wi-Fi/TCP and USB serial code; actual device testing remains necessary.
+## What's new in the committed source
 
-## Source layout
+**Windows and macOS — 0.3.11-beta.1**
 
-| Path | Contents |
-| --- | --- |
-| [`desktop/windows/`](desktop/windows/) | Windows 64-bit and 32-bit source, build and installer scripts. |
-| [`desktop/macos/`](desktop/macos/) | macOS universal2 source and build scripts; includes experimental iOS preview files. |
-| [`android/`](android/) | Android Studio project, Gradle wrapper, assets, Java bridge and source documentation. |
-| [`docs/SOURCE_IMPORT.md`](docs/SOURCE_IMPORT.md) | Source provenance, exclusions and validation checklist. |
-| [`docs/RELEASING.md`](docs/RELEASING.md) | Release workflow and platform testing guidance. |
+- All six dashboard widgets offer **Small** and **Large** sizes. Large is the default, and existing layouts retain their saved sizes.
+- An idle shot can prompt you to start a session. Accepting carries the shot into the session; the opening stage determines whether it is scored. The prompt can be disabled in **Settings → General**.
+- macOS adds pinch-to-zoom and drag-to-pan on the live target, with a zoom percentage control to reset the view.
+- Windows includes separate x64 and x86 application and Inno Setup installer build scripts.
 
-Each platform source is retained in its own directory, preserving its relative paths. Windows and macOS 0.3.11 application snapshots have platform-specific differences and have **not** been blindly merged.
+**Android — 0.2.2-beta.1**
+
+- Android source for phones and tablets, with layouts adapted to each screen.
+- Wi-Fi/TCP and USB serial connection code.
+- On-device profiles, guns, history, and settings.
+- Live target zoom and pan, session controls, and connection diagnostics.
+
+These source changes still require platform builds and device testing before new downloads are published. Android features and limitations are documented in the [Android README](android/README.md).
+
+## Application features
+
+- Live target display, shot scores, and recent-shot direction indicators.
+- Editable dashboard widgets, customizable appearance, and optional spoken scores.
+- Shooter profiles with multiple guns and session tracking by gun.
+- Saved sessions, statistics, and performance comparisons.
+- Competition-style practice sessions using live target data.
+- Desktop Wi-Fi/TCP and USB connectivity.
+
+Feature availability varies by platform and version. Android is developed separately; desktop feature parity is not assumed.
+
+## Source code and building
+
+The application source import is complete.
+
+| Project | Committed source version | Build documentation |
+| --- | --- | --- |
+| [Windows x64 and x86](desktop/windows/) | 0.3.11-beta.1 | [Windows build and installer instructions](desktop/windows/README_WINDOWS_BUILDS.md) |
+| [macOS Universal](desktop/macos/) | 0.3.11-beta.1 | [Mac Universal build instructions](desktop/macos/BUILD_UNIVERSAL_MAC.md) |
+| [Android](android/) | 0.2.2-beta.1 — versionCode 4 | [Android build and connection instructions](android/README.md) |
+
+Build from each platform's directory to preserve the relative paths expected by its scripts. Windows and macOS retain separate source snapshots with platform-specific changes. Experimental iOS preview files are preserved inside the Mac source; no iOS release is published here.
+
+See [source provenance](docs/SOURCE_IMPORT.md), the [changelog](CHANGELOG.md), and [release instructions](docs/RELEASING.md). Committed source does not establish that a new installer has been compiled or tested.
+
+## Optional firmware
+
+The [existing release](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/tag/v0.3.10-beta.1) also includes optional Arduino Mega firmware with Wi-Fi fixes and pin 13 LED PWM, plus a wiring diagram. If your target already connects reliably, start with the application and your existing firmware.
 
 ## Reporting issues
 
-[Open a GitHub issue](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/issues/new/choose) with the app version, operating system, connection method, reproduction steps and diagnostics (with personal information removed).
+[Open a GitHub issue](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/issues/new/choose) with the application version, operating system, connection method, steps to reproduce, and relevant diagnostics. Remove personal information from attachments.
 
 ## Credits
 
-The [original freETarget project](https://github.com/ten-point-nine/freETarget) by ten-point-nine and its contributors provided the original firmware and PC application. The [freETarget Minimalist hardware and Arduino adaptation](https://free-e-target.com/freeetarget-minimalist/) was published by [stoeckli](https://github.com/stoeckli/freETarget). Preserve the existing repository LICENSE and all platform-specific third-party notices and licenses.
+The [original freETarget project](https://github.com/ten-point-nine/freETarget) by ten-point-nine and its contributors provided the original firmware and PC application. The [freETarget Minimalist hardware and Arduino adaptation](https://free-e-target.com/freeetarget-minimalist/) was published by [stoeckli](https://github.com/stoeckli/freETarget). Preserve the existing [LICENSE](LICENSE) and all platform-specific third-party notices and licenses.

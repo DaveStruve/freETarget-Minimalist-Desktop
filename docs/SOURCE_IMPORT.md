@@ -1,6 +1,6 @@
 # Source import and provenance
 
-This import package was prepared from the three source ZIPs provided by the project owner on 2026-11-16.
+The Windows, macOS, and Android application sources were committed to this repository on 2026-11-16. The source import is complete. The imported package was prepared from the three source ZIPs supplied by the project owner.
 
 | Destination | Supplied ZIP | Version |
 | --- | --- | --- |
@@ -14,19 +14,17 @@ Excluded: `.venv*`, `.build*`, Gradle caches, IDE caches, `build/`, `release/`, 
 
 The Mac source includes experimental iOS preview files in its `ios/` subdirectory; they have been preserved but do not represent a validated or published iOS release.
 
-## Import into GitHub
+## Repository status
 
-1. Clone the repository in GitHub Desktop: `DaveStruve/freETarget-Minimalist-Desktop`.
-2. Extract the import ZIP. Copy its `desktop/`, `android/`, `docs/`, and root `README.md` into the cloned repository folder. Merge the folders; keep the existing `LICENSE`, `.github/`, and `CHANGELOG.md`.
-3. In GitHub Desktop, review the changes. The source folders should contain application code and assets, not `.venv`, `.gradle`, APKs or installers.
-4. Commit with a message such as `Import Windows, macOS and Android source projects` and click **Push origin**.
-5. Verify the source directories on GitHub. The old published release remains unchanged. Build and test before creating the next release.
+The source projects are available under [desktop/windows/](../desktop/windows/), [desktop/macos/](../desktop/macos/), and [android/](../android/). Windows and Mac snapshots are kept separate to preserve their platform-specific differences.
 
-If GitHub Desktop omits the Mac firmware reference ZIP because of the root `*.zip` ignore rule, either leave it out (the existing firmware release already carries the reference) or force-add it explicitly; do not accidentally include unrelated ZIP archives.
+Build output, installers, APKs, caches, and local configuration are excluded from the source tree. The Mac firmware reference ZIP is not committed; the existing release contains the optional firmware source.
+
+The existing published release remains [v0.3.10-beta.1](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/tag/v0.3.10-beta.1). The committed source versions are newer than the published desktop downloads. No new release or device-test result is implied by the import.
 
 ## Release readiness
 
-- [ ] Import the source to GitHub and verify source file counts.
+- [x] Commit the source to GitHub and verify the expected platform directories, application files, assets, and build configurations.
 - [ ] Run Windows x64 and x86 build scripts; test both installers, including on 32-bit Windows 10.
 - [ ] Run macOS universal2 build; test Intel and Apple Silicon, signing/notarization if required.
 - [ ] Build and sign Android APK; test Wi-Fi and USB on actual Android hardware.

@@ -1,15 +1,15 @@
-# freETarget Minimalist 0.3.10 — Universal Mac build
+# freETarget Minimalist 0.3.11 — Universal Mac build
 
 This source package prepares **one macOS application** that contains both **arm64 (Apple Silicon)** and **x86_64 (Intel)** executable slices. The app and compressed ZIP contain the same program; the ZIP is for sharing or backup.
 
 ## Build on your Mac
 
-1. Extract the updated **macOS Universal Source ZIP** to Downloads. Do not use the earlier macOS source ZIP for this build.
+1. Clone or download this repository and locate `desktop/macos/`.
 2. Install the official [macOS 64-bit universal2 Python 3.13 installer](https://www.python.org/downloads/macos/) if not already installed. The script rejects Apple Silicon-only Homebrew Python rather than silently producing a non-universal app. If prompted, install Apple's Command Line Tools with `xcode-select --install`.
-3. In Terminal, use the folder's actual name:
+3. In Terminal, change to the Mac source directory. Replace the checkout path below with the location where you saved the repository:
 
    ```bash
-   cd "$HOME/Downloads/freETarget_Minimalist_0.3.10-beta.1_macOS_Universal"
+   cd "$HOME/Downloads/freETarget-Minimalist-Desktop/desktop/macos"
    bash BUILD_MAC.command
    ```
 
@@ -22,7 +22,7 @@ The successful build creates:
 ```text
 release/mac/
   freETarget Minimalist.app
-  freETarget-Minimalist-0.3.10-beta.1-universal2.zip
+  freETarget-Minimalist-0.3.11-beta.1-universal2.zip
   BUILD_INFO.json
 ```
 
@@ -31,7 +31,7 @@ The `.app` is the program to copy into `/Applications`. The `.zip` is a distribu
 Open the output folder:
 
 ```bash
-open "$HOME/Downloads/freETarget_Minimalist_0.3.10-beta.1_macOS_Universal/release/mac"
+open "$HOME/Downloads/freETarget-Minimalist-Desktop/desktop/macos/release/mac"
 ```
 
 ## Verify the main executable
@@ -39,7 +39,7 @@ open "$HOME/Downloads/freETarget_Minimalist_0.3.10-beta.1_macOS_Universal/releas
 Run this in Terminal after a successful build:
 
 ```bash
-lipo -archs "$HOME/Downloads/freETarget_Minimalist_0.3.10-beta.1_macOS_Universal/release/mac/freETarget Minimalist.app/Contents/MacOS/freETargetMinimalist"
+lipo -archs "$HOME/Downloads/freETarget-Minimalist-Desktop/desktop/macos/release/mac/freETarget Minimalist.app/Contents/MacOS/freETargetMinimalist"
 ```
 
 It should print **`x86_64 arm64`** (order may differ). The build script additionally verifies all collected Mach-O files, not just the main executable. If a dependency lacks either slice, the build fails rather than claiming universal compatibility.
@@ -51,7 +51,7 @@ It should print **`x86_64 arm64`** (order may differ). The build script addition
 - Saved shooter/gun/session data remains under `~/Library/Application Support/freETarget/DesktopBeta`. Back up records before upgrading.
 - To build only for your current Mac's CPU instead, use `bash BUILD_MAC_NATIVE.command`. That build's ZIP ends in `-arm64.zip` or `-x86_64.zip`.
 
-**Important:** This source ZIP does not contain a compiled `.app`. The build must be run on macOS. Universal build logic and portable tests were checked in the development environment; a real macOS build and Intel/Apple Silicon acceptance tests are still required.
+**Important:** This source directory does not contain a compiled `.app`. The build must be run on macOS. Universal build logic and portable tests were checked in the development environment; a real macOS build and Intel/Apple Silicon acceptance tests are still required.
 
 ## Interpreter override (optional)
 

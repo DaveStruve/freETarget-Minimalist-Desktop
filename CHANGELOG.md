@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased — source imported, 2026-11-16
+
+- Committed Windows x64/x86 and macOS Universal source v0.3.11-beta.1, with build scripts, installer configurations, tests, and assets.
+- Committed Android source v0.2.2-beta.1 (versionCode 4), including Wi-Fi/TCP and USB serial connection code.
+- Updated the project and platform documentation to reflect completed source import.
+- Added direct links to the published Windows installer and macOS Universal ZIP.
+- Documented the newer desktop source changes: Small/Large widget sizes, the idle-shot session prompt, and Mac target zoom/pan.
+
+Published desktop downloads remain v0.3.10-beta.1. No new installer, APK, release tag, or device-testing result is implied by this documentation update.
+
 ## Unreleased — repository setup
 
 - Expanded the project README to cover Windows x64, Windows x86, macOS, and Android.
@@ -8,7 +18,7 @@
 - Added ignore rules for generated output, local configuration, signing material, and common data files.
 - Added bug report and pull request templates.
 
-Application source import, builds, hardware testing, and new release assets remain pending. This setup change does not change the application or publish a new version.
+The repository setup was followed by the application source import recorded above. New builds, hardware testing, and release assets remain pending.
 
 ## Desktop 0.3.10-beta.1
 

@@ -1,10 +1,32 @@
-# freETarget Minimalist — Desktop source
+# freETarget Minimalist — Desktop
 
-Both desktop source snapshots are **0.3.11-beta.1**, retained separately to avoid overwriting platform-specific application and UI differences.
+Windows and macOS source version **0.3.11-beta.1** is committed in this repository. Each platform retains its own source snapshot and build configuration.
 
-- `windows/`: Windows x64 and x86 Python/WebView source, tests, PyInstaller and Inno Setup scripts. Start with `README_WINDOWS_BUILDS.md` and `BUILD_AND_INSTALL_BOTH.bat`.
-- `macos/`: macOS Intel + Apple Silicon universal2 source, tests, build scripts, and bundled iOS preview source. Start with `BUILD_UNIVERSAL_MAC.md` and `BUILD_MAC.command`.
+## Published downloads
 
-**Build from the platform folder**: scripts assume `app/`, `tools/`, and other folders are next to them. These are source files, not compiled installers. Hardware testing, Apple signing/notarization, and release builds remain pending.
+| Platform | Version | Download |
+| --- | --- | --- |
+| Windows | 0.3.10-beta.1 | [Windows installer](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-Windows-Setup.exe) |
+| macOS Universal | 0.3.10-beta.1 | [Mac ZIP — Intel and Apple Silicon](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-macOS-Universal.zip) |
 
-Some upstream READMEs retain historical version text; `app/version.py`, the 0.3.11 release notes, and current build scripts are the more recent version references. Keep both desktop copies until a separately tested shared-code merge is done.
+New v0.3.11-beta.1 installers and a separate Windows x86 download have not yet been published.
+
+## Building the current source
+
+| Folder | Includes | Start here |
+| --- | --- | --- |
+| [windows/](windows/) | Python/WebView application, tests, PyInstaller build, x64/x86 Inno Setup configurations | [Windows builds](windows/README_WINDOWS_BUILDS.md); `BUILD_AND_INSTALL_BOTH.bat` builds both architectures |
+| [macos/](macos/) | Universal2 application source, tests, build scripts, experimental iOS preview source | [Mac Universal build](macos/BUILD_UNIVERSAL_MAC.md); `BUILD_MAC.command` |
+
+Run builds from the platform folder: scripts expect `app/`, `tools/`, and assets beside them.
+
+## Changes in 0.3.11-beta.1
+
+- Small and Large sizes for all six widgets, retaining saved layout sizes.
+- An optional start-session prompt after an idle shot, with scoring determined by the opening stage.
+- Mac live-target pinch zoom, drag pan, and view reset.
+- Separate Windows x64/x86 application and installer build paths.
+
+See the [Windows release notes](windows/RELEASE_NOTES_0.3.11.md) and [Mac release notes](macos/RELEASE_NOTES_0.3.11.md). Native packaging and physical-device testing remain to be completed for the next release.
+
+Windows and Mac snapshots have platform-specific differences. Keep them separate until a shared-source merge is reviewed and tested. Historical release notes describe their original versions.
