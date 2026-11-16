@@ -66,6 +66,7 @@ The application source import is complete.
 | [Windows x64 and x86](desktop/windows/) | 0.3.11-beta.1 | [Windows build and installer instructions](desktop/windows/README_WINDOWS_BUILDS.md) |
 | [macOS Universal](desktop/macos/) | 0.3.11-beta.1 | [Mac Universal build instructions](desktop/macos/BUILD_UNIVERSAL_MAC.md) |
 | [Android](android/) | 0.2.2-beta.1 — versionCode 4 | [Android build and connection instructions](android/README.md) |
+| [Arduino Mega firmware](firmware/arduino-mega/) | Wi-Fi fixes / LED PWM pin 13 | [Firmware build and flashing instructions](firmware/arduino-mega/README.md) |
 
 Build from each platform's directory to preserve the relative paths expected by its scripts. Windows and macOS retain separate source snapshots with platform-specific changes. Experimental iOS preview files are preserved inside the Mac source; no iOS release is published here.
 
@@ -73,7 +74,7 @@ See [source provenance](docs/SOURCE_IMPORT.md), the [changelog](CHANGELOG.md), a
 
 ## Optional firmware
 
-The [optional Arduino Mega 2560 firmware source](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-Fix-LED-Pin13-Source.zip) addresses a Wi-Fi issue that **prevented Station Mode from connecting reliably** to an existing wireless network. It also includes related Wi-Fi communication and connection-handling fixes:
+The optional Arduino Mega 2560 firmware is available both as [browsable source in this repository](firmware/arduino-mega/) and as a [downloadable firmware source ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-Fix-LED-Pin13-Source.zip). It addresses a Wi-Fi issue that **prevented Station Mode from connecting reliably** to an existing wireless network. It also includes related Wi-Fi communication and connection-handling fixes:
 
 - Improved Station Mode initialization and DHCP/IP-address handling, including waiting for complete ESP responses and verifying that a valid, nonzero IP address is assigned before starting the TCP server.
 - Corrected dropped incoming data during sends, receive-buffer overreads, incomplete ESP response/IP parsing, and Wi-Fi credential-buffer handling. The firmware retains its 16-character password limit and rejects longer passwords.
