@@ -12,11 +12,60 @@ Android source preview based on the iPhone and iPad 0.2.5 scoring interface. The
 
 Phones request portrait and use the top Dashboard and bottom icon navigation. Tablets use a left sidebar, may rotate, and remember widget sizes separately in portrait and landscape. On phones the top bar includes Play/Pause, Next Stage and Log. Pinch on the main target to zoom, then drag with one finger to pan. The target overlays fade after shots if enabled in Settings → Appearance. Tablets fit Previous Target to its content in landscape. The target connection settings offer Station and Access Point modes USB serial, and connection diagnostics. The optional prompt to start a session after a detected shot is under **Settings → General**. Accepting the prompt carries that shot to the target and scores it only if the opening stage accepts shots.
 
-## First connection
+## Wi-Fi connection setup (first connection)
 
-1. Join the same Wi-Fi network as the freETarget. To use target access-point mode, join the target’s Wi-Fi network directly.
-2. Open **Settings → Connection**. For Station mode enter the target IP and TCP port, usually **1090**. Access Point mode uses **192.168.10.9:1090**.
-3. Save, then tap **Connect Target**. Confirm the status turns green and scores arrive. Log a session under a named shooter, then reopen the app to check History. Check that unplugging or turning off the target leaves a clear disconnected status.
+The Android app connects **to the target**, not to the router on the target's behalf. Selecting **Station Mode** or **Access Point Mode** in the app changes the address the app connects to; **it does not change the target's firmware Wi-Fi mode or network credentials**. The target must already be operating in the matching mode.
+
+Both modes use **Settings → Connection → Connection method: Wi-Fi / TCP** in the Android app.
+
+### Option A — Access Point Mode (direct connection, no router)
+
+Use this when you want your phone or tablet to connect directly to the freETarget, including where no home/club Wi-Fi is available.
+
+1. Power on the freETarget and wait for its Wi-Fi module to initialize. On the Arduino Mega firmware included in this repository, an **empty** `WIFI_SSID` setting enables Access Point Mode. If the target was previously configured for Station Mode, see **Changing the target's Wi-Fi configuration** below.
+2. On your Android device, open **Android Settings → Wi-Fi** and join the target's network. With the included firmware its name is **`FET-<target name>`** (for example, `FET-TARGET`). The included firmware configures this as an **open network (no Wi-Fi password)**; other firmware builds may differ.
+3. Android may warn that this Wi-Fi network **has no internet access**. Choose to stay connected / use the network anyway if prompted. The target's Wi-Fi is for scoring, not internet browsing.
+4. Open freETarget Minimalist → **Settings → Connection**. Choose **Wi-Fi / TCP**, then **Access Point Mode**. The app automatically sets and locks **Target IP: `192.168.10.9`** and **TCP port: `1090`**.
+5. Tap **Save connection**, return to the dashboard, and tap **Connect Target**. Confirm that the app reports a connection and receives live shots.
+
+### Option B — Station Mode (existing home or club Wi-Fi)
+
+Use this when the target and your Android device should share an existing wireless network.
+
+1. **First configure the target itself** to join your router's Wi-Fi (see below). With the included ESP-01 firmware, use a compatible **2.4 GHz** network. Power-cycle the target after saving its network credentials.
+2. Connect the Android device to the **same local network** as the target. Avoid guest networks or router settings that isolate wireless devices from one another.
+3. Find the target's **assigned IP address**. It comes from your router's DHCP server and is **not necessarily `192.168.10.9`**. Check the router's connected-device/DHCP list, or view the target's USB serial startup output; the included firmware reports `[WIFI] STA IP <address>:1090` when it joins successfully.
+4. Open freETarget Minimalist → **Settings → Connection**. Choose **Wi-Fi / TCP**, then **Station Mode**. Enter the target's assigned **IP address** and **TCP port `1090`**.
+5. Tap **Save connection**, then **Connect Target** on the dashboard. Confirm that the connection succeeds and shots appear.
+
+### Changing the target's Wi-Fi configuration
+
+**These steps apply to the Arduino Mega / ESP-01 firmware source included in this repository**, not necessarily to other freETarget firmware variants. The current Android beta does **not** provide target-side Wi-Fi credential editing. Use a computer connected to the target's USB serial interface and a compatible serial terminal (115200 baud), or another tool that can send configuration JSON to the target.
+
+To make the target join an existing Wi-Fi network (**Station Mode**), send a JSON configuration command, replacing the example values:
+
+```json
+{"WIFI_SSID":"YourNetworkName","WIFI_PWD":"YourWiFiPassword"}
+```
+
+The included firmware stores these settings and uses them when Wi-Fi initializes. **SSID is limited to 32 characters and the Wi-Fi password to 16 characters** in this firmware; unsupported characters/escapes are rejected. If your normal network password is longer, use a separate compatible 2.4 GHz network rather than assuming it will work.
+
+To return the target to its own Wi-Fi network (**Access Point Mode**), clear its saved SSID:
+
+```json
+{"WIFI_SSID":""}
+```
+
+**Power-cycle the target after either change.** Clearing the SSID selects Access Point Mode; it does not erase the previously stored password. The app's mode selection alone will not switch the target.
+
+### Connection troubleshooting
+
+- **Access Point:** Verify Android is actually connected to the `FET-` network, and choose **stay connected** if Android flags it as having no internet. Use `192.168.10.9:1090`.
+- **Station:** Verify the target joined the router, check its **current** DHCP IP, and confirm both devices are on the same reachable local network. Use the target's assigned IP, not the Access Point default.
+- **Either mode:** Check target power and Wi-Fi startup, TCP port **1090**, and the app's **Settings → Connection → Enable Wi-Fi / USB Diagnostics** option. Try **Use last successful connection** if you previously connected successfully.
+- After connecting, log a session under a shooter and reopen **History** to confirm it was saved. Disconnect or power off the target to verify the app reports disconnection.
+
+**Testing note:** The Android APK has been tested in an emulator. Wi-Fi communication with a physical freETarget and behavior on a real Android phone/tablet have not yet been validated.
 
 ## USB serial
 
