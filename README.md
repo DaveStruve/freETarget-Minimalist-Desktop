@@ -6,31 +6,27 @@ An independent live scoring application for freETarget Minimalist electronic tar
 
 **Just want to use the program? Choose your device below.** These links download the actual application files directly. You do **not** need to understand GitHub, click the green **Code** button, or download a **Source code** ZIP.
 
-### [Download for Windows (64-bit) — Setup.exe](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETargetMinimalist-0.3.11-beta.1-Windows-x64-Setup.exe)
+### [Download Windows 64-bit (x64) installer — .exe](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETargetMinimalist-0.3.11-beta.1-Windows-x64-Setup.exe)
 
+**Windows 10 / 11 (64-bit) · v0.3.11-beta.1** — Download the installer and run it.
 
-**Windows 10 / 11 · v0.3.11-beta.1** — Download the `.exe` installer, open it, and follow the installation prompts.
+### [Download Windows 32-bit (x86) installer — .exe](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETargetMinimalist-0.3.11-beta.1-Windows-x86-Setup.exe)
 
-### [Download for Windows (32-bit) — Setup.exe](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETargetMinimalist-0.3.11-beta.1-Windows-x86-Setup.exe)
+**Windows 10 (32-bit) · v0.3.11-beta.1** — Download the installer and run it.
 
+### [Download Mac (Intel or Apple Silicon) — Universal ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-0.3.11-beta.1-macOS-Universal.zip)
 
+**macOS 13 Ventura or later · v0.3.11-beta.1** — Download the ZIP, extract it, and open the application.
 
-**Windows 10 / 11 · v0.3.11-beta.1** — Download the `.exe` installer, open it, and follow the installation prompts.
+### [Download Android (phone or tablet) — APK](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)
 
-### [Download for Mac (Intel or Apple Silicon) — Universal ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-0.3.11-beta.1-macOS-Universal.zip)
-
-
-**macOS · v0.3.11-beta.1** — Download the ZIP, extract it, and open the included application.
-
-### [Download for Android (phone or tablet) — APK](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)
-
-**Android 11 or later · v0.2.2-beta.1** — Download the APK on your device, open it, and follow Android's installation prompts. Android may ask you to allow installation from your browser or file manager. **This beta has been tested in an emulator; physical-device testing is still pending.**
+**Android 11 or later · v0.2.2-beta.1** — Download the APK on your device and follow Android's installation prompts. Android may ask you to allow installation from your browser or file manager. **This beta has been tested in an emulator; physical-device testing is still pending.**
 
 **After installing:** See the **[Wi-Fi setup guide for Windows, Mac, and Android](docs/WIFI_SETUP.md)** to connect to your freETarget in Access Point or Station Mode.
 
-[See all published downloads and older versions](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases) · [Optional Arduino firmware source](firmware/arduino-mega/)
+[See the current v0.3.11 release and all its assets](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/tag/v0.3.11-beta.1) · [View all releases](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases) · [Optional Arduino firmware source](firmware/arduino-mega/)
 
-> **For developers:** The folders and automatic **Source code** ZIP/TAR downloads contain source code, **not installers**. Build instructions and the latest committed source versions are farther down this page. Windows and macOS v0.3.11-beta.1 source changes have not yet been released as new installers.
+> **For developers:** GitHub's automatic **Source code** ZIP/TAR downloads contain source code, **not installers**. Build instructions are farther down this page. Windows x64, Windows x86, and macOS v0.3.11-beta.1 installers are now published.
 
 ## Connect to your target over Wi-Fi (Windows, macOS, Android)
 
@@ -72,7 +68,7 @@ freETarget Minimalist supports **two Wi-Fi connection modes on Windows, macOS, a
 - Includes ESP-01 Station Mode connectivity fixes, Access Point Mode support, and LED PWM set to **pin 13** rather than pin 5.
 - This is an **optional firmware update**. No compiled firmware image or new hardware-test result is included.
 
-The Android APK has been **tested successfully in an Android emulator** by the project maintainer. Testing on a physical Android phone or tablet—including real-target Wi-Fi and USB connectivity—is still pending. Desktop feature parity is not assumed. The newer desktop source changes still require platform builds and testing before updated desktop installers are published. Android features and limitations are documented in the [Android README](android/README.md).
+The Android APK has been **tested successfully in an Android emulator** by the project maintainer. Testing on a physical Android phone or tablet—including real-target Wi-Fi and USB connectivity—is still pending. Desktop feature parity is not assumed. The Windows x64, Windows x86, and macOS v0.3.11-beta.1 installers have been published; additional hardware testing may still be needed. Android features and limitations are documented in the [Android README](android/README.md).
 
 ## Application features
 
@@ -115,7 +111,7 @@ The output directories shown in the last column are created **on your computer a
 
 ## Arduino Mega 2560 firmware (optional)
 
-The **firmware source is now part of this repository**, not just a ZIP attached to a release. Browse the [firmware project folder](firmware/arduino-mega/), open the [main Arduino sketch](firmware/arduino-mega/freETarget/freETarget.ino), or read the [firmware build and flashing guide](firmware/arduino-mega/README.md). The original [firmware source ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-Fix-LED-Pin13-Source.zip) remains available for download.
+The **firmware source is now part of this repository**, not just a ZIP attached to a release. Browse the [firmware project folder](firmware/arduino-mega/), open the [main Arduino sketch](firmware/arduino-mega/freETarget/freETarget.ino), or read the [firmware build and flashing guide](firmware/arduino-mega/README.md). The published [firmware source ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-Fix-LED-Pin13-Source.zip) remains available for download.
 
 This version addresses a Wi-Fi issue that **prevented Station Mode from connecting reliably** to an existing wireless network. It also includes related Wi-Fi communication and connection-handling fixes:
 
@@ -123,7 +119,7 @@ This version addresses a Wi-Fi issue that **prevented Station Mode from connecti
 - Corrected dropped incoming data during sends, receive-buffer overreads, incomplete ESP response/IP parsing, and Wi-Fi credential-buffer handling. The firmware retains its 16-character password limit and rejects longer passwords.
 - Preserved Access Point Mode and TCP communication on port **1090**.
 
-The package also configures **LED PWM on pin 13**, matching the hardware wiring used for this build (rather than the original pin 5). This LED pin change is separate from the Wi-Fi fixes. A [wiring diagram](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-LED-Wiring-Diagram.jpeg) is included in the [published release](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/tag/v0.3.10-beta.1).
+The package also configures **LED PWM on pin 13**, matching the hardware wiring used for this build (rather than the original pin 5). This LED pin change is separate from the Wi-Fi fixes. A [wiring diagram](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-LED-Wiring-Diagram.jpeg) is included in the [published release](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/tag/v0.3.11-beta.1).
 
 **Firmware installation is optional.** To compile it yourself, open `firmware/arduino-mega/freETarget/freETarget.ino` in Arduino IDE and select **Arduino Mega 2560**. Verify your target's wiring, especially LED PWM pin 13, before uploading. If your target already connects and operates reliably, you can continue using your existing firmware. No precompiled HEX file is provided.
 
