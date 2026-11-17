@@ -26,8 +26,6 @@ An independent live scoring application for freETarget Minimalist electronic tar
 
 **Android 11 or later · v0.2.2-beta.1** — Download the APK on your device, open it, and follow Android's installation prompts. Android may ask you to allow installation from your browser or file manager. **This beta has been tested in an emulator; physical-device testing is still pending.**
 
-**Need Windows 32-bit (x86)?** A 32-bit installer has **not** been published yet. The available Windows installer is for 64-bit PCs.
-
 **After installing:** See the **[Wi-Fi setup guide for Windows, Mac, and Android](docs/WIFI_SETUP.md)** to connect to your freETarget in Access Point or Station Mode.
 
 [See all published downloads and older versions](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases) · [Optional Arduino firmware source](firmware/arduino-mega/)
