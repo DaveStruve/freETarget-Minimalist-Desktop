@@ -22,7 +22,7 @@ An independent live scoring application for freETarget Minimalist electronic tar
 
 **macOS · v0.3.11-beta.1** — Download the ZIP, extract it, and open the included application.
 
-### [Download for Android (phone or tablet) — APK](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)
+### [Download for Android (phone or tablet) — APK](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)
 
 **Android 11 or later · v0.2.2-beta.1** — Download the APK on your device, open it, and follow Android's installation prompts. Android may ask you to allow installation from your browser or file manager. **This beta has been tested in an emulator; physical-device testing is still pending.**
 
