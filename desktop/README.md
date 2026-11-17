@@ -11,6 +11,12 @@ Windows and macOS source version **0.3.11-beta.1** is committed in this reposito
 
 New v0.3.11-beta.1 installers and a separate Windows x86 download have not yet been published.
 
+## Connecting to a target over Wi-Fi
+
+Both **Windows and macOS** support **Access Point Mode** (connect your computer directly to the target's `FET-` Wi-Fi network at `192.168.10.9:1090`) and **Station Mode** (connect through your existing Wi-Fi using the target's router-assigned IP on port `1090`). Select the mode under **Settings → Connection → Wi-Fi / TCP**. Selecting a mode in the app does **not** reconfigure the target's firmware.
+
+See the **[cross-platform Wi-Fi setup guide](../docs/WIFI_SETUP.md)** for step-by-step setup, target-side configuration via Arduino Terminal, and troubleshooting. The same guide also covers Android.
+
 ## Building the current source
 
 | Folder | Includes | Start here |
