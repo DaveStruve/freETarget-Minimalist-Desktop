@@ -15,6 +15,8 @@ An independent live scoring application for freETarget Minimalist electronic tar
 
 Windows and macOS installers are published as v0.3.10-beta.1, and the Android v0.2.2-beta.1 APK is attached to that same GitHub release. Newer Windows and macOS source versions listed below are committed, but updated desktop installers have not yet been published. GitHub's automatic **Source code** ZIP and TAR files contain source files, not ready-to-run applications.
 
+**Connecting Android over Wi-Fi?** See the [step-by-step Access Point and Station Mode setup guide](android/README.md#wi-fi-connection-setup-first-connection). Access Point connects your phone directly to the target at `192.168.10.9:1090`; Station Mode connects through your existing network using the target's assigned IP address on port `1090`. Selecting a mode in the app does not reconfigure the target firmware.
+
 ## Installer folders and build files
 
 These links go directly to the **installer configuration or platform build folders in this repository**. They contain source and build scripts, **not ready-to-install programs**. Use the download links above for currently published installers.
