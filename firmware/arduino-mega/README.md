@@ -10,6 +10,12 @@ published [Wi-Fi Fix / LED Pin 13 source archive](https://github.com/DaveStruve/
 - Access Point Mode and TCP port 1090 support.
 - LED PWM pin configured to **13** in `freETarget/analog_io.h`, not the original pin 5.
 
+## Wi-Fi configuration (all client devices)
+
+The same target firmware supports **Access Point Mode** (the target broadcasts its own `FET-` network at `192.168.10.9:1090`) and **Station Mode** (the target joins an existing Wi-Fi network and receives an IP from the router; TCP port `1090`). The app's AP/Station choice does not modify the firmware configuration.
+
+See the **[Wi-Fi setup guide for Windows, macOS, and Android](../../docs/WIFI_SETUP.md)** for commands to switch target modes, client setup steps, and troubleshooting.
+
 ## Build and flash
 
 Open [`freETarget/freETarget.ino`](freETarget/freETarget.ino) in Arduino IDE.
