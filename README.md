@@ -6,13 +6,21 @@ An independent live scoring application for freETarget Minimalist electronic tar
 
 **Just want to use the program? Choose your device below.** These links download the actual application files directly. You do **not** need to understand GitHub, click the green **Code** button, or download a **Source code** ZIP.
 
-### [Download for Windows (64-bit) — Setup.exe](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-Windows-Setup.exe)
+### [Download for Windows (64-bit) — Setup.exe](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETargetMinimalist-0.3.11-beta.1-Windows-x64-Setup.exe)
 
-**Windows 10 / 11 · v0.3.10-beta.1** — Download the `.exe` installer, open it, and follow the installation prompts.
 
-### [Download for Mac (Intel or Apple Silicon) — Universal ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-macOS-Universal.zip)
+**Windows 10 / 11 · v0.3.11-beta.1** — Download the `.exe` installer, open it, and follow the installation prompts.
 
-**macOS · v0.3.10-beta.1** — Download the ZIP, extract it, and open the included application.
+### [Download for Windows (32-bit) — Setup.exe](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETargetMinimalist-0.3.11-beta.1-Windows-x86-Setup.exe)
+
+
+
+**Windows 10 / 11 · v0.3.11-beta.1** — Download the `.exe` installer, open it, and follow the installation prompts.
+
+### [Download for Mac (Intel or Apple Silicon) — Universal ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-0.3.11-beta.1-macOS-Universal.zip)
+
+
+**macOS · v0.3.11-beta.1** — Download the ZIP, extract it, and open the included application.
 
 ### [Download for Android (phone or tablet) — APK](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)
 
