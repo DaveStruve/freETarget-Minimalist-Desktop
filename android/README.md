@@ -4,7 +4,7 @@ The Android app connects directly to the target via Wi-Fi/TCP or USB serial and 
 
 ## Download and install the Android app
 
-**[Download freETarget Minimalist Android v0.2.2-beta.1 (.apk)](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)**
+**[Download freETarget Minimalist Android v0.2.2-beta.1 (.apk)](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)**
 
 This is the **ready-to-install Android APK**. You do **not** need Android Studio or the repository source code. On your Android 11+ phone or tablet, open the downloaded APK and follow the installation prompts. Android may ask you to allow installation from the browser or file manager. The APK has passed emulator testing; testing on physical devices is still pending.
 
@@ -92,7 +92,7 @@ The build uses [usb-serial-for-android](https://github.com/mik3y/usb-serial-for-
 - The app disconnects when it leaves the foreground. Reconnect when you return.
 - The preview focuses on receiving live scores over Wi-Fi and USB. Target settings editing, the Arduino terminal, custom logo uploads, and Files backup import/export are outside this preview.
 - Profiles and logged results stay on the installed device. Uninstalling or clearing app data removes them.
-- **Testing status:** The project maintainer has successfully tested the compiled Android APK in an Android emulator. Testing on a physical Android phone or tablet is still pending; real-target Wi-Fi/TCP and USB serial connectivity, permissions, audio, and device-specific behavior should be checked on hardware. Keep Android System WebView up to date. The APK is published under [GitHub Releases](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk) as **freETarget-Minimalist-Android-0.2.2-beta.1.apk**. Signing status has not been independently verified.
+- **Testing status:** The project maintainer has successfully tested the compiled Android APK in an Android emulator. Testing on a physical Android phone or tablet is still pending; real-target Wi-Fi/TCP and USB serial connectivity, permissions, audio, and device-specific behavior should be checked on hardware. Keep Android System WebView up to date. The APK is published under [GitHub Releases](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk) as **freETarget-Minimalist-Android-0.2.2-beta.1.apk**. Signing status has not been independently verified.
 
 ## Credits
 
