@@ -1,8 +1,16 @@
 # freETarget Minimalist Android 0.2.2-beta.1 (version code 4)
 
-Android source preview based on the iPhone and iPad 0.2.5 scoring interface. The Android app talks directly to the target via Wi-Fi/TCP or USB serial and stores profiles, guns, history and settings on the device.
+The Android app connects directly to the target via Wi-Fi/TCP or USB serial and stores profiles, guns, history and settings on the device.
 
-## Build and install
+## Download and install the Android app
+
+**[Download freETarget Minimalist Android v0.2.2-beta.1 (.apk)](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)**
+
+This is the **ready-to-install Android APK**. You do **not** need Android Studio or the repository source code. On your Android 11+ phone or tablet, open the downloaded APK and follow the installation prompts. Android may ask you to allow installation from the browser or file manager. The APK has passed emulator testing; testing on physical devices is still pending.
+
+To connect to a target, follow the [Wi-Fi setup guide for all platforms](../docs/WIFI_SETUP.md).
+
+## Build from source (developers only)
 
 1. Clone or download this repository and open its `android/` folder in Android Studio.
 2. The build declares JDK 17, Android SDK Platform 35, Android Gradle Plugin 8.7.3, and Android 11 or later (minSdk 30). The package's build instructions specify Gradle 8.9, but the committed wrapper currently requests Gradle 9.9.0. That configuration discrepancy still needs to be resolved before treating wrapper builds as verified.
