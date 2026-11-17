@@ -12,6 +12,10 @@ Android source preview based on the iPhone and iPad 0.2.5 scoring interface. The
 
 Phones request portrait and use the top Dashboard and bottom icon navigation. Tablets use a left sidebar, may rotate, and remember widget sizes separately in portrait and landscape. On phones the top bar includes Play/Pause, Next Stage and Log. Pinch on the main target to zoom, then drag with one finger to pan. The target overlays fade after shots if enabled in Settings → Appearance. Tablets fit Previous Target to its content in landscape. The target connection settings offer Station and Access Point modes USB serial, and connection diagnostics. The optional prompt to start a session after a detected shot is under **Settings → General**. Accepting the prompt carries that shot to the target and scores it only if the opening stage accepts shots.
 
+## Wi-Fi connection guides
+
+The **[shared Wi-Fi setup guide for Windows, macOS, and Android](../docs/WIFI_SETUP.md)** is the main reference for Access Point vs Station Mode, target-side Wi-Fi configuration, and troubleshooting. The steps below focus on the **Android-specific controls**.
+
 ## Wi-Fi connection setup (first connection)
 
 The Android app connects **to the target**, not to the router on the target's behalf. Selecting **Station Mode** or **Access Point Mode** in the app changes the address the app connects to; **it does not change the target's firmware Wi-Fi mode or network credentials**. The target must already be operating in the matching mode.
