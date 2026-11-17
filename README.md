@@ -15,7 +15,23 @@ An independent live scoring application for freETarget Minimalist electronic tar
 
 Windows and macOS installers are published as v0.3.10-beta.1, and the Android v0.2.2-beta.1 APK is attached to that same GitHub release. Newer Windows and macOS source versions listed below are committed, but updated desktop installers have not yet been published. GitHub's automatic **Source code** ZIP and TAR files contain source files, not ready-to-run applications.
 
-**Connecting Android over Wi-Fi?** See the [step-by-step Access Point and Station Mode setup guide](android/README.md#wi-fi-connection-setup-first-connection). Access Point connects your phone directly to the target at `192.168.10.9:1090`; Station Mode connects through your existing network using the target's assigned IP address on port `1090`. Selecting a mode in the app does not reconfigure the target firmware.
+## Connect to your target over Wi-Fi (Windows, macOS, Android)
+
+freETarget Minimalist supports **two Wi-Fi connection modes on Windows, macOS, and Android**:
+
+| | Access Point Mode | Station Mode |
+| --- | --- | --- |
+| **Network** | The **target creates its own Wi-Fi network**; connect your computer/phone directly to it. No router needed. | The **target joins your home or club Wi-Fi network**; your computer/phone must be on the same reachable network. |
+| **Target IP** | **`192.168.10.9`** with the included firmware | **Assigned by your router**; find the target's current IP |
+| **TCP port** | **`1090`** | **`1090`** |
+
+**Access Point — quick setup:** Turn on the target in AP Mode, join its **`FET-` Wi-Fi network** from your Windows/Mac/Android system Wi-Fi settings, then open **Settings → Connection → Wi-Fi / TCP → Access Point Mode** in freETarget Minimalist. Save and select **Connect Target**. The included firmware's AP network has no password; your device may warn that it has no internet.
+
+**Station — quick setup:** First configure the **target itself** with your existing Wi-Fi SSID and password. Restart the target, find its **router-assigned IP address**, and connect your Windows/Mac/Android device to the same local network. In freETarget Minimalist, open **Settings → Connection → Wi-Fi / TCP → Station Mode**, enter the target's IP and port **1090**, save, and select **Connect Target**.
+
+**Important:** Choosing AP or Station in the **app does not change the target's Wi-Fi mode or credentials**. You must configure the target separately when switching modes. Windows/macOS provide an **Arduino Terminal** for target commands; the Android beta requires target configuration from a computer or compatible serial terminal.
+
+**[Read the full cross-platform Wi-Fi setup guide](docs/WIFI_SETUP.md)** for target configuration commands, finding the Station IP, switching modes, and troubleshooting. The guide covers **Windows, macOS, and Android**, with platform-specific notes.
 
 ## Installer folders and build files
 
