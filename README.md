@@ -50,7 +50,7 @@ The output directories shown in the last column are created **on your computer a
 - Includes ESP-01 Station Mode connectivity fixes, Access Point Mode support, and LED PWM set to **pin 13** rather than pin 5.
 - This is an **optional firmware update**. No compiled firmware image or new hardware-test result is included.
 
-The Android APK is available for download, but physical-device testing and feature parity with desktop have not been verified. The newer desktop source changes still require platform builds and testing before updated desktop installers are published. Android features and limitations are documented in the [Android README](android/README.md).
+The Android APK has been **tested successfully in an Android emulator** by the project maintainer. Testing on a physical Android phone or tablet—including real-target Wi-Fi and USB connectivity—is still pending. Desktop feature parity is not assumed. The newer desktop source changes still require platform builds and testing before updated desktop installers are published. Android features and limitations are documented in the [Android README](android/README.md).
 
 ## Application features
 
