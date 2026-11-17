@@ -31,7 +31,7 @@ The build uses [usb-serial-for-android](https://github.com/mik3y/usb-serial-for-
 - The app disconnects when it leaves the foreground. Reconnect when you return.
 - The preview focuses on receiving live scores over Wi-Fi and USB. Target settings editing, the Arduino terminal, custom logo uploads, and Files backup import/export are outside this preview.
 - Profiles and logged results stay on the installed device. Uninstalling or clearing app data removes them.
-- The JavaScript adapter and shared mobile interface were checked locally. An Android Studio build and phone/tablet layout, audio, and physical-device Wi-Fi and USB tests are pending. Keep Android System WebView up to date. An Android APK is now published under [GitHub Releases](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk) as **freETarget-Minimalist-Android-0.2.2-beta.1.apk**. The release asset is available, but signing status and physical-device testing have not been independently verified.
+- **Testing status:** The project maintainer has successfully tested the compiled Android APK in an Android emulator. Testing on a physical Android phone or tablet is still pending; real-target Wi-Fi/TCP and USB serial connectivity, permissions, audio, and device-specific behavior should be checked on hardware. Keep Android System WebView up to date. The APK is published under [GitHub Releases](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk) as **freETarget-Minimalist-Android-0.2.2-beta.1.apk**. Signing status has not been independently verified.
 
 ## Credits
 
