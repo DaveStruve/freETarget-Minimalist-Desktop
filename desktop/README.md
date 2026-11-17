@@ -2,14 +2,14 @@
 
 Windows and macOS source version **0.3.11-beta.1** is committed in this repository. Each platform retains its own source snapshot and build configuration.
 
-## Published downloads
+## Download the desktop app (no build tools required)
 
-| Platform | Version | Download |
-| --- | --- | --- |
-| Windows | 0.3.10-beta.1 | [Windows installer](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-Windows-Setup.exe) |
-| macOS Universal | 0.3.10-beta.1 | [Mac ZIP — Intel and Apple Silicon](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-macOS-Universal.zip) |
+**Want to install freETarget? Click your operating system below to download the actual app.** Do not download GitHub's **Source code** ZIP.
 
-New v0.3.11-beta.1 installers and a separate Windows x86 download have not yet been published.
+- **[Download Windows 64-bit installer (.exe)](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-Windows-Setup.exe)** — Windows 10/11, v0.3.10-beta.1. Open the downloaded installer.
+- **[Download macOS Universal (.zip)](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-macOS-Universal.zip)** — Intel and Apple Silicon, v0.3.10-beta.1. Extract the ZIP and open the app.
+
+The Windows 32-bit (x86) installer and updated v0.3.11-beta.1 desktop installers have not yet been published. [View all releases](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases).
 
 ## Connecting to a target over Wi-Fi
 
