@@ -4,12 +4,13 @@ Windows and macOS source version **0.3.11-beta.1** is committed in this reposito
 
 ## Download the desktop app (no build tools required)
 
-**Want to install freETarget? Click your operating system below to download the actual app.** Do not download GitHub's **Source code** ZIP.
+**Want to install freETarget? Choose your operating system below to download the actual installer.** Do not download GitHub's automatic **Source code** ZIP.
 
-- **[Download Windows 64-bit installer (.exe)](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-Windows-Setup.exe)** — Windows 10/11, v0.3.10-beta.1. Open the downloaded installer.
-- **[Download macOS Universal (.zip)](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-macOS-Universal.zip)** — Intel and Apple Silicon, v0.3.10-beta.1. Extract the ZIP and open the app.
+- **[Download Windows 64-bit (x64) installer (.exe)](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETargetMinimalist-0.3.11-beta.1-Windows-x64-Setup.exe)** — Windows 10/11 (64-bit), v0.3.11-beta.1.
+- **[Download Windows 32-bit (x86) installer (.exe)](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETargetMinimalist-0.3.11-beta.1-Windows-x86-Setup.exe)** — Windows 10 (32-bit), v0.3.11-beta.1.
+- **[Download macOS Universal (.zip)](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-0.3.11-beta.1-macOS-Universal.zip)** — Intel and Apple Silicon, macOS 13 Ventura or later, v0.3.11-beta.1.
 
-The Windows 32-bit (x86) installer and updated v0.3.11-beta.1 desktop installers have not yet been published. [View all releases](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases).
+Run the downloaded Windows installer, or extract the Mac ZIP and open the app. [View all files in the v0.3.11 release](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/tag/v0.3.11-beta.1).
 
 ## Connecting to a target over Wi-Fi
 
