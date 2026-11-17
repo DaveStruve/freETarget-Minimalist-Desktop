@@ -1,19 +1,30 @@
 # freETarget Minimalist
 
-An independent live scoring application for freETarget Minimalist electronic targets, with a customizable scoring dashboard, shooter profiles, session history, and competition-style practice. **This repository now includes the Windows, macOS, and Android application source code, plus the Arduino Mega 2560 target firmware source.**
+An independent live scoring application for freETarget Minimalist electronic targets, with a customizable scoring dashboard, shooter profiles, session history, and competition-style practice. The ready-to-install Windows, macOS, and Android downloads are linked below. Source code and Arduino firmware files are also available for developers.
 
-## Download and install
+## Download freETarget Minimalist — ready to install
 
-| Platform | Published version | Download |
-| --- | --- | --- |
-| Windows | 0.3.10-beta.1 | **[Download Windows installer](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-Windows-Setup.exe)** |
-| macOS — Intel and Apple Silicon | 0.3.10-beta.1 | **[Download macOS Universal ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-macOS-Universal.zip)** |
-| Windows 32-bit (x86) | Not yet published | Source and installer build scripts are available below. |
-| Android | 0.2.2-beta.1 | **[Download Android APK](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)** |
+**Just want to use the program? Choose your device below.** These links download the actual application files directly. You do **not** need to understand GitHub, click the green **Code** button, or download a **Source code** ZIP.
 
-[View all releases and downloads](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases) · [Browse Arduino Mega firmware source](firmware/arduino-mega/) · [Download firmware source ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-Fix-LED-Pin13-Source.zip)
+### [Download for Windows (64-bit) — Setup.exe](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-Windows-Setup.exe)
 
-Windows and macOS installers are published as v0.3.10-beta.1, and the Android v0.2.2-beta.1 APK is attached to that same GitHub release. Newer Windows and macOS source versions listed below are committed, but updated desktop installers have not yet been published. GitHub's automatic **Source code** ZIP and TAR files contain source files, not ready-to-run applications.
+**Windows 10 / 11 · v0.3.10-beta.1** — Download the `.exe` installer, open it, and follow the installation prompts.
+
+### [Download for Mac (Intel or Apple Silicon) — Universal ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-macOS-Universal.zip)
+
+**macOS · v0.3.10-beta.1** — Download the ZIP, extract it, and open the included application.
+
+### [Download for Android (phone or tablet) — APK](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)
+
+**Android 11 or later · v0.2.2-beta.1** — Download the APK on your device, open it, and follow Android's installation prompts. Android may ask you to allow installation from your browser or file manager. **This beta has been tested in an emulator; physical-device testing is still pending.**
+
+**Need Windows 32-bit (x86)?** A 32-bit installer has **not** been published yet. The available Windows installer is for 64-bit PCs.
+
+**After installing:** See the **[Wi-Fi setup guide for Windows, Mac, and Android](docs/WIFI_SETUP.md)** to connect to your freETarget in Access Point or Station Mode.
+
+[See all published downloads and older versions](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases) · [Optional Arduino firmware source](firmware/arduino-mega/)
+
+> **For developers:** The folders and automatic **Source code** ZIP/TAR downloads contain source code, **not installers**. Build instructions and the latest committed source versions are farther down this page. Windows and macOS v0.3.11-beta.1 source changes have not yet been released as new installers.
 
 ## Connect to your target over Wi-Fi (Windows, macOS, Android)
 
@@ -32,19 +43,6 @@ freETarget Minimalist supports **two Wi-Fi connection modes on Windows, macOS, a
 **Important:** Choosing AP or Station in the **app does not change the target's Wi-Fi mode or credentials**. You must configure the target separately when switching modes. Windows/macOS provide an **Arduino Terminal** for target commands; the Android beta requires target configuration from a computer or compatible serial terminal.
 
 **[Read the full cross-platform Wi-Fi setup guide](docs/WIFI_SETUP.md)** for target configuration commands, finding the Station IP, switching modes, and troubleshooting. The guide covers **Windows, macOS, and Android**, with platform-specific notes.
-
-## Installer folders and build files
-
-These links go directly to the **installer configuration or platform build folders in this repository**. They contain source and build scripts, **not ready-to-install programs**. Use the download links above for currently published installers.
-
-| Platform | Installer / build folder | Build script or configuration | Installer output after a local build |
-| --- | --- | --- | --- |
-| Windows 64-bit (x64) | [Windows installer folder](desktop/windows/installer/) | [Build x64 installer](desktop/windows/BUILD_AND_INSTALL_X64.bat) · [x64 Inno Setup file](desktop/windows/installer/freETargetDesktop.iss) | `desktop/windows/release/installer/` |
-| Windows 32-bit (x86) | [Windows installer folder](desktop/windows/installer/) | [Build x86 installer](desktop/windows/BUILD_AND_INSTALL_X86.bat) · [x86 Inno Setup file](desktop/windows/installer/freETargetDesktop-x86.iss) | `desktop/windows/release-x86/installer/` |
-| macOS Universal | [Mac application/build folder](desktop/macos/) | [Build Mac application](desktop/macos/BUILD_MAC.command) | `desktop/macos/release/mac/` |
-| Android | [Android Studio project folder](android/) | [Android app module](android/app/) · [Gradle build configuration](android/app/build.gradle) | `android/app/build/outputs/apk/` |
-
-The output directories shown in the last column are created **on your computer after building**; they are not uploaded GitHub folders. For both Windows architectures in one run, use [BUILD_AND_INSTALL_BOTH.bat](desktop/windows/BUILD_AND_INSTALL_BOTH.bat). For installation-ready downloads, see [GitHub Releases](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases).
 
 ## What's new in the committed source
 
@@ -95,6 +93,19 @@ The application and Arduino Mega firmware source imports are complete.
 Build from each platform's directory to preserve the relative paths expected by its scripts. Windows and macOS retain separate source snapshots with platform-specific changes. Experimental iOS preview files are preserved inside the Mac source; no iOS release is published here.
 
 See [source provenance](docs/SOURCE_IMPORT.md), the [changelog](CHANGELOG.md), and [release instructions](docs/RELEASING.md). Committed source does not establish that a new installer has been compiled or tested.
+
+## For developers: installer build files
+
+These links go directly to the **installer configuration or platform build folders in this repository**. They contain source and build scripts, **not ready-to-install programs**. Use the download links above for currently published installers.
+
+| Platform | Installer / build folder | Build script or configuration | Installer output after a local build |
+| --- | --- | --- | --- |
+| Windows 64-bit (x64) | [Windows installer folder](desktop/windows/installer/) | [Build x64 installer](desktop/windows/BUILD_AND_INSTALL_X64.bat) · [x64 Inno Setup file](desktop/windows/installer/freETargetDesktop.iss) | `desktop/windows/release/installer/` |
+| Windows 32-bit (x86) | [Windows installer folder](desktop/windows/installer/) | [Build x86 installer](desktop/windows/BUILD_AND_INSTALL_X86.bat) · [x86 Inno Setup file](desktop/windows/installer/freETargetDesktop-x86.iss) | `desktop/windows/release-x86/installer/` |
+| macOS Universal | [Mac application/build folder](desktop/macos/) | [Build Mac application](desktop/macos/BUILD_MAC.command) | `desktop/macos/release/mac/` |
+| Android | [Android Studio project folder](android/) | [Android app module](android/app/) · [Gradle build configuration](android/app/build.gradle) | `android/app/build/outputs/apk/` |
+
+The output directories shown in the last column are created **on your computer after building**; they are not uploaded GitHub folders. For both Windows architectures in one run, use [BUILD_AND_INSTALL_BOTH.bat](desktop/windows/BUILD_AND_INSTALL_BOTH.bat). For installation-ready downloads, see [GitHub Releases](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases).
 
 ## Arduino Mega 2560 firmware (optional)
 
