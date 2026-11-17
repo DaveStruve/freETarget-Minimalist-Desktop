@@ -9,11 +9,11 @@ An independent live scoring application for freETarget Minimalist electronic tar
 | Windows | 0.3.10-beta.1 | **[Download Windows installer](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-Windows-Setup.exe)** |
 | macOS — Intel and Apple Silicon | 0.3.10-beta.1 | **[Download macOS Universal ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Desktop-0.3.10-beta.1-macOS-Universal.zip)** |
 | Windows 32-bit (x86) | Not yet published | Source and installer build scripts are available below. |
-| Android | Not yet published | Android Studio source is available below; a signed release APK has not been attached. |
+| Android | 0.2.2-beta.1 | **[Download Android APK](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)** |
 
 [View all releases and downloads](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases) · [Browse Arduino Mega firmware source](firmware/arduino-mega/) · [Download firmware source ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.10-beta.1/freETarget-Minimalist-Arduino-Mega-WiFi-Fix-LED-Pin13-Source.zip)
 
-The published Windows and Mac downloads are v0.3.10-beta.1. The newer source versions listed below are already committed, but their installers and APK have not been published. GitHub's automatic **Source code** ZIP and TAR files contain source files, not ready-to-run applications.
+Windows and macOS installers are published as v0.3.10-beta.1, and the Android v0.2.2-beta.1 APK is attached to that same GitHub release. Newer Windows and macOS source versions listed below are committed, but updated desktop installers have not yet been published. GitHub's automatic **Source code** ZIP and TAR files contain source files, not ready-to-run applications.
 
 ## Installer folders and build files
 
@@ -50,7 +50,7 @@ The output directories shown in the last column are created **on your computer a
 - Includes ESP-01 Station Mode connectivity fixes, Access Point Mode support, and LED PWM set to **pin 13** rather than pin 5.
 - This is an **optional firmware update**. No compiled firmware image or new hardware-test result is included.
 
-These source changes still require platform builds and device testing before new downloads are published. Android features and limitations are documented in the [Android README](android/README.md).
+The Android APK is available for download, but physical-device testing and feature parity with desktop have not been verified. The newer desktop source changes still require platform builds and testing before updated desktop installers are published. Android features and limitations are documented in the [Android README](android/README.md).
 
 ## Application features
 
