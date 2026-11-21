@@ -6,7 +6,7 @@
 - Added signed-build and notarization commands. Signing identifiers are resolved from the embedded provisioning profile; Mac App ID and shared container are checked before packaging.
 - Excluded dependency test fixtures and debug symbols from bundled license notices.
 - Added signing-profile tests; 91 portable Python tests passed.
-- The maintainer's clean Mac build passed notarization, stapler, Gatekeeper and system-policy checks, and was reported working in testing. Release binary upload is separate from this source commit.
+- The maintainer's clean Mac build passed notarization, stapler, Gatekeeper and system-policy checks, and was reported working in testing. The verified [signed and notarized Mac ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-0.3.11-beta.1-macOS-Notarized.zip) is now published on the v0.3.11-beta.1 release; README and release download links point to it.
 
 ## Unreleased — source imported, 2026-11-16
 
