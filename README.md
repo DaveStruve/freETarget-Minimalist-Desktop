@@ -6,13 +6,13 @@ An independent live scoring application for freETarget Minimalist electronic tar
 
 **Just want to use the program? Choose your device below.** These links download the actual application files directly. You do **not** need to understand GitHub, click the green **Code** button, or download a **Source code** ZIP.
 
-### [Download Windows 64-bit (x64) installer — .exe](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETargetMinimalist-0.3.11-beta.1-Windows-x64-Setup.exe)
+### [Download Windows 64-bit (x64) installer — .exe](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETargetMinimalist-0.3.12-beta.1-Windows-x64-Setup.exe)
 
-**Windows 10 / 11 (64-bit) · v0.3.11-beta.1** — Download the installer and run it.
+**Windows 10 / 11 (64-bit) · v0.3.12-beta.1** — Download the installer and run it.
 
-### [Download Windows 32-bit (x86) installer — .exe](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETargetMinimalist-0.3.11-beta.1-Windows-x86-Setup.exe)
+### [Download Windows 32-bit (x86) installer — .exe](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETargetMinimalist-0.3.12-beta.1-Windows-x86-Setup.exe)
 
-**Windows 10 (32-bit) · v0.3.11-beta.1** — Download the installer and run it.
+**Windows 10 (32-bit) · v0.3.12-beta.1** — Download the installer and run it.
 
 ### [Download Mac (Intel or Apple Silicon) — Signed & Notarized ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-0.3.11-beta.1-macOS-Notarized.zip)
 
@@ -26,7 +26,7 @@ An independent live scoring application for freETarget Minimalist electronic tar
 
 [See the current v0.3.11 release and all its assets](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/tag/v0.3.11-beta.1) · [View all releases](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases) · [Optional Arduino firmware source](firmware/arduino-mega/)
 
-> **For developers:** GitHub's automatic **Source code** ZIP/TAR downloads contain source code, **not installers**. Build instructions are farther down this page. Windows x64, Windows x86, and macOS v0.3.11-beta.1 installers are now published.
+> **For developers:** GitHub's automatic **Source code** ZIP/TAR downloads contain source code, **not installers**. Build instructions are farther down this page. Windows x64/x86 v0.3.12-beta.1 and macOS v0.3.11-beta.1 downloads are published.
 
 ## Connect to your target over Wi-Fi (Windows, macOS, Android)
 
@@ -48,7 +48,7 @@ freETarget Minimalist supports **two Wi-Fi connection modes on Windows, macOS, a
 
 ## What's new in the committed source
 
-**Windows 0.3.12-beta.1 / Android 0.2.3-beta.1 source refresh — November 21, 2026:** Updated branding, circular color swatches, stacked Wi-Fi mode text and additional languages including Arabic. Windows gains target pinch/pan controls; Android restores optional Demo Mode and corrects its Gradle/JDK configuration. USB and Wi-Fi remain supported. See the [Windows build guide](desktop/windows/README_WINDOWS_BUILDS.md) and [Android build guide](android/README.md). New compiled installers/APK are pending native builds and verification; download links above retain the existing binaries.
+**Windows 0.3.12-beta.1 / Android 0.2.3-beta.1 source refresh — November 21, 2026:** Updated branding, circular color swatches, stacked Wi-Fi mode text and additional languages including Arabic. Windows gains target pinch/pan controls; Android restores optional Demo Mode and corrects its Gradle/JDK configuration. USB and Wi-Fi remain supported. See the [Windows build guide](desktop/windows/README_WINDOWS_BUILDS.md) and [Android build guide](android/README.md). Windows x64 and x86 0.3.12-beta.1 installers are now published at the download links above, including the automatic-backup filename collision fix. The new Android APK is still pending a native build and verification.
 
 
 **Windows and macOS — 0.3.11-beta.1**
@@ -73,7 +73,7 @@ Mac source refresh (November 21, 2026): updated logo, iCloud profile/session syn
 - Includes ESP-01 Station Mode connectivity fixes, Access Point Mode support, and LED PWM set to **pin 13** rather than pin 5.
 - This is an **optional firmware update**. No compiled firmware image or new hardware-test result is included.
 
-The Android APK has been **tested successfully in an Android emulator** by the project maintainer. Testing on a physical Android phone or tablet—including real-target Wi-Fi and USB connectivity—is still pending. Desktop feature parity is not assumed. The Windows x64, Windows x86, and macOS v0.3.11-beta.1 installers have been published; additional hardware testing may still be needed. Android features and limitations are documented in the [Android README](android/README.md).
+The Android APK has been **tested successfully in an Android emulator** by the project maintainer. Testing on a physical Android phone or tablet—including real-target Wi-Fi and USB connectivity—is still pending. Desktop feature parity is not assumed. The Windows x64/x86 v0.3.12-beta.1 installers and macOS v0.3.11-beta.1 application have been published; additional hardware testing may still be needed. Android features and limitations are documented in the [Android README](android/README.md).
 
 ## Application features
 
@@ -92,7 +92,7 @@ The application and Arduino Mega firmware source imports are complete.
 
 | Project | Committed source version | Build documentation |
 | --- | --- | --- |
-| [Windows x64 and x86](desktop/windows/) | 0.3.12-beta.1 (source; new binaries pending) | [Windows build and installer instructions](desktop/windows/README_WINDOWS_BUILDS.md) |
+| [Windows x64 and x86](desktop/windows/) | 0.3.12-beta.1 (x64 and x86 installers published) | [Windows build and installer instructions](desktop/windows/README_WINDOWS_BUILDS.md) |
 | [macOS Universal](desktop/macos/) | 0.3.11-beta.1 | [Mac Universal build instructions](desktop/macos/BUILD_UNIVERSAL_MAC.md) |
 | [Android](android/) | 0.2.3-beta.1 — versionCode 5 (source; new APK pending) | [Android build and connection instructions](android/README.md) |
 | [Arduino Mega firmware](firmware/arduino-mega/) | Wi-Fi fixes / LED PWM pin 13 | [Firmware build and flashing instructions](firmware/arduino-mega/README.md) |
