@@ -48,6 +48,9 @@ freETarget Minimalist supports **two Wi-Fi connection modes on Windows, macOS, a
 
 ## What's new in the committed source
 
+**Windows 0.3.12-beta.1 / Android 0.2.3-beta.1 source refresh — November 21, 2026:** Updated branding, circular color swatches, stacked Wi-Fi mode text and additional languages including Arabic. Windows gains target pinch/pan controls; Android restores optional Demo Mode and corrects its Gradle/JDK configuration. USB and Wi-Fi remain supported. See the [Windows build guide](desktop/windows/README_WINDOWS_BUILDS.md) and [Android build guide](android/README.md). New compiled installers/APK are pending native builds and verification; download links above retain the existing binaries.
+
+
 **Windows and macOS — 0.3.11-beta.1**
 
 Mac source refresh (November 21, 2026): updated logo, iCloud profile/session sync code, and dedicated signed-build/notarization scripts. The maintainer's clean build passed Gatekeeper and all pre-distribution checks. See the [Mac source and signing instructions](desktop/macos/README.md).
@@ -89,9 +92,9 @@ The application and Arduino Mega firmware source imports are complete.
 
 | Project | Committed source version | Build documentation |
 | --- | --- | --- |
-| [Windows x64 and x86](desktop/windows/) | 0.3.11-beta.1 | [Windows build and installer instructions](desktop/windows/README_WINDOWS_BUILDS.md) |
+| [Windows x64 and x86](desktop/windows/) | 0.3.12-beta.1 (source; new binaries pending) | [Windows build and installer instructions](desktop/windows/README_WINDOWS_BUILDS.md) |
 | [macOS Universal](desktop/macos/) | 0.3.11-beta.1 | [Mac Universal build instructions](desktop/macos/BUILD_UNIVERSAL_MAC.md) |
-| [Android](android/) | 0.2.2-beta.1 — versionCode 4 | [Android build and connection instructions](android/README.md) |
+| [Android](android/) | 0.2.3-beta.1 — versionCode 5 (source; new APK pending) | [Android build and connection instructions](android/README.md) |
 | [Arduino Mega firmware](firmware/arduino-mega/) | Wi-Fi fixes / LED PWM pin 13 | [Firmware build and flashing instructions](firmware/arduino-mega/README.md) |
 
 Build from each platform's directory to preserve the relative paths expected by its scripts. Windows and macOS retain separate source snapshots with platform-specific changes. Experimental iOS preview files are preserved inside the Mac source; no iOS release is published here.

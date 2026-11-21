@@ -1,5 +1,15 @@
 # Changelog
 
+## Windows 0.3.12-beta.1 / Android 0.2.3-beta.1 — source refresh, 2026-11-21
+
+- Updated default logos/icons, circular color swatches and spacing, and stacked Wi-Fi mode descriptions.
+- Added Korean, Turkish, Vietnamese and Arabic UI/score-language options, and Brazilian Portuguese speech locale handling. Voice availability requires device testing.
+- Windows: main-target touchscreen/precision-touchpad pinch and bounded mouse/touch pan; x64/x86 app, installer and executable version metadata updated. Installation IDs and app-data paths retained.
+- Android: versionCode 5; optional Demo Mode restored with separate demo history. Disabled whole-WebView zoom while preserving main-target pinch/pan, portrait phone and tablet layouts.
+- Android: Gradle 8.9 for AGP 8.7.3; removed generated Java 25 daemon and unused resolver configuration. Use JDK 17 in Android Studio.
+- Wi-Fi/TCP and USB retained on both platforms. iCloud sync remains Apple-only.
+- New Windows installers and signed Android APK require native builds and verification; existing public downloads remain available.
+
 ## macOS source refresh — 2026-11-21
 
 - Updated Mac branding and added iCloud Documents profile/session sync code with manual sync and optional automatic sync while idle.

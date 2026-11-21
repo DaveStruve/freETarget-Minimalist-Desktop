@@ -1,8 +1,26 @@
-# freETarget Minimalist Android 0.2.2-beta.1 (version code 4)
+# freETarget Minimalist Android 0.2.3-beta.1 (version code 5)
+
+Current source update. The previously published APK below remains 0.2.2-beta.1 until a new signed build is tested and uploaded.
+
+## Source refresh
+
+- Updated logo and launcher icon.
+- Circular color swatches with spacing; stacked Wi-Fi mode names/descriptions.
+- Restored optional Demo Mode with separate demo history.
+- Added Korean, Turkish, Vietnamese and Arabic UI/score-language options, plus Brazilian Portuguese speech locale handling. Native/device voice availability still needs hardware testing.
+- Retained phone portrait lock, fixed navigation/theme backgrounds, target-only pinch/pan and tablet widget layout. USB host and Wi-Fi/TCP remain supported.
+- Build configuration uses AGP 8.7.3, Gradle 8.9 and JDK 17; removed the generated Java 25 daemon override.
+
+For a test build, open this directory in Android Studio, choose Gradle JDK **17**, install Android SDK Platform **35**, and run the app. For distribution, choose Build → Generate Signed App Bundle or APK → APK, and reuse your existing Android release keystore and key alias. Do not create a different key for an update.
+
+Command-line checks: `./gradlew testDebugUnitTest lintDebug assembleDebug`. Release lint: `./gradlew lintVitalRelease`. Produce the signed release APK in Android Studio.
+
+Android remains device-local; this update does not add iCloud or cross-platform cloud sync.
+
 
 The Android app connects directly to the target via Wi-Fi/TCP or USB serial and stores profiles, guns, history and settings on the device.
 
-## Download and install the Android app
+## Previously published download and install the Android app
 
 **[Download freETarget Minimalist Android v0.2.2-beta.1 (.apk)](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)**
 
@@ -13,8 +31,8 @@ To connect to a target, follow the [Wi-Fi setup guide for all platforms](../docs
 ## Build from source (developers only)
 
 1. Clone or download this repository and open its `android/` folder in Android Studio.
-2. The build declares JDK 17, Android SDK Platform 35, Android Gradle Plugin 8.7.3, and Android 11 or later (minSdk 30). The package's build instructions specify Gradle 8.9, but the committed wrapper currently requests Gradle 9.9.0. That configuration discrepancy still needs to be resolved before treating wrapper builds as verified.
-3. Select a connected Android 11 or later phone or tablet and click **Run**. For a sideloadable debug APK, use **Build APK(s)** or run `gradle :app:assembleDebug` from the project directory with Gradle 8.9 installed. The file is written to `app/build/outputs/apk/debug/app-debug.apk`.
+2. The build declares JDK 17, Android SDK Platform 35, Android Gradle Plugin 8.7.3, and Android 11 or later (minSdk 30). The wrapper is set to Gradle 8.9. Select JDK 17 in Android Studio's Gradle settings; the old Java 25 daemon override is removed.
+3. Select a connected Android 11 or later phone or tablet and click **Run**. For a sideloadable debug APK, use **Build APK(s)** or run `./gradlew :app:assembleDebug` from the project directory with Gradle 8.9 installed. The file is written to `app/build/outputs/apk/debug/app-debug.apk`.
 
 ## Mobile layout
 
