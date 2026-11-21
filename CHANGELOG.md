@@ -1,5 +1,13 @@
 # Changelog
 
+## macOS source refresh — 2026-11-21
+
+- Updated Mac branding and added iCloud Documents profile/session sync code with manual sync and optional automatic sync while idle.
+- Added signed-build and notarization commands. Signing identifiers are resolved from the embedded provisioning profile; Mac App ID and shared container are checked before packaging.
+- Excluded dependency test fixtures and debug symbols from bundled license notices.
+- Added signing-profile tests; 91 portable Python tests passed.
+- The maintainer's clean Mac build passed notarization, stapler, Gatekeeper and system-policy checks, and was reported working in testing. Release binary upload is separate from this source commit.
+
 ## Unreleased — source imported, 2026-11-16
 
 - Imported the published Arduino Mega Wi-Fi/LED Pin 13 firmware source into [`firmware/arduino-mega/`](firmware/arduino-mega/), including all original `.ino` and `.h` files and the original package notes. The firmware remains optional; no new HEX or hardware-test result was produced.

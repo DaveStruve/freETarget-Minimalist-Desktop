@@ -50,6 +50,8 @@ freETarget Minimalist supports **two Wi-Fi connection modes on Windows, macOS, a
 
 **Windows and macOS — 0.3.11-beta.1**
 
+Mac source refresh (November 21, 2026): updated logo, iCloud profile/session sync code, and dedicated signed-build/notarization scripts. The maintainer's clean build passed Gatekeeper and all pre-distribution checks. See the [Mac source and signing instructions](desktop/macos/README.md).
+
 - All six dashboard widgets offer **Small** and **Large** sizes. Large is the default, and existing layouts retain their saved sizes.
 - An idle shot can prompt you to start a session. Accepting carries the shot into the session; the opening stage determines whether it is scored. The prompt can be disabled in **Settings → General**.
 - macOS adds pinch-to-zoom and drag-to-pan on the live target, with a zoom percentage control to reset the view.
