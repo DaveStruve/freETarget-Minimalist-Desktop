@@ -1,6 +1,6 @@
 # Validation — 2026-11-21
 
-Windows portable checks: 71 Python tests passed. Full Node UI/session/competition,
+Windows portable checks: 72 Python tests passed (including fixed-clock backup collision regression). Full Node UI/session/competition,
 statistics, storage bridge and migration regression suites passed. Target gestures
 passed: pinch, pinch-to-pan, bounded mouse pan, pointer release, Ctrl+wheel zoom,
 normal scroll and zoom limits. JavaScript syntax, unique HTML IDs and language
