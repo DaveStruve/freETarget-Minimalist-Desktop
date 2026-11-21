@@ -14,9 +14,9 @@ An independent live scoring application for freETarget Minimalist electronic tar
 
 **Windows 10 (32-bit) · v0.3.11-beta.1** — Download the installer and run it.
 
-### [Download Mac (Intel or Apple Silicon) — Universal ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-0.3.11-beta.1-macOS-Universal.zip)
+### [Download Mac (Intel or Apple Silicon) — Signed & Notarized ZIP](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-0.3.11-beta.1-macOS-Notarized.zip)
 
-**macOS 13 Ventura or later · v0.3.11-beta.1** — Download the ZIP, extract it, and open the application.
+**macOS 13 Ventura or later · v0.3.11-beta.1** — Download the ZIP, extract it, and drag freETarget Minimalist into Applications. Signed by STRUVEDESIGNS LLC and notarized by Apple, with the ticket stapled. The clean build passed Gatekeeper and all pre-distribution checks.
 
 ### [Download Android (phone or tablet) — APK](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)
 
