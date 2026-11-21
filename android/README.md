@@ -1,6 +1,6 @@
 # freETarget Minimalist Android 0.2.3-beta.1 (version code 5)
 
-Current source update. The previously published APK below remains 0.2.2-beta.1 until a new signed build is tested and uploaded.
+The signed 0.2.3-beta.1 APK is published. It retains package designs.struve.freetarget.android and the signing certificate from 0.2.2-beta.1, with version code increased from 4 to 5. Physical-device, real-target and voice testing remain pending.
 
 ## Source refresh
 
@@ -20,11 +20,11 @@ Android remains device-local; this update does not add iCloud or cross-platform 
 
 The Android app connects directly to the target via Wi-Fi/TCP or USB serial and stores profiles, guns, history and settings on the device.
 
-## Previously published download and install the Android app
+## Download and install the Android app
 
-**[Download freETarget Minimalist Android v0.2.2-beta.1 (.apk)](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)**
+**[Download freETarget Minimalist Android v0.2.3-beta.1 (.apk)](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Android-0.2.3-beta.1.apk)**
 
-This is the **ready-to-install Android APK**. You do **not** need Android Studio or the repository source code. On your Android 11+ phone or tablet, open the downloaded APK and follow the installation prompts. Android may ask you to allow installation from the browser or file manager. The APK has passed emulator testing; testing on physical devices is still pending.
+This is the **ready-to-install Android APK**. You do **not** need Android Studio or the repository source code. On your Android 11+ phone or tablet, open the downloaded APK and follow the installation prompts. Android may ask you to allow installation from the browser or file manager. The previous APK passed emulator testing; this update still requires physical-device, connectivity and audio testing.
 
 To connect to a target, follow the [Wi-Fi setup guide for all platforms](../docs/WIFI_SETUP.md).
 
@@ -110,7 +110,7 @@ The build uses [usb-serial-for-android](https://github.com/mik3y/usb-serial-for-
 - The app disconnects when it leaves the foreground. Reconnect when you return.
 - The preview focuses on receiving live scores over Wi-Fi and USB. Target settings editing, the Arduino terminal, custom logo uploads, and Files backup import/export are outside this preview.
 - Profiles and logged results stay on the installed device. Uninstalling or clearing app data removes them.
-- **Testing status:** The project maintainer has successfully tested the compiled Android APK in an Android emulator. Testing on a physical Android phone or tablet is still pending; real-target Wi-Fi/TCP and USB serial connectivity, permissions, audio, and device-specific behavior should be checked on hardware. Keep Android System WebView up to date. The APK is published under [GitHub Releases](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk) as **freETarget-Minimalist-Android-0.2.2-beta.1.apk**. Signing status has not been independently verified.
+- **Testing status:** The project maintainer previously tested 0.2.2-beta.1 in an Android emulator. The 0.2.3-beta.1 build has not been run in this validation environment. Testing on a physical Android phone or tablet is still pending; real-target Wi-Fi/TCP and USB serial connectivity, permissions, audio, and device-specific behavior should be checked on hardware. Keep Android System WebView up to date. The APK is published under [GitHub Releases](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Android-0.2.3-beta.1.apk) as **freETarget-Minimalist-Android-0.2.3-beta.1.apk**. The APK contains a v2 signature and its signing certificate matches the previous published version.
 
 ## Credits
 
