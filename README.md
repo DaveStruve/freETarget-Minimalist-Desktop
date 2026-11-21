@@ -18,9 +18,9 @@ An independent live scoring application for freETarget Minimalist electronic tar
 
 **macOS 13 Ventura or later · v0.3.11-beta.1** — Download the ZIP, extract it, and drag freETarget Minimalist into Applications. Signed by STRUVEDESIGNS LLC and notarized by Apple, with the ticket stapled. The clean build passed Gatekeeper and all pre-distribution checks.
 
-### [Download Android (phone or tablet) — APK](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Android-0.2.2-beta.1.apk)
+### [Download Android (phone or tablet) — APK](https://github.com/DaveStruve/freETarget-Minimalist-Desktop/releases/download/v0.3.11-beta.1/freETarget-Minimalist-Android-0.2.3-beta.1.apk)
 
-**Android 11 or later · v0.2.2-beta.1** — Download the APK on your device and follow Android's installation prompts. Android may ask you to allow installation from your browser or file manager. **This beta has been tested in an emulator; physical-device testing is still pending.**
+**Android 11 or later · v0.2.3-beta.1 (build 5)** — Download the APK on your device and follow Android's installation prompts. Android may ask you to allow installation from your browser or file manager. **The previous version was tested in an emulator; this update still needs physical-device, connectivity and voice testing.**
 
 **After installing:** See the **[Wi-Fi setup guide for Windows, Mac, and Android](docs/WIFI_SETUP.md)** to connect to your freETarget in Access Point or Station Mode.
 
@@ -48,7 +48,7 @@ freETarget Minimalist supports **two Wi-Fi connection modes on Windows, macOS, a
 
 ## What's new in the committed source
 
-**Windows 0.3.12-beta.1 / Android 0.2.3-beta.1 source refresh — November 21, 2026:** Updated branding, circular color swatches, stacked Wi-Fi mode text and additional languages including Arabic. Windows gains target pinch/pan controls; Android restores optional Demo Mode and corrects its Gradle/JDK configuration. USB and Wi-Fi remain supported. See the [Windows build guide](desktop/windows/README_WINDOWS_BUILDS.md) and [Android build guide](android/README.md). Windows x64 and x86 0.3.12-beta.1 installers are now published at the download links above, including the automatic-backup filename collision fix. The new Android APK is still pending a native build and verification.
+**Windows 0.3.12-beta.1 / Android 0.2.3-beta.1 source refresh — November 21, 2026:** Updated branding, circular color swatches, stacked Wi-Fi mode text and additional languages including Arabic. Windows gains target pinch/pan controls; Android restores optional Demo Mode and corrects its Gradle/JDK configuration. USB and Wi-Fi remain supported. See the [Windows build guide](desktop/windows/README_WINDOWS_BUILDS.md) and [Android build guide](android/README.md). Windows x64 and x86 0.3.12-beta.1 installers are now published at the download links above, including the automatic-backup filename collision fix. The signed Android 0.2.3-beta.1 APK is also published. Its package ID and signing certificate match 0.2.2-beta.1, and its version code increases to 5; device testing remains pending.
 
 
 **Windows and macOS — 0.3.11-beta.1**
@@ -94,7 +94,7 @@ The application and Arduino Mega firmware source imports are complete.
 | --- | --- | --- |
 | [Windows x64 and x86](desktop/windows/) | 0.3.12-beta.1 (x64 and x86 installers published) | [Windows build and installer instructions](desktop/windows/README_WINDOWS_BUILDS.md) |
 | [macOS Universal](desktop/macos/) | 0.3.11-beta.1 | [Mac Universal build instructions](desktop/macos/BUILD_UNIVERSAL_MAC.md) |
-| [Android](android/) | 0.2.3-beta.1 — versionCode 5 (source; new APK pending) | [Android build and connection instructions](android/README.md) |
+| [Android](android/) | 0.2.3-beta.1 — versionCode 5 (signed APK published) | [Android build and connection instructions](android/README.md) |
 | [Arduino Mega firmware](firmware/arduino-mega/) | Wi-Fi fixes / LED PWM pin 13 | [Firmware build and flashing instructions](firmware/arduino-mega/README.md) |
 
 Build from each platform's directory to preserve the relative paths expected by its scripts. Windows and macOS retain separate source snapshots with platform-specific changes. Experimental iOS preview files are preserved inside the Mac source; no iOS release is published here.
