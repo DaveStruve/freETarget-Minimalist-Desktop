@@ -14,7 +14,7 @@ from service import DesktopHTTPServer
 from storage import DataStore, validate_storage
 from version import APP_NAME, DISPLAY_VERSION
 import freetarget_bridge as bridge
-
+from imu_bridge import IMUBridge
 
 class CloseCoordinator:
     """Cancel the synchronous close event, then run JS/dialogs off the GUI thread."""
@@ -71,13 +71,23 @@ def configure_logging(directory):
 def launch(directory):
     directory = pathlib.Path(directory)
     lock = InstanceLock(directory).acquire()
-    server = controller = store = None
+    server = controller = store = imu = None
     try:
         configure_logging(directory)
         import webview
         store = DataStore(directory)
         validate_storage(store.snapshot()['storage'])
         controller = DesktopController(store, bridge, resource_directory())
+        # <--- 3. Démarrage du pont IMU avec déclenchement auto en mode démo :
+        imu = IMUBridge()
+        controller.imu = imu
+        import json
+        try:
+            enabled = json.loads(store.snapshot()['storage'].get('ft-imu-settings-v1', '{}')).get('enabled', True) is not False
+        except (ValueError, AttributeError):
+            enabled = True
+        if enabled:
+            imu.start()
         try:
             store.automatic_backup(daily=True)
         except OSError:
@@ -103,6 +113,8 @@ def launch(directory):
         webview.start(gui='edgechromium', debug=False, private_mode=False, storage_path=str(directory / 'webview'))
     finally:
         bridge.stop_connection()
+        if imu:  # <--- 4. Arrêt propre à la fermeture
+            imu.stop()        
         if controller:
             with contextlib.suppress(Exception):
                 controller.stop()

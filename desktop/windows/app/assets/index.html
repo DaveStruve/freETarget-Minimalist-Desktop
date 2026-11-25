@@ -1061,16 +1061,17 @@ function applyTheme(){
  try{appStorage.setItem('ft-theme-mode',themeMode)}catch{};if(typeof logos!=='undefined')displayLogo()
 }
 function initTheme178(){const changed=()=>{if(themeMode==='system'){applyTheme();applyAppearance();renderTarget();renderPrevious()}};if(systemThemeQuery?.addEventListener)systemThemeQuery.addEventListener('change',changed);else if(systemThemeQuery?.addListener)systemThemeQuery.addListener(changed)}
+const TARGET_MIN_ZOOM=.25;
 let targetPanX=0,targetPanY=0;
 function targetZoomTransform(level,live=false){
- const limit=200*(level-1);
+ const limit=200*Math.max(0,level-1);
  if(live){
   targetPanX=Math.max(-limit,Math.min(limit,targetPanX));
   targetPanY=Math.max(-limit,Math.min(limit,targetPanY));
  }
  return `translate(${200+(live?targetPanX:0)} ${200+(live?targetPanY:0)}) scale(${level}) translate(-200 -200)`;
 }
-function drawTarget(svg,groupShots,focusIndex=-1,zoomLevel=1,disciplineOverride=null){const targetDiscipline=disciplineOverride||$('discipline').value,colors=appearance.targetModes?.[theme]||appearance;let d=dims[targetDiscipline];svg.replaceChildren();svg.append(node('rect',{width:400,height:400,fill:colors.target}));let g=node('g',{transform:targetZoomTransform(zoomLevel,svg.id==='targetSvg')});svg.append(g);const rad=v=>v/d.rings[0]*170;g.append(node('circle',{cx:200,cy:200,r:170,fill:colors.target}));g.append(node('circle',{cx:200,cy:200,r:rad(d.black),fill:'#28282a'}));if(targetDiscipline==='rifle')g.append(node('circle',{cx:200,cy:200,r:Math.max(2.7,rad(.5)),fill:colors.target}));d.rings.forEach((r,i)=>{g.append(node('circle',{cx:200,cy:200,r:rad(r),fill:'none',stroke:r<=d.black?colors.target:'#343331','stroke-width':i===0?1.2:.85}));if(i<9&&i!==8){const outer=rad(r),inner=rad(d.rings[i+1]),mid=(outer+inner)/2,white=mid<rad(d.black);for(let a of [0,90,180,270]){let angle=a*Math.PI/180;g.append(node('text',{x:200+Math.sin(angle)*mid,y:200-Math.cos(angle)*mid+3.2,'text-anchor':'middle','font-size':Math.max(7,Math.min(11,(outer-inner)*.6)),fill:white?colors.target:'#28282a','font-family':'Arial'},String(i+1)))}}});groupShots.forEach((s,i)=>{if(s.miss)return;let x=200+s.x/(d.rings[0]/2)*170,y=200+s.y/(d.rings[0]/2)*170;g.append(node('circle',{cx:x,cy:y,r:5.2,fill:i===focusIndex?colors.active:colors.shot,stroke:'#fff','stroke-width':i===focusIndex?2.3:1.1}));if(i===focusIndex)g.append(node('circle',{cx:x,cy:y,r:9,fill:'none',stroke:colors.active,'stroke-width':1.5}))});drawMeanGroup(g,groupShots,d.rings[0]);
+function drawTarget(svg,groupShots,focusIndex=-1,zoomLevel=1,disciplineOverride=null){const targetDiscipline=disciplineOverride||$('discipline').value,colors=appearance.targetModes?.[theme]||appearance;let d=dims[targetDiscipline];svg.replaceChildren();svg.append(node('rect',{width:400,height:400,fill:colors.target}));let g=node('g',{transform:targetZoomTransform(zoomLevel,svg.id==='targetSvg')});svg.append(g);const rad=v=>v/d.rings[0]*170;g.append(node('circle',{cx:200,cy:200,r:170,fill:colors.target}));g.append(node('circle',{cx:200,cy:200,r:rad(d.black),fill:'#28282a'}));if(targetDiscipline==='rifle')g.append(node('circle',{cx:200,cy:200,r:Math.max(2.7,rad(.5)),fill:colors.target}));d.rings.forEach((r,i)=>{g.append(node('circle',{cx:200,cy:200,r:rad(r),fill:'none',stroke:r<=d.black?colors.target:'#343331','stroke-width':i===0?1.2:.85}));if(i<9&&i!==8){const outer=rad(r),inner=rad(d.rings[i+1]),mid=(outer+inner)/2,white=mid<rad(d.black);for(let a of [0,90,180,270]){let angle=a*Math.PI/180;g.append(node('text',{x:200+Math.sin(angle)*mid,y:200-Math.cos(angle)*mid+3.2,'text-anchor':'middle','font-size':Math.max(7,Math.min(11,(outer-inner)*.6)),fill:white?colors.target:'#28282a','font-family':'Arial'},String(i+1)))}}});groupShots.forEach((s,i)=>{if(s.miss)return;let x=200+s.x/(d.rings[0]/2)*170,y=200+s.y/(d.rings[0]/2)*170;g.append(node('circle',{cx:x,cy:y,r:5.2,fill:i===focusIndex?colors.active:colors.shot,stroke:'#fff','stroke-width':i===focusIndex?2.3:1.1}));if(i===focusIndex)g.append(node('circle',{cx:x,cy:y,r:9,fill:'none',stroke:colors.active,'stroke-width':1.5}))});drawMeanGroup(g,groupShots,d.rings[0]);if(svg.id==='targetSvg'&&typeof window.ftDrawImuTrace==='function')window.ftDrawImuTrace(g,d,groupShots);
  if(svg.id==='targetSvg'&&!reviewingHistory&&openingShotMarker){
   const {x,y}=openingShotMarker,scale=340/d.rings[0];
   const marker=node('circle',{cx:200+x*scale,cy:200+y*scale,r:7,fill:'none',stroke:colors.active,'stroke-width':2,'stroke-dasharray':'3 2'});
@@ -1105,7 +1106,7 @@ liveTarget.addEventListener('touchmove',event=>{
   const second=touches.find(touch=>touch.identifier===targetPinch.second);
   if(!first||!second)return;
   if(event.cancelable)event.preventDefault();
-  zoom=Math.max(1,Math.min(3,targetPinch.zoom*touchDistance(first,second)/targetPinch.distance));
+  zoom=Math.max(TARGET_MIN_ZOOM,Math.min(3,targetPinch.zoom*touchDistance(first,second)/targetPinch.distance));
   applyTargetViewport();
  }else if(targetDrag&&event.touches.length===1&&event.touches[0].identifier===targetDrag.id){
   const dx=event.touches[0].clientX-targetDrag.x,dy=event.touches[0].clientY-targetDrag.y;
@@ -1135,7 +1136,7 @@ liveTarget.addEventListener('gesturestart',event=>{
 liveTarget.addEventListener('gesturechange',event=>{
  if(trackpadZoom===null||targetPinch)return;
  event.preventDefault();
- zoom=Math.max(1,Math.min(3,trackpadZoom*event.scale));
+ zoom=Math.max(TARGET_MIN_ZOOM,Math.min(3,trackpadZoom*event.scale));
  applyTargetViewport();
 },{passive:false});
 liveTarget.addEventListener('gestureend',()=>{trackpadZoom=null});
@@ -1144,7 +1145,7 @@ liveTarget.addEventListener('wheel',event=>{
  if(!event.ctrlKey)return;
  if(event.cancelable)event.preventDefault();
  const delta=event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?400:1);
- zoom=Math.max(1,Math.min(3,zoom*Math.exp(-delta*.01)));
+ zoom=Math.max(TARGET_MIN_ZOOM,Math.min(3,zoom*Math.exp(-delta*.01)));
  applyTargetViewport();
 },{passive:false});
 let targetPointer=null;
@@ -1171,7 +1172,7 @@ liveTarget.addEventListener('pointercancel',endTargetPointer);
 liveTarget.addEventListener('lostpointercapture',()=>{targetPointer=null});
 function renderTarget(){
  liveTarget.classList.toggle('targetIsZoomed',zoom>1);
- if(zoom===1){targetPanX=0;targetPanY=0;}
+ if(zoom<=1){targetPanX=0;targetPanY=0;}
 
  if(isFiveLive()){fiveRenderTarget();return}
  const size=targetSeriesSize();
@@ -1519,7 +1520,7 @@ for(const [id,key,defaultValue] of [['voiceEnabled','ft-voice-enabled','false'],
 $('historyNextSeries').onclick=()=>{if(reviewingHistory&&historySeriesIndex<Math.ceil(shots.length/targetSeriesSize())-1){historySeriesIndex++;selected=-1;renderTarget()}};
 $('prevSeriesBtn').onclick=()=>{if(previousIndex>0){previousIndex--;renderPrevious()}};
 $('nextSeriesBtn').onclick=()=>{if(previousIndex<Math.floor(shots.length/targetSeriesSize())-1){previousIndex++;renderPrevious()}};
-$('themeBtn').onclick=()=>{themeMode={system:'light',light:'dark',dark:'system'}[themeMode];applyTheme();render()};$('zoomIn').onclick=()=>{zoom=Math.min(3,zoom+.25);renderTarget()};$('zoomOut').onclick=()=>{zoom=Math.max(1,zoom-.25);renderTarget()};$('zoomReset').onclick=()=>{zoom=1;renderTarget()};document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{if(b.dataset.nav==='Settings'){openSettings('general');return}if(b.dataset.nav==='History'){if(historyReviewItem)closeSavedReview();renderHistory();switchScreen('History');return}if(b.dataset.nav==='Statistics'){if(historyReviewItem)closeSavedReview();renderStatistics();switchScreen('Statistics');return}if(b.dataset.nav==='Score'){switchScreen('Score');return}alert('Sessions screen is planned for a later build.')});
+$('themeBtn').onclick=()=>{themeMode={system:'light',light:'dark',dark:'system'}[themeMode];applyTheme();render()};$('zoomIn').onclick=()=>{zoom=Math.min(3,zoom+.25);renderTarget()};$('zoomOut').onclick=()=>{zoom=Math.max(TARGET_MIN_ZOOM,zoom-.25);renderTarget()};$('zoomReset').onclick=()=>{zoom=1;renderTarget()};document.querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>{if(b.dataset.nav==='Settings'){openSettings('general');return}if(b.dataset.nav==='History'){if(historyReviewItem)closeSavedReview();renderHistory();switchScreen('History');return}if(b.dataset.nav==='Statistics'){if(historyReviewItem)closeSavedReview();renderStatistics();switchScreen('Statistics');return}if(b.dataset.nav==='Score'){switchScreen('Score');return}alert('Sessions screen is planned for a later build.')});
 function openSettings(tab='general'){pauseOnLeavingLive();$('settingsOverlay').hidden=false;fillConnectionSettings(savedConnection());selectSettingsTab(tab)}
 function selectSettingsTab(tab){if(tab==='general')window.FTDesktopRefreshInfo?.();document.querySelectorAll('[data-settings-tab]').forEach(b=>b.classList.toggle('active',b.dataset.settingsTab===tab));$('settingsOverlay').querySelectorAll('.settingsContent').forEach(el=>el.hidden=el.dataset.tab!==tab&&el.id!=='settings'+tab[0].toUpperCase()+tab.slice(1));if(tab==='profiles')renderProfiles();if(tab==='rules')loadRuleCatalog();}
 function pauseOnLeavingLive(){if(appStorage.getItem('ft-pause-on-leave')!=='true'||!running||ended||reviewingHistory)return;if(isFiveLive())fiveInterrupt('Navigation paused the session.');else{pauseTimer();running=false;render()}}
@@ -1880,6 +1881,17 @@ $('discipline').onchange=()=>{if(!runtime||ended){if(shots.length&&!logged){show
 $('session').onchange=()=>{if(!runtime||ended){if(shots.length&&!logged){showLogSummary();return}resetRound()}};
 $('shooterName').onchange=()=>{appStorage.setItem('ft-shooter-name',$('shooterName').value);currentGunId='';syncGunSelector(null,true);if(ended&&logged)resetRound();else render()};
 $('sidebarGun').onchange=()=>{if(runtime&&!ended||reviewingHistory)return;currentGunId=$('sidebarGun').value;syncGunSelector(currentGunId,true);if(ended&&logged)resetRound();else render()};
+// Un impact IMU crée un vrai tir dans la session de démonstration active.
+window.ftRefreshImuTarget = () => renderTarget();
+window.ftIngestImuDemoShot = function() {
+ if (!demoMode || !running || reviewingHistory || ended) return false;
+ const a=Math.random()*Math.PI*2;
+ const r=Math.sqrt(Math.random())*($('discipline').value==='pistol'?65:19);
+ const distance=Number(appStorage.getItem('ft-target-distance')||100);
+ ingestHardwareShot({x:Math.cos(a)*r*distance/100,y:-Math.sin(a)*r*distance/100,
+   miss:0,count:shots.length+1,demo:true});
+ return true;
+};
 $('demoShotBtn').onclick=()=>{primeSpeech();if(!running||reviewingHistory||ended){alert('Start or resume a session before adding a demo shot.');return}const a=Math.random()*Math.PI*2,r=Math.sqrt(Math.random())*($('discipline').value==='pistol'?65:19),distance=Number(appStorage.getItem('ft-target-distance')||100);ingestHardwareShot({x:Math.cos(a)*r*distance/100,y:-Math.sin(a)*r*distance/100,miss:0,count:shots.length+1,demo:true})};
 
 function canChangeDemo(){return !(runtime&&!ended||shots.length&&!logged||sightingShots.length&&!logged)}
@@ -2409,7 +2421,8 @@ const DASHBOARD_WIDGETS=[
  {id:'distribution',name:'Shot Distribution',sizes:['small','large'],defaultSize:'large',visible:true},
  {id:'previous',name:'Previous Target',sizes:['small','large'],defaultSize:'large',visible:true},
  {id:'sessionDetails',name:'Session Details',sizes:['small','large'],defaultSize:'large',visible:true},
- {id:'scorecard',name:'Scorecard',sizes:['small','large'],defaultSize:'large',visible:true}
+ {id:'scorecard',name:'Scorecard',sizes:['small','large'],defaultSize:'large',visible:true},
+ {id:'imu',name:'IMU P8X',sizes:['large'],defaultSize:'large',visible:true}
 ];
 const DASHBOARD_LAYOUT_KEY='ft-dashboard-widgets-v1';
 let dashboardLayout=[],dashboardEditing=false,dashboardDragged=null,scorecardFocusSeries=null,lastWidgetClockSecond=-1;
@@ -2485,6 +2498,7 @@ function initDashboardWidgets(){
  const prevDetails=$('previousDetails'),prevBody=previous.querySelector('.previousBody');if(prevDetails&&prevBody)prevBody.append(prevDetails);
  grid.append(createWidgetPanel('scorecard','Scorecard','<div class="scorecardScroller" role="region" tabindex="0" aria-label="Session scorecard"><table class="scorecardTable" id="scorecardTable"><thead></thead><tbody></tbody><tfoot></tfoot></table></div><div class="scorecardMetrics"><div><span>Group</span><strong id="scorecardGroup">—</strong></div><div><span>Centre</span><strong id="scorecardCentre">—</strong></div></div>'));
  grid.append(createWidgetPanel('sessionDetails','Session Details','<div class="sessionDetailFields" id="sessionDetailFields"></div><div class="sessionWidgetTiming"><div class="sessionWidgetTimingHead"><strong>Session Timing</strong><span id="widgetTimeLimit">No time limit</span></div><div class="sessionWidgetClocks"><div><small>ELAPSED</small><strong id="widgetElapsed">00:00</strong></div><div><small>REMAINING</small><strong id="widgetRemaining">—</strong></div></div></div><div class="sessionWidgetProgress"><div class="sessionWidgetProgressHead"><strong>Session Progress</strong><span id="widgetProgressCount">0 / 60</span></div><div class="sessionWidgetProgressSub"><span id="widgetSeriesText">Ready</span><span id="widgetShotsInSeries"></span></div><div id="widgetProgressSegments" class="sessionWidgetSegments" aria-label="Session stage progress"></div><div id="widgetProgressLabels" class="sessionWidgetLabels"></div></div>'));
+ grid.append(createWidgetPanel('imu','IMU P8X',`<div style="display:grid;gap:9px"><label><input type="checkbox" id="imuEnabled"> Activer IMU / BLE</label><small id="imuStatus" role="status">Initialisation…</small><label>Épaisseur : <output id="imuWidthValue"></output><input style="width:100%" type="range" id="imuWidth" min="1" max="10" step="1"></label><label>Durée : <output id="imuDurationValue"></output><input style="width:100%" type="range" id="imuDuration" min="100" max="1000" step="50"></label><label><input type="checkbox" id="imuDemo"> Tir automatique en démo</label><button type="button" class="btn" id="imuReset">Réinitialiser IMU</button></div>`));
  const toolbar=document.createElement('div');toolbar.className='dashboardEditToolbar';toolbar.id='dashboardEditToolbar';toolbar.hidden=true;toolbar.innerHTML='<strong>Arrange Dashboard</strong><span>Drag panels or use the arrows to change their order.</span><button type="button" class="btn" id="widgetManage">Add / Remove Widgets</button><button type="button" class="btn" id="widgetReset">Reset Layout</button><span id="widgetEditMessage" role="status"></span>';
  left.insertBefore(toolbar,grid);
  const customize=document.createElement('button');customize.type='button';customize.id='widgetCustomize';customize.className='footerCustomize';customize.setAttribute('aria-pressed','false');customize.title='Edit Widgets';customize.setAttribute('aria-label','Edit Widgets');customize.innerHTML='<span class="widgetCustomizeIcon" aria-hidden="true">⚙</span><span class="widgetCustomizeText">Edit Widgets</span>';$('themeBtn').before(customize);
@@ -2584,4 +2598,7 @@ loadShooters();refreshSessionOptions();loadRuleCatalog();renderColorFields();ini
 // The native close coordinator stops the session and confirms unlogged results.
 
 applyTheme();renderHistory();render();connectionUI('Checking bridge…');setInterval(pollLive,750);pollLive();setInterval(updateTimer,100)})();
-</script></body></html>
+</script>
+<script src="imu_overlay.js"></script>
+</body>
+</html>

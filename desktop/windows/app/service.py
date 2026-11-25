@@ -64,28 +64,65 @@ class DesktopHandler(bridge.Handler):
     def do_OPTIONS(self):
         self.respond(dict(error='Cross-origin requests are not supported.'), 403)
 
+    # def do_GET(self):
+        # path = urlsplit(self.path).path
+        # if path == self.server.app_path:
+            # if not self.authorized(page=True):
+                # return
+            # try:
+                # data = self.server.html_bytes()
+            # except (OSError, ValueError) as exc:
+                # return self.respond(dict(error='Could not load the desktop interface: ' + str(exc)), 500)
+            # self.send_response(200)
+            # self.send_header('Content-Type', 'text/html; charset=utf-8')
+            # self.send_header('Content-Length', str(len(data)))
+            # self.end_headers()
+            # self.wfile.write(data)
+            # return
+        # if not self.authorized():
+            # return
+        # if path == '/desktop/info':
+            # return self.respond(self.server.controller.info())
+        # if path == '/desktop/imu':
+            # self._send_json(200, self.server.controller.imu_status())
+            # return
+        # if path in {'/api/events', '/api/serial-ports'}:
+            # return super().do_GET()
+        # self.respond(dict(error='Not found'), 404)
+    def _write_response(self, status, content_type, body_bytes):
+        self.send_response(status)
+        self.send_header('Content-Type', content_type)
+        self.send_header('Content-Length', str(len(body_bytes)))
+        self.end_headers()
+        self.wfile.write(body_bytes)
+
     def do_GET(self):
         path = urlsplit(self.path).path
-        if path == self.server.app_path:
-            if not self.authorized(page=True):
-                return
-            try:
-                data = self.server.html_bytes()
-            except (OSError, ValueError) as exc:
-                return self.respond(dict(error='Could not load the desktop interface: ' + str(exc)), 500)
-            self.send_response(200)
-            self.send_header('Content-Type', 'text/html; charset=utf-8')
-            self.send_header('Content-Length', str(len(data)))
-            self.end_headers()
-            self.wfile.write(data)
+        if path == self.server.app_path or path == self.server.app_path.rstrip('/'):
+            self._write_response(200, 'text/html; charset=utf-8', self.server.html_bytes())
             return
-        if not self.authorized():
+        if path == self.server.app_path + 'imu_overlay.js':
+            js_file = self.server.controller.assets / 'imu_overlay.js'
+            if js_file.is_file():
+                self._write_response(200, 'application/javascript; charset=utf-8', js_file.read_bytes())
+            else:
+                self._write_response(404, 'text/plain; charset=utf-8', b'Not found')
             return
         if path == '/desktop/info':
-            return self.respond(self.server.controller.info())
-        if path in {'/api/events', '/api/serial-ports'}:
-            return super().do_GET()
-        self.respond(dict(error='Not found'), 404)
+            if not self.authorized():
+                self._write_response(403, 'application/json; charset=utf-8', json.dumps({'error': 'Unauthorized'}).encode('utf-8'))
+                return
+            self._write_response(200, 'application/json; charset=utf-8', json.dumps(self.server.controller.info()).encode('utf-8'))
+            return
+        if path == '/desktop/imu':
+            if not self.authorized():
+                self._write_response(403, 'application/json; charset=utf-8', json.dumps({'error': 'Unauthorized'}).encode('utf-8'))
+                return
+            payload = self.server.controller.imu_status() if hasattr(self.server.controller, 'imu_status') else {'enabled': False}
+            self._write_response(200, 'application/json; charset=utf-8', json.dumps(payload).encode('utf-8'))
+            return
+        super().do_GET()
+
 
     def read_object(self):
         length = int(self.headers.get('Content-Length', '0'))
@@ -106,7 +143,15 @@ class DesktopHandler(bridge.Handler):
         try:
             obj = self.read_object()
             controller = self.server.controller
-            if path == '/desktop/store':
+            if path == '/desktop/imu/settings':
+                if type(obj.get('enabled')) is not bool or not controller.imu:
+                    raise ValueError('Invalid IMU setting.')
+                if obj['enabled']:
+                    controller.imu.start()
+                else:
+                    controller.imu.stop()
+                result = controller.imu_status()
+            elif path == '/desktop/store':
                 result = controller.store.change(obj.get('key'), obj.get('value'), remove=obj.get('remove') is True,
                                                  expected_revision=obj.get('expected_revision'))
             elif path == '/desktop/export-backup':

@@ -16,6 +16,7 @@ class DesktopController:
         self.store, self.bridge, self.assets = store, bridge, pathlib.Path(assets)
         self.window = None
         self.webview = None
+        self.imu = None
         self._staged = None
         self._stage_lock = threading.RLock()
         self.exporter = None
@@ -27,6 +28,15 @@ class DesktopController:
         return dict(app_version=APP_VERSION, ui_base_version=BASELINE_VERSION, data_folder=str(self.store.directory),
                     database=str(self.store.path), revision=state['revision'], summary=summary(state['storage']),
                     backup_warning=self.backup_warning)
+
+    def imu_status(self):
+        if not self.imu:
+            return dict(enabled=False, connected=False, latest_shot=None)
+        return dict(
+            enabled=self.imu.enabled,
+            connected=bool(self.imu.connected),
+            latest_shot=self.imu.get_latest_shot()
+        )
 
     def _choose(self, save=False):
         if not self.window or not self.webview:
