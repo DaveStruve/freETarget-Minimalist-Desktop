@@ -236,6 +236,20 @@ class PacketStream:
                 self.buffer = ''
                 return
             self.buffer = self.buffer[start:]
+            
+            # 1. Attendre la suite si le paquet TCP s'est coupé au milieu des '{'
+            if re.fullmatch(r'[\{\s]+', self.buffer):
+                return
+                
+            # 2. Nettoyer les '{' multiples (même avec espaces/retours à la ligne)
+            self.buffer = re.sub(r'^\{+(?=\s*")', '{', self.buffer)
+            
+            # 3. Sécurité : si un tir est imbriqué dans des accolades parasites (ex: {{{"shot":...})
+            # mais sans objet JSON parent valide, on se recale sur le dernier '{' avant "shot"
+            if self.buffer.startswith('{{'):
+                last_brace = self.buffer.rfind('{', 0, self.buffer.find('"'))
+                if last_brace > 0:
+                    self.buffer = self.buffer[last_brace:]
             depth, quoted, escaped, end = 0, False, False, None
             for i, ch in enumerate(self.buffer):
                 if quoted:
